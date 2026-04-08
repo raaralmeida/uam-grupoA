@@ -10849,12 +10849,24 @@ header.masthead {
 header.masthead:before {
   content: "";
   position: absolute;
-  background-color: #1c375e;
-  height: 100%;
-  width: 100%;
   top: 0;
   left: 0;
-  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+
+  background: 
+    linear-gradient(
+      rgba(255, 170, 60, 0.25),
+      rgba(0, 0, 0, 0.35)
+    ),
+    url("../img/foto_brasilia_2.jpg") no-repeat center center;
+
+  background-size: cover;
+
+  /* 👇 aqui está o segredo */
+  filter: saturate(1.4) contrast(1.1) brightness(1.05);
+
+  z-index: 0;
 }
 header.masthead h1, header.masthead .h1 {
   font-size: 2rem;
@@ -10927,4 +10939,27 @@ footer.footer {
     url("../img/foto_brasilia_2.jpg") no-repeat center center;
   background-size: cover;
   padding: 100px 0;
+}
+
+.call-to-action::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      rgba(255, 170, 60, 0.25),
+      rgba(0, 0, 0, 0.35)
+    ),
+    url("../img/foto_brasilia_2.jpg") no-repeat center center;
+
+  background-size: cover;
+
+  /* 🎨 mesmo efeito */
+  filter: saturate(1.4) contrast(1.1) brightness(1.05);
+
+  z-index: 0;
 }
