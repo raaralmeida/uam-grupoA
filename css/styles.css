@@ -10963,3 +10963,87 @@ footer.footer {
 
   z-index: 0;
 }
+
+.dropdown {
+    position: relative;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center; /* garante alinhamento vertical */
+}
+
+/* LINK PRINCIPAL (Revisão) */
+.dropdown > a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 15px 0; /* igual aos outros links */
+}
+
+/* GARANTE PADRÃO PARA TODOS OS LINKS DO MENU */
+.menu a {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+
+/* SUBMENU */
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* REMOVIDO padding-bottom */
+}
+
+/* PADRONIZA TODOS OS LINKS */
+.menu a,
+.dropdown > a {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    line-height: 1; /* ESSENCIAL */
+}
+
+/* CORREÇÃO DO ÍCONE ▾ */
+.dropdown > a span {
+    margin-left: 5px;
+    font-size: 12px;
+    position: relative;
+    top: -1px; /* ajuste fino */
+}
+
+/* SUBMENU */
+.dropdown .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    min-width: 300px;
+    overflow: hidden;
+    z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.25s ease;
+}
+
+.dropdown .submenu a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown .submenu a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
