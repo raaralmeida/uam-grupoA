@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício Técnico Estruturado</title>
+
+    <link rel="stylesheet" href="css/exercicio.css">
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav style="background: #f8f9fa; padding: 15px 0;">
+    <div style="max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; font-family: 'Lato', sans-serif;">
+
+        <!-- Logo -->
+        <div style="font-weight: 700; font-size: 20px; color: #2c3e50;">
+            UAM Study
+        </div>
+
+        <!-- Menu -->
+        <div style="display: flex; gap: 30px; align-items: center;">
+
+            <a href="index.html" style="text-decoration: none; color: #333; font-weight: 500;">
+                Home
+            </a>
+
+            <!-- Revisão com dropdown -->
+            <div class="dropdown" style="position: relative;">
+                <span style="color: #333; font-weight: 500; cursor: pointer; display: flex; align-items: center; height: 40px;">
+                    Revisão ▾
+                </span>
+
+                <div class="submenu">
+                    <a href="fundamentacao.html">Fundamentação Teórica e Análise Crítica</a>
+                    <a href="aplicacao.html">Aplicação Operacional e Infraestrutural</a>
+                    <a href="regulatorio.html">Estrutura Regulatória e Planejamento</a>
+                    <a href="exercicio.html">Exercício Técnico Estruturado</a>
+                    <a href="consolidacao.html">Consolidação</a>
+                </div>
+            </div>
+
+            <a href="methodology.html" style="text-decoration: none; color: #333; font-weight: 500;">
+                Metodologia
+            </a>
+
+            <a href="analise.html" style="text-decoration: none; color: #333; font-weight: 500;">
+                Análises
+            </a>
+
+            <a href="references.html" style="text-decoration: none; color: #333; font-weight: 500;">
+                Referências
+            </a>
+
+        </div>
+
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="hero-content">
+        <h1>Exercício Técnico Estruturado</h1>
+        <p>Comparação de aeronaves, propulsão, ambiente operacional e infraestrutura</p>
+    </div>
+</header>
+
+<!-- MAIN -->
+<main class="container">
+
+    <!-- SEÇÃO 1 -->
+    <section class="section" data-aos="fade-up">
+        <h2>1. Alcance, velocidade e capacidade</h2>
+
+        <p>A tabela 1 apresenta a explicação de cada categoria:</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Significado</th>
+                    <th>Exemplo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CTOL (E2)</td>
+                    <td>Conventional Takeoff and Landing (pista obrigatória)</td>
+                    <td>Aviões comerciais</td>
+                </tr>
+                <tr>
+                    <td>VTOL (H125)</td>
+                    <td>Vertical Takeoff and Landing</td>
+                    <td>Helicópteros</td>
+                </tr>
+                <tr>
+                    <td>eVTOL (EVE)</td>
+                    <td>Electric VTOL</td>
+                    <td>Futuros air taxis</td>
+                </tr>
+                <tr>
+                    <td>STOL (Cessna 185)</td>
+                    <td>Short Takeoff and Landing</td>
+                    <td>Bush planes</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="aircraft-grid">
+            <div class="aircraft-card">
+                <img src="img/e2.png" alt="E2">
+                <p class="aircraft-label">E2</p>
+            </div>
+            <div class="aircraft-card">
+                <img src="img/h125.jpg" alt="H125">
+                <p class="aircraft-label">H125</p>
+            </div>
+            <div class="aircraft-card">
+                <img src="img/eve.png" alt="EVE">
+                <p class="aircraft-label">EVE</p>
+            </div>
+            <div class="aircraft-card">
+                <img src="img/cessna.jpg" alt="CESSNA 185">
+                <p class="aircraft-label">CESSNA 185</p>
+            </div>
+        </div>
+
+        <p>A tabela 2 apresenta o alcance, velocidade e capacidade de cada aeronave:</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Alcance</th>
+                    <th>Velocidade de cruzeiro</th>
+                    <th>Capacidade de passageiros</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CTOL</td>
+                    <td>5.556 km</td>
+                    <td>Aproximadamente 870 km/h</td>
+                    <td>146 passageiros</td>
+                </tr>
+                <tr>
+                    <td>VTOL</td>
+                    <td>630 km</td>
+                    <td>Aproximadamente 246 km/h</td>
+                    <td>1 piloto + 5 a 6 passageiros</td>
+                </tr>
+                <tr>
+                    <td>eVTOL</td>
+                    <td>100 km</td>
+                    <td>Aproximadamente 110 a 220 km/h</td>
+                    <td>1 piloto + 4 passageiros</td>
+                </tr>
+                <tr>
+                    <td>STOL</td>
+                    <td>1.330 km</td>
+                    <td>Aproximadamente 268 km/h</td>
+                    <td>1 piloto + 5 passageiros</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SEÇÃO 2 -->
+    <section class="section" data-aos="fade-up">
+        <h2>2. Tipo de propulsão de cada aeronave</h2>
+
+        <p>A tabela 3 apresenta o tipo de propulsão de cada aeronave:</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Propulsão</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CTOL</td>
+                    <td>Turbofan de alto bypass</td>
+                </tr>
+                <tr>
+                    <td>VTOL</td>
+                    <td>Turboshaft (turboeixo)</td>
+                </tr>
+                <tr>
+                    <td>eVTOL</td>
+                    <td>Distributed Electric Propulsion (DEP)</td>
+                </tr>
+                <tr>
+                    <td>STOL</td>
+                    <td>Pistão (motor a combustão interna)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SEÇÃO 3 -->
+    <section class="section" data-aos="fade-up">
+        <h2>3. Ambiente operacional predominante</h2>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Aeronave</th>
+                    <th>Ambiente operacional predominante</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Embraer E195-E2 (família E2)</td>
+                    <td>Operações comerciais regionais e de média distância, conectando cidades e hubs em aeroportos com infraestrutura completa e pistas pavimentadas.</td>
+                </tr>
+                <tr>
+                    <td>Cessna 185 Skywagon</td>
+                    <td>Operações utilitárias e em regiões remotas, frequentemente em pistas curtas, não pavimentadas ou áreas isoladas, usadas para transporte, carga e missões especiais.</td>
+                </tr>
+                <tr>
+                    <td>Airbus H125</td>
+                    <td>Operações de helicóptero utilitário em ambientes diversos, como resgate, policiamento, transporte executivo, offshore e áreas montanhosas, podendo operar sem necessidade de pista.</td>
+                </tr>
+                <tr>
+                    <td>eVTOL da Eve Air Mobility</td>
+                    <td>Operações de Mobilidade Aérea Urbana (UAM), realizando voos curtos dentro de cidades entre vertiportos, focadas em transporte rápido de passageiros.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SEÇÃO 4 -->
+    <section class="section" data-aos="fade-up">
+        <h2>4. Desafios regulatórios associados</h2>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Aeronave</th>
+                    <th>Principais desafios regulatórios</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>E195-E2</strong></td>
+                    <td>Regulamentação <strong>bem estabelecida</strong>, pois é um avião comercial convencional. Os desafios concentram-se em certificação de novas tecnologias (motores mais eficientes, aviônicos) e certificação operacional para companhias aéreas.</td>
+                </tr>
+                <tr>
+                    <td><strong>Cessna 185</strong></td>
+                    <td>Regulamentação <strong>tradicional e consolidada</strong>, pois é uma aeronave a pistão clássica. Os desafios regulatórios são relativamente baixos e envolvem apenas certificação, manutenção e operação conforme regras de aviação geral.</td>
+                </tr>
+                <tr>
+                    <td><strong>H125</strong></td>
+                    <td>Regulamentação também consolidada para helicópteros, mas existem desafios adicionais relacionados a <strong>operações especiais</strong>, como resgate, policiamento, operações offshore e voos em baixa altitude em áreas urbanas.</td>
+                </tr>
+                <tr>
+                    <td><strong>eVTOL da Eve</strong></td>
+                    <td>Apresenta os <strong>maiores desafios regulatórios</strong>, pois envolve novas tecnologias e novos conceitos operacionais. Reguladores ainda estão desenvolvendo normas para certificação de aeronaves eVTOL, vertiportos, gestão de tráfego urbano e integração com drones.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight">
+            Aeronaves tradicionais como o Cessna 185, H125 e E2 enfrentam poucos desafios regulatórios porque operam dentro de um sistema já consolidado. Já os eVTOL de UAM, como o da Eve, enfrentam desafios muito maiores, pois exigem novas regras para certificação, infraestrutura urbana, gestão do espaço aéreo e integração com drones.
+        </div>
+    </section>
+
+    <!-- SEÇÃO 5 -->
+    <section class="section" data-aos="fade-up">
+        <h2>5. Implicações para vertiportos ou aeródromos</h2>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Aeronave</th>
+                    <th>Infraestrutura principal</th>
+                    <th>Escala da infraestrutura</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>E2</td>
+                    <td>Aeroportos comerciais</td>
+                    <td>Grande</td>
+                </tr>
+                <tr>
+                    <td>Cessna 185</td>
+                    <td>Aeródromos pequenos</td>
+                    <td>Pequena</td>
+                </tr>
+                <tr>
+                    <td>H125</td>
+                    <td>Helipontos</td>
+                    <td>Média</td>
+                </tr>
+                <tr>
+                    <td>Eve eVTOL</td>
+                    <td>Vertiportos</td>
+                    <td>Pequena e urbana</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Cada aeronave exige um tipo diferente de infraestrutura. Aviões comerciais como o E2 dependem de aeroportos completos, enquanto aeronaves utilitárias como o Cessna 185 podem operar em aeródromos simples. Helicópteros como o H125 utilizam helipontos, e os eVTOL da Eve representam um novo paradigma, operando em vertiportos urbanos projetados para mobilidade aérea urbana.</p>
+    </section>
+
+</main>
+
+<!-- CTA FINAL COM IMAGEM -->
+<section class="cta-final" style="background: url('img/imagem_exercicio.jpg') center/cover no-repeat;">
+    <div class="cta-overlay">
+        <h2 data-aos="fade-up">Comparativo entre paradigmas de aviação</h2>
+        <p data-aos="fade-up" data-aos-delay="200">Do avião comercial ao eVTOL — cada aeronave, seu ecossistema</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p data-aos="fade-up">© 2026 Urban Air Mobility Project • Todos os direitos reservados</p>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+</script>
+
+</body>
+</html>
