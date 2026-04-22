@@ -19,6 +19,125 @@ body {
 }
 
 /* =========================
+   NAVBAR
+========================= */
+.main-navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+    font-family: 'Lato', sans-serif;
+}
+
+.main-navbar-inner {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    height: 64px;
+}
+
+.main-navbar-logo {
+    font-weight: 700;
+    font-size: 20px;
+    color: #0f172a;
+    text-decoration: none;
+    letter-spacing: -0.3px;
+    transition: color 0.2s ease;
+}
+
+.main-navbar-logo:hover {
+    color: #2563eb;
+}
+
+.main-navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.main-nav-link {
+    text-decoration: none;
+    color: #475569;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+
+.main-nav-link:hover {
+    background-color: #f1f5f9;
+    color: #0f172a;
+}
+
+.main-nav-link.active {
+    color: #2563eb;
+    background-color: #eff6ff;
+    font-weight: 600;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .submenu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+    border-radius: 10px;
+    min-width: 320px;
+    overflow: hidden;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.dropdown .submenu a {
+    display: block;
+    padding: 12px 18px;
+    text-decoration: none;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+}
+
+.dropdown .submenu a:last-child {
+    border-bottom: none;
+}
+
+.dropdown .submenu a:hover {
+    background-color: #eff6ff;
+    color: #2563eb;
+    padding-left: 22px;
+}
+
+.dropdown:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* =========================
    HERO
 ========================= */
 .hero {
@@ -39,8 +158,8 @@ body {
     inset: 0;
     background: linear-gradient(
         135deg,
-        rgba(15,23,42,0.25),
-        rgba(30,41,59,0.25)
+        rgba(15, 23, 42, 0.25),
+        rgba(30, 41, 59, 0.25)
     );
 }
 
@@ -120,61 +239,11 @@ body {
 }
 
 /* =========================
-   DROPDOWN
-========================= */
-.dropdown {
-    position: relative;
-    padding-bottom: 5px;
-}
-
-.dropdown .submenu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-radius: 6px;
-    min-width: 300px;
-    overflow: hidden;
-    z-index: 1000;
-
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.25s ease;
-}
-
-.dropdown .submenu a {
-    display: block;
-    padding: 12px;
-    text-decoration: none;
-    color: #333;
-}
-
-.dropdown .submenu a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown:hover .submenu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown > a,
-.menu a {
-    display: flex;
-    align-items: center;
-    height: 40px;
-}
-
-/* =========================
-   CTA FINAL (IMAGEM LOCAL + GRADIENTE SUAVE)
+   CTA FINAL
 ========================= */
 .cta-final {
     position: relative;
     height: 400px;
-    background: url('../imagem_aplicacao.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -186,8 +255,8 @@ body {
     inset: 0;
     background: linear-gradient(
         135deg,
-        rgba(15,23,42,0.35),
-        rgba(30,41,59,0.35)
+        rgba(15, 23, 42, 0.35),
+        rgba(30, 41, 59, 0.35)
     );
 }
 
@@ -237,6 +306,19 @@ footer {
 
     .section h2 {
         font-size: 24px;
+    }
+
+    .main-navbar-menu {
+        gap: 2px;
+    }
+
+    .main-nav-link {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .dropdown .submenu {
+        min-width: 260px;
     }
 
     .cta-overlay h2 {

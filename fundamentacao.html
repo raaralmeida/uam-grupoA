@@ -7,7 +7,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/fundamentacao.css">
 
-    <!-- Fonte -->
+    <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" />
 
@@ -17,30 +17,17 @@
 
 <body>
 
-<!-- =========================
-     NAVBAR
-========================= -->
-<nav style="background: #f8f9fa; padding: 15px 0;">
-    <div style="max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; font-family: 'Lato', sans-serif;">
+<!-- NAVBAR -->
+<nav class="main-navbar">
+    <div class="main-navbar-inner">
 
-        <!-- Logo -->
-        <div style="font-weight: 700; font-size: 20px; color: #2c3e50;">
-            UAM Study
-        </div>
+        <a href="index.html" class="main-navbar-logo">UAM Study</a>
 
-        <!-- Menu -->
-        <div style="display: flex; gap: 30px; align-items: center;">
-            
-            <a href="index.html" style="text-decoration: none; color: #333; font-weight: 500;">
-                Home
-            </a>
+        <div class="main-navbar-menu">
+            <a href="index.html" class="main-nav-link">Home</a>
 
-            <!-- Revisão com dropdown (SEM LINK) -->
-            <div class="dropdown" style="position: relative;">
-                <span style="color: #333; font-weight: 500; cursor: pointer; display: flex; align-items: center; height: 40px;">
-                    Revisão ▾
-                </span>
-
+            <div class="dropdown">
+                <span class="main-nav-link">Revisão ▾</span>
                 <div class="submenu">
                     <a href="fundamentacao.html">Fundamentação Teórica e Análise Crítica</a>
                     <a href="aplicacao.html">Aplicação Operacional e Infraestrutural</a>
@@ -50,26 +37,15 @@
                 </div>
             </div>
 
-            <a href="methodology.html" style="text-decoration: none; color: #333; font-weight: 500;">
-                Metodologia
-            </a>
-
-            <a href="analise.html" style="text-decoration: none; color: #333; font-weight: 500;">
-                Análises
-            </a>
-
-            <a href="references.html" style="text-decoration: none; color: #333; font-weight: 500;">
-                Referências
-            </a>
-
+            <a href="methodology.html" class="main-nav-link">Metodologia</a>
+            <a href="analise.html" class="main-nav-link">Análises</a>
+            <a href="references.html" class="main-nav-link">Referências</a>
         </div>
 
     </div>
 </nav>
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 <header class="hero" style="background: url('img/revisao_literatura.jpg') center/cover no-repeat;">
     <div class="hero-content">
         <h1>Fundamentação Teórica</h1>
@@ -77,9 +53,7 @@
     </div>
 </header>
 
-<!-- =========================
-     MAIN
-========================= -->
+<!-- MAIN -->
 <main class="container">
 
     <!-- SECTION 1 -->
@@ -89,9 +63,7 @@
             Metanálise de 800 artigos (2015–2020) investigou UAM, veículos elétricos (EV),
             veículos autônomos (AV) e serviços compartilhados.
         </p>
-        <p>
-            Os resultados indicam sinergias entre UAM, EV e AV em:
-        </p>
+        <p>Os resultados indicam sinergias entre UAM, EV e AV em:</p>
         <ul>
             <li>Modelos de demanda mais realistas</li>
             <li>Simulações de alta fidelidade</li>
@@ -141,9 +113,7 @@
         </p>
     </section>
 
-    <!-- =========================
-         ANALYSIS
-    ========================= -->
+    <!-- ANÁLISES -->
     <section class="section analysis-section" data-aos="fade-up">
         <h2>Análises Críticas</h2>
 
@@ -154,14 +124,11 @@
             <p><strong>Desafio sistêmico:</strong> integração urbana.</p>
         </div>
 
-        <!-- IMAGEM -->
         <div class="analysis-image">
             <img src="img/lousa1.svg" alt="Análise UAM">
         </div>
 
-        <!-- DETALHES -->
         <div class="analysis-details">
-
             <div class="analysis-item">
                 <h3>Convergências técnicas</h3>
                 <p>
@@ -169,7 +136,6 @@
                     aos conceitos, tecnologias e desafios da UAM.
                 </p>
             </div>
-
             <div class="analysis-item">
                 <h3>Divergências de viabilidade</h3>
                 <p>
@@ -177,21 +143,18 @@
                     e constante renovação de projetos.
                 </p>
             </div>
-
             <div class="analysis-item">
                 <h3>Gargalos regulatórios</h3>
                 <p>
                     Certificação por FAA e EASA ainda representa o principal obstáculo.
                 </p>
             </div>
-
             <div class="analysis-item">
                 <h3>Tecnologia crítica</h3>
                 <p>
                     Baterias de íons de lítio limitam autonomia e viabilidade operacional.
                 </p>
             </div>
-
         </div>
     </section>
 
@@ -199,28 +162,23 @@
 
 <!-- CTA FINAL -->
 <section class="cta-final" style="background: url('img/revisao_literatura.jpg') center/cover no-repeat;">
-<div class="cta-overlay">
-<h2 data-aos="fade-up">Brasília como laboratório da UAM</h2>
-<p data-aos="fade-up" data-aos-delay="200">
-Cidade planejada ideal para testar mobilidade aérea urbana
-</p>
-</div>
+    <div class="cta-overlay">
+        <h2 data-aos="fade-up">Brasília como laboratório da UAM</h2>
+        <p data-aos="fade-up" data-aos-delay="200">
+            Cidade planejada ideal para testar mobilidade aérea urbana
+        </p>
+    </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-<p>©  2026 Urban Air Mobility Project • Todos os direitos reservados</p>
+    <p data-aos="fade-up">© 2026 Urban Air Mobility Project • Todos os direitos reservados</p>
 </footer>
 
-<!-- =========================
-     SCRIPTS
-========================= -->
+<!-- SCRIPTS -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-    AOS.init({
-        duration: 800,
-        once: true
-    });
+    AOS.init({ duration: 800, once: true });
 </script>
 
 </body>

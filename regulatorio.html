@@ -18,27 +18,16 @@
 <body>
 
 <!-- NAVBAR -->
-<nav style="background: #f8f9fa; padding: 15px 0;">
-    <div style="max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; font-family: 'Lato', sans-serif;">
+<nav class="main-navbar">
+    <div class="main-navbar-inner">
 
-        <!-- Logo -->
-        <div style="font-weight: 700; font-size: 20px; color: #2c3e50;">
-            UAM Study
-        </div>
+        <a href="index.html" class="main-navbar-logo">UAM Study</a>
 
-        <!-- Menu -->
-        <div style="display: flex; gap: 30px; align-items: center;">
+        <div class="main-navbar-menu">
+            <a href="index.html" class="main-nav-link">Home</a>
 
-            <a href="index.html" style="text-decoration: none; color: #333; font-weight: 500;">
-                Home
-            </a>
-
-            <!-- Revisão com dropdown -->
-            <div class="dropdown" style="position: relative;">
-                <span style="color: #333; font-weight: 500; cursor: pointer; display: flex; align-items: center; height: 40px;">
-                    Revisão ▾
-                </span>
-
+            <div class="dropdown">
+                <span class="main-nav-link">Revisão ▾</span>
                 <div class="submenu">
                     <a href="fundamentacao.html">Fundamentação Teórica e Análise Crítica</a>
                     <a href="aplicacao.html">Aplicação Operacional e Infraestrutural</a>
@@ -48,18 +37,9 @@
                 </div>
             </div>
 
-            <a href="methodology.html" style="text-decoration: none; color: #333; font-weight: 500;">
-                Metodologia
-            </a>
-
-            <a href="analise.html" style="text-decoration: none; color: #333; font-weight: 500;">
-                Análises
-            </a>
-
-            <a href="references.html" style="text-decoration: none; color: #333; font-weight: 500;">
-                Referências
-            </a>
-
+            <a href="methodology.html" class="main-nav-link">Metodologia</a>
+            <a href="analise.html" class="main-nav-link">Análises</a>
+            <a href="references.html" class="main-nav-link">Referências</a>
         </div>
 
     </div>
@@ -94,7 +74,6 @@
         <p>
             Outro aspecto importante é a segurança operacional — em áreas densamente povoadas, falhas técnicas, colisões ou emergências podem constituir riscos para pessoas e infraestruturas no solo. O planejamento urbano deve considerar rotas seguras, áreas de pouso de emergência, comunicações confiáveis e recursos avançados de controle de tráfego aéreo.
         </p>
-
         <div class="highlight">
             Ruído aeronáutico e segurança operacional são os dois vetores centrais de risco comunitário na implantação da UAM.
         </div>
@@ -118,7 +97,6 @@
         <p>
             A AAM, conceito mais amplo originado na NASA e hoje adotado pela ICAO, preconiza o uso de drones e de aeronaves VTOL para transportar passageiros e carga nos âmbitos urbano, rural e regional (RAM), operando a partir de vertiportos e integrando-se a outros modais de transporte.
         </p>
-
         <div class="highlight">
             Nota: Drones atualmente não têm normas ou previsão para transporte de passageiros.
         </div>
@@ -126,7 +104,7 @@
 
 </main>
 
-<!-- CTA FINAL COM IMAGEM -->
+<!-- CTA FINAL -->
 <section class="cta-final" style="background: url('img/imagem_regulatorio.jpg') center/cover no-repeat;">
     <div class="cta-overlay">
         <h2 data-aos="fade-up">Regulação como alicerce da AAM</h2>
@@ -142,10 +120,7 @@
 <!-- SCRIPTS -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-    AOS.init({
-        duration: 800,
-        once: true
-    });
+    AOS.init({ duration: 800, once: true });
 </script>
 
 </body>
