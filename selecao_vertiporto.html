@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Seleção de Vertiporto - UAM Study</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Seleção de Vertiporto — UAM Study</title>
 
-    <link rel="stylesheet" href="css/selecao_vertiporto.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
-    <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <!-- Page-specific styles -->
+    <link href="css/selecao_vertiporto.css" rel="stylesheet" />
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<nav class="main-navbar">
+<nav class="main-navbar" id="mainNav">
     <div class="main-navbar-inner">
-
         <a href="index.html" class="main-navbar-logo">UAM Study</a>
-
         <div class="main-navbar-menu">
-            <a href="index.html" class="main-nav-link active">Home</a>
-
+            <a href="index.html" class="main-nav-link">Home</a>
             <div class="dropdown">
                 <span class="main-nav-link">Revisão ▾</span>
                 <div class="submenu">
@@ -34,9 +41,8 @@
                     <a href="exercicio.html">Exercício Técnico Estruturado</a>
                 </div>
             </div>
-
             <div class="dropdown">
-                <span class="main-nav-link">Análises ▾</span>
+                <span class="main-nav-link active">Análises ▾</span>
                 <div class="submenu">
                     <a href="selecao_cidade.html">Seleção de Cidade</a>
                     <a href="caracterizacao_brasilia.html">Caracterização de Brasília</a>
@@ -44,338 +50,472 @@
                 </div>
             </div>
         </div>
-
     </div>
 </nav>
 
 <!-- HERO -->
-<header class="hero">
-    <div class="hero-content">
+<header class="page-hero" style="background-image: url('img/foto_brasilia_2.jpg');">
+    <div class="hero-dark-overlay"></div>
+    <div class="page-hero-content" data-aos="fade-up">
+        <p class="hero-eyebrow">Análises</p>
         <h1>Seleção de Vertiporto</h1>
-        <p>Metodologia AHP aplicada à escolha de sítios para implantação em Brasília</p>
+        <p class="hero-sub">AHP para seleção de locais de vertiporto em Brasília</p>
     </div>
 </header>
 
 <!-- MAIN -->
-<main class="container">
+<main class="fund-main">
+    <section class="fund-section fund-light">
+        <div class="fund-inner">
 
-    <!-- PRESSUPOSTOS -->
-    <section class="section" data-aos="fade-up">
-        <h2 id="pressupostos">Pressupostos Estratégicos</h2>
-        <p>
-            Este estudo adotou, como premissa principal, a análise de um vertiporto voltado ao transporte de passageiros, e não de carga ou atendimento médico/emergencial. A justificativa é que o recorte em passageiros se alinha melhor ao objetivo de avaliar mobilidade urbana, integração modal e economia de tempo entre regiões administrativas do Distrito Federal, o aeroporto e a área central do Plano Piloto. No campo regulatório, a própria ANAC trata os vertiportos como infraestrutura que deve ser integrada à estrutura urbana, à acessibilidade e aos demais modais de transporte, o que reforça a adequação de um estudo voltado à circulação de pessoas. Além disso, o Aeroporto Internacional de Brasília já opera como um nó importante de conexão, atendido por diversas linhas de ônibus regulares, o que favorece sua leitura como hub de articulação de uma futura rede aérea urbana.
-        </p>
-        <p>
-            A opção por não priorizar, nesta etapa, aplicações de carga e emergenciais decorre de um critério de aderência ao problema estudado. A carga responde a uma lógica logística própria, distinta da mobilidade pendular urbana. Já a operação emergencial exige critérios específicos de atendimento, prioridade operacional, infraestrutura e regulação, além de já estar historicamente associada a meios aéreos dedicados. Por isso, para uma seleção preliminar de sítios em Brasília, o enfoque em passageiros foi considerado o mais coerente e tecnicamente justificável.
-        </p>
-        <p>
-            <strong>Fontes:</strong> ANAC – Vertiportos; ANAC – Sandbox Vertiportos/eVTOLs; Aeroporto Internacional de Brasília – Transporte Público; Aeroporto Internacional de Brasília – Informações Úteis.
-        </p>
-
-        <div class="iframe-wrapper" data-aos="fade-up">
-            <iframe
-                src="https://docs.google.com/presentation/d/e/2PACX-1vRBOpX4kVjFMML7MVbq5e5KWAQc7-H2LL-H6KJjGoJ5Msm68ElSwq73zU6SkcrKVw/embed?start=false&loop=false"
-                width="100%"
-                height="500"
-                frameborder="0"
-                allowfullscreen>
-            </iframe>
-        </div>
-    </section>
-
-    <!-- AHP -->
-    <section class="section" data-aos="fade-up">
-        <h2 id="vertiporto">AHP para Seleção de Local de Vertiporto</h2>
-        <p>
-            O projeto considera a seleção de <strong>3 localidades</strong> para implantação do Vertiporto. Considerando o <strong>Aeroporto Internacional de Brasília - SBBR um vertiporto natural</strong>, resta a seleção de mais 2 sítios para o conjunto de vertiportos, os quais serão selecionados pela metodologia AHP.
-        </p>
-    </section>
-
-    <!-- PRÉ SELEÇÃO -->
-    <section class="section" data-aos="fade-up">
-        <h2>Pré Seleção de Vertiportos</h2>
-        <p>Para garantir a variabilidade de opções, características e comportamentos foram pré-selecionadas 2 alternativas no Plano Piloto e 2 alternativas nas RA.</p>
-        <p>A <strong>Rodoviária</strong> foi considerada uma alternativa com <strong>alta conectividade</strong>.</p>
-        <p>O <strong>Complexo 21</strong> foi considerado uma <strong>demanda</strong> constante considerando eventos ao longo da semana e o <strong>perfil socioeconômico</strong>.</p>
-        <p><strong>Ceilândia e Sobradinho</strong> foram escolhidos considerando <strong>localizações opostas</strong> entre si, maior <strong>volume populacional e potencial de ganho de tempo</strong> para deslocamento ao aeroporto ou Plano Piloto.</p>
-
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Plano Piloto</th>
-                    <th>RA</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Rodoviária</td><td>Sobradinho</td></tr>
-                <tr><td>Complexo 21</td><td>Ceilândia</td></tr>
-            </tbody>
-        </table>
-
-        <p><strong>Sobradinho</strong> foi escolhido no eixo norte por combinar <strong>alta demanda pendular, forte dependência do sistema viário e posição estratégica intermediária</strong>, funcionando como <strong>hub regional</strong> dentro do DF capaz de captar fluxos de áreas mais distantes (como Planaltina) de forma mais eficiente.</p>
-        <p><strong>Ceilândia</strong> foi selecionada no eixo oeste por apresentar <strong>forte geração de viagens, dependência relevante de transporte coletivo e melhor ganho de tempo em relação a Taguatinga</strong>, além de atuar como ponto de <strong>absorção regional</strong> para deslocamentos mais longos.</p>
-        <p><strong>Planaltina não foi escolhida</strong>, apesar do alto potencial de economia de tempo, porque seu benefício se concentra mais na <strong>demanda local</strong>, enquanto Sobradinho oferece melhor lógica de rede como hub intermediário.</p>
-        <p><strong>Taguatinga foi descartada</strong> pois, no modelo com hub no aeroporto, o <strong>ganho de tempo é baixo</strong>, tornando o deslocamento direto por carro mais competitivo e diminuindo a atratividade do vertiporto.</p>
-
-        <p>Nas RA foi necessário ainda definir o <strong>sítio exato</strong> para implantação. Tal escolha levou em consideração áreas centrais, próximas a comércios e abertas para facilitar infraestrutura. Sendo assim foi escolhido:</p>
-        <p><strong>Sobradinho — Estádio Augustinho Lima</strong></p>
-        <p><strong>Ceilândia — Praça do Metrô</strong></p>
-
-        <div class="img-grid">
-            <div class="img-card" data-aos="fade-up">
-                <img src="img/sobradinho.png" alt="Sobradinho">
-                <p class="img-label">Sobradinho — Estádio Augustinho Lima</p>
+            <!-- BLOCO 01: AHP -->
+            <div class="ex-block" data-aos="fade-up">
+                <div class="ex-num">01</div>
+                <h2 class="ex-heading">AHP para Seleção de Local de Vertiporto</h2>
+                <p>
+                    O projeto considera a seleção de <strong>3 localidades</strong> para implantação do Vertiporto. Considerando o <strong>Aeroporto Internacional de Brasília - SBBR um vertiporto natural</strong>, resta a seleção de mais 2 sítios para o conjunto de vertiportos, os quais serão selecionados pela metodologia AHP.
+                </p>
             </div>
-            <div class="img-card" data-aos="fade-up" data-aos-delay="150">
-                <img src="img/ceilandia.png" alt="Ceilândia">
-                <p class="img-label">Ceilândia — Praça do Metrô</p>
+
+            <!-- BLOCO 02: PRÉ-SELEÇÃO -->
+            <div class="ex-block" data-aos="fade-up">
+                <div class="ex-num">02</div>
+                <h2 class="ex-heading">Pré-Seleção de Vertiportos</h2>
+
+                <p>Para garantir a variabilidade de opções, características e comportamentos foram pré-selecionadas 2 alternativas no Plano Piloto e 2 alternativas nas RAs.</p>
+                <p>A <strong>Rodoviária</strong> foi considerada uma alternativa com <strong>alta conectividade</strong>.</p>
+                <p>O <strong>Complexo 21</strong> foi considerado por apresentar <strong>demanda</strong> constante com eventos ao longo da semana e o <strong>perfil socioeconômico</strong>.</p>
+                <p><strong>Ceilândia e Sobradinho</strong> foram escolhidos considerando <strong>localizações opostas</strong> entre si, maior <strong>volume populacional e potencial de ganho de tempo</strong> para deslocamento ao aeroporto ou Plano Piloto.</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Plano Piloto</th><th>RA</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Rodoviária</td><td>Sobradinho</td></tr>
+                        <tr><td>Complexo 21</td><td>Ceilândia</td></tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Sobradinho</strong> foi escolhido no eixo norte por combinar <strong>alta demanda pendular, forte dependência do sistema viário e posição estratégica intermediária</strong>, funcionando como <strong>hub regional</strong> dentro do DF capaz de captar fluxos de áreas mais distantes (como Planaltina) de forma mais eficiente.</p>
+                <p><strong>Ceilândia</strong> foi selecionada no eixo oeste por apresentar <strong>forte geração de viagens, dependência relevante de transporte coletivo e melhor ganho de tempo em relação a Taguatinga</strong>, além de atuar como ponto de <strong>absorção regional</strong> para deslocamentos mais longos.</p>
+                <p><strong>Planaltina não foi escolhida</strong>, apesar do alto potencial de economia de tempo, porque seu benefício se concentra mais na <strong>demanda local</strong>, enquanto Sobradinho oferece melhor lógica de rede como hub intermediário.</p>
+                <p><strong>Taguatinga foi descartada</strong> pois, no modelo com hub no aeroporto, o <strong>ganho de tempo é baixo</strong>, tornando o deslocamento direto por carro mais competitivo e diminuindo a atratividade do vertiporto.</p>
+
+                <p>Nas RAs foi necessário ainda definir o <strong>sítio exato</strong> para implantação. Tal escolha levou em consideração áreas centrais, próximas a comércios e abertas para facilitar infraestrutura:</p>
+                <p><strong>Sobradinho — Estádio Augustinho Lima</strong></p>
+                <p><strong>Ceilândia — Praça do Metrô</strong></p>
+
+                <div class="img-pair">
+                    <figure>
+                        <img src="img/sobradinho.png" alt="Sobradinho">
+                        <figcaption>Sobradinho — Estádio Augustinho Lima</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="img/ceilandia.png" alt="Ceilândia">
+                        <figcaption>Ceilândia — Praça do Metrô</figcaption>
+                    </figure>
+                </div>
             </div>
+
+            <!-- BLOCO 03: CRITÉRIOS -->
+            <div class="ex-block" data-aos="fade-up">
+                <div class="ex-num">03</div>
+                <h2 class="ex-heading">Definição dos Critérios</h2>
+
+                <p>Foram selecionados 3 critérios principais para seleção do sítio: <strong>Conectividade, Tempo de Deslocamento e Restrições</strong>.</p>
+                <p>Para definir os 3 critérios principais foi realizado um <strong>brainstorm</strong> com o grupo elencando critérios possíveis, seguido de uma <strong>votação</strong>. Os 3 critérios selecionados foram os que apresentaram maior quantidade de votos.</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Critério</th><th>Votos</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row-winner"><td>Conectividade</td><td>5</td></tr>
+                        <tr class="row-winner"><td>Tempo de Deslocamento</td><td>5</td></tr>
+                        <tr class="row-winner"><td>Restrições</td><td>3</td></tr>
+                        <tr><td>População</td><td>2</td></tr>
+                        <tr><td>Ruído</td><td>0</td></tr>
+                        <tr><td>Distância</td><td>0</td></tr>
+                    </tbody>
+                </table>
+
+                <p>A fim de medir cada critério por alternativa, optou-se por utilizar <strong>métodos objetivos</strong> para quantificar tais atributos, tornando o modelo mais <strong>consistente e robusto</strong>.</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Critério</th><th>Definição</th><th>Método de cálculo</th><th>Interpretação</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Conectividade</td>
+                            <td>Grau de integração dos modais e interligação a diversas localidades, de modo fácil e acessível.</td>
+                            <td>Quantidade de modais a 10 min de distância caminhando. Pesos: Aéreo = 1, Metroviário = 2, Rodoviário = 3.*</td>
+                            <td>Quanto maior, melhor.</td>
+                        </tr>
+                        <tr>
+                            <td>Tempo de Deslocamento</td>
+                            <td>Tempo de referência de deslocamento por modais "padrão" até o vertiporto natural — Aeroporto Internacional de Brasília.</td>
+                            <td>Tempo médio entre o sítio e o aeroporto na hora pico, considerando carro e transporte público (em minutos).</td>
+                            <td>Quanto maior, melhor.</td>
+                        </tr>
+                        <tr>
+                            <td>Restrições</td>
+                            <td>Limitações para operação devido a restrições legais, operacionais e/ou ambientais.</td>
+                            <td>Quantidade de restrições em relação ao Espaço Aéreo, à municipalidade e ao meio ambiente. Cada restrição equivale a 1 ponto.</td>
+                            <td>Quanto menor, melhor.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="ex-footnote">*Pesos arbitrados levando em consideração análises como capacidade, flexibilidade, custo, capilaridade, tempo e escala.</p>
+
+                <h3 class="ex-subheading">Estrutura para análise do método AHP</h3>
+                <div class="single-img">
+                    <img src="img/AHP_fluxograma.png" alt="Estrutura AHP">
+                </div>
+            </div>
+
+            <!-- BLOCO 04: MEMÓRIA DE CÁLCULO -->
+            <div class="ex-block" data-aos="fade-up">
+                <div class="ex-num">04</div>
+                <h2 class="ex-heading">Memória de Cálculo</h2>
+
+                <!-- Card 1 -->
+                <div class="calc-card" data-aos="fade-up">
+                    <div class="calc-card-header">1. Dados de Entrada</div>
+                    <div class="calc-card-body">
+
+                        <h3 class="ex-subheading">Conectividade</h3>
+                        <table class="data-table">
+                            <thead><tr><th>Alternativa</th><th>Detalhamento</th><th>Cálculo</th></tr></thead>
+                            <tbody>
+                                <tr><td>Rodoviária</td><td>Rodoviária metropolitana, rodoviária interurbana/ônibus, metrô</td><td>(2×3 + 1×2) = <strong>8</strong></td></tr>
+                                <tr><td>Complexo 21</td><td>Heliponto, ônibus</td><td>(1×3 + 1×1) = <strong>4</strong></td></tr>
+                                <tr><td>Sobradinho</td><td>Rodoviária metropolitana, rodoviária interurbana/ônibus</td><td>(2×3) = <strong>6</strong></td></tr>
+                                <tr><td>Ceilândia</td><td>Metrô, ônibus</td><td>(1×2 + 1×3) = <strong>5</strong></td></tr>
+                            </tbody>
+                        </table>
+
+                        <h3 class="ex-subheading">Tempo de Deslocamento</h3>
+                        <table class="data-table">
+                            <thead><tr><th>Alternativa</th><th>Detalhamento</th><th>Cálculo</th></tr></thead>
+                            <tbody>
+                                <tr><td>Rodoviária</td><td>53 min de transporte público e 14 min de carro</td><td>(53 + 14)/2 = <strong>33,5 min</strong></td></tr>
+                                <tr><td>Complexo 21</td><td>56 min de transporte público e 18 min de carro</td><td>(56 + 18)/2 = <strong>37 min</strong></td></tr>
+                                <tr><td>Sobradinho</td><td>103 min de transporte público e 40 min de carro</td><td>(103 + 40)/2 = <strong>71,5 min</strong></td></tr>
+                                <tr><td>Ceilândia</td><td>72 min de transporte público e 50 min de carro</td><td>(72 + 50)/2 = <strong>61 min</strong></td></tr>
+                            </tbody>
+                        </table>
+
+                        <h3 class="ex-subheading">Restrição</h3>
+                        <table class="data-table">
+                            <thead><tr><th>Alternativa</th><th>Detalhamento</th><th>Cálculo</th></tr></thead>
+                            <tbody>
+                                <tr><td>Rodoviária</td><td>1 AGA (PBZPA SBBR) e 1 Patrimônio Cultural</td><td>(1 + 1) = <strong>2</strong></td></tr>
+                                <tr><td>Complexo 21</td><td>1 AGA (PBZPA SBBR) e 1 Patrimônio Cultural</td><td>(1 + 1) = <strong>2</strong></td></tr>
+                                <tr><td>Sobradinho</td><td>N/A</td><td><strong>0</strong></td></tr>
+                                <tr><td>Ceilândia</td><td>1 AGA (PBZPA SBBR)</td><td>(1) = <strong>1</strong></td></tr>
+                            </tbody>
+                        </table>
+
+                        <h3 class="ex-subheading">Detalhamento das Restrições</h3>
+                        <p>Restrições Espaço Aéreo → AGA + EAC + REAH</p>
+                        <div class="single-img"><img src="img/restricoes EA.jpg" alt="Restrições Espaço Aéreo"></div>
+                        <p>Restrições Ambientais → Área de Proteção Ambiental (APA)</p>
+                        <div class="single-img"><img src="img/APA.png" alt="APA"></div>
+                        <p>Restrições Ambientais → APA Planalto Central</p>
+                        <div class="single-img"><img src="img/APA PLANALTO CENTRAL.png" alt="APA Planalto Central"></div>
+
+                        <h3 class="ex-subheading">Quadro Resumo</h3>
+                        <table class="data-table">
+                            <thead><tr><th>Alternativa</th><th>Conectividade</th><th>Tempo</th><th>Restrições</th></tr></thead>
+                            <tbody>
+                                <tr><td>Rodoviária</td><td>8</td><td>33,5</td><td>2</td></tr>
+                                <tr><td>Complexo 21</td><td>4</td><td>37</td><td>2</td></tr>
+                                <tr><td>Sobradinho</td><td>6</td><td>71,5</td><td>0</td></tr>
+                                <tr><td>Ceilândia</td><td>5</td><td>61</td><td>1</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="calc-card" data-aos="fade-up">
+                    <div class="calc-card-header">2. Normalização</div>
+                    <div class="calc-card-body">
+                        <p>Conectividade = valor / máximo &nbsp;|&nbsp; Tempo = valor / máximo &nbsp;|&nbsp; Restrições = 1 / (1 + restrições)</p>
+                        <table class="data-table">
+                            <thead><tr><th>Alt</th><th>Conectividade</th><th>Tempo</th><th>Restrições</th></tr></thead>
+                            <tbody>
+                                <tr><td>A — Rodoviária</td><td>1,000</td><td>0,469</td><td>0,333</td></tr>
+                                <tr><td>B — Complexo 21</td><td>0,500</td><td>0,517</td><td>0,333</td></tr>
+                                <tr><td>C — Sobradinho</td><td>0,750</td><td>1,000</td><td>1,000</td></tr>
+                                <tr><td>D — Ceilândia</td><td>0,625</td><td>0,853</td><td>0,500</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="calc-card" data-aos="fade-up">
+                    <div class="calc-card-header">3. Matriz AHP</div>
+                    <div class="calc-card-body">
+                        <table class="data-table">
+                            <thead><tr><th></th><th>Conectividade</th><th>Tempo</th><th>Restrições</th></tr></thead>
+                            <tbody>
+                                <tr><td>Conectividade</td><td>1</td><td>0,333</td><td>5</td></tr>
+                                <tr><td>Tempo</td><td>3</td><td>1</td><td>7</td></tr>
+                                <tr><td>Restrições</td><td>0,2</td><td>0,143</td><td>1</td></tr>
+                            </tbody>
+                        </table>
+                        <h3 class="ex-subheading">Pesos Calculados</h3>
+                        <table class="data-table">
+                            <thead><tr><th>Critério</th><th>Peso</th></tr></thead>
+                            <tbody>
+                                <tr><td>Conectividade</td><td>0,283</td></tr>
+                                <tr><td>Tempo</td><td>0,643</td></tr>
+                                <tr><td>Restrições</td><td>0,074</td></tr>
+                            </tbody>
+                        </table>
+                        <p><strong>Consistência:</strong> CR = 0,056 (Aceitável)</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="calc-card" data-aos="fade-up">
+                    <div class="calc-card-header">4. Cálculo do Score</div>
+                    <div class="calc-card-body">
+                        <p>Score = (C × 0,283) + (T × 0,643) + (R × 0,074)</p>
+                        <table class="data-table">
+                            <thead><tr><th>Alt</th><th>Cálculo</th><th>Score</th></tr></thead>
+                            <tbody>
+                                <tr><td>A — Rodoviária</td><td>(1×0,283)+(0,469×0,643)+(0,333×0,074)</td><td>0,609</td></tr>
+                                <tr><td>B — Complexo 21</td><td>(0,5×0,283)+(0,517×0,643)+(0,333×0,074)</td><td>0,498</td></tr>
+                                <tr class="row-winner"><td>C — Sobradinho</td><td>(0,75×0,283)+(1×0,643)+(1×0,074)</td><td><strong>0,929</strong></td></tr>
+                                <tr class="row-winner"><td>D — Ceilândia</td><td>(0,625×0,283)+(0,853×0,643)+(0,5×0,074)</td><td><strong>0,762</strong></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="calc-card" data-aos="fade-up">
+                    <div class="calc-card-header">5. Ranking Final</div>
+                    <div class="calc-card-body">
+                        <table class="data-table">
+                            <thead><tr><th>Posição</th><th>Alternativa</th><th>Score</th></tr></thead>
+                            <tbody>
+                                <tr class="row-winner"><td>1º</td><td>C — Sobradinho</td><td><strong>0,929</strong></td></tr>
+                                <tr class="row-winner"><td>2º</td><td>D — Ceilândia</td><td><strong>0,762</strong></td></tr>
+                                <tr><td>3º</td><td>A — Rodoviária</td><td>0,609</td></tr>
+                                <tr><td>4º</td><td>B — Complexo 21</td><td>0,498</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="calc-card" data-aos="fade-up">
+                    <div class="calc-card-header">6. Análise de Sensibilidade</div>
+                    <div class="calc-card-body">
+                        <h3 class="ex-subheading">Sensibilidade Marginal</h3>
+                        <table class="data-table">
+                            <thead><tr><th>Alt</th><th>dScore/dC</th><th>dScore/dT</th><th>dScore/dR</th></tr></thead>
+                            <tbody>
+                                <tr><td>A</td><td>1,000</td><td>0,469</td><td>0,333</td></tr>
+                                <tr><td>B</td><td>0,500</td><td>0,517</td><td>0,333</td></tr>
+                                <tr class="row-winner"><td>C</td><td>0,750</td><td>1,000</td><td>1,000</td></tr>
+                                <tr><td>D</td><td>0,625</td><td>0,853</td><td>0,500</td></tr>
+                            </tbody>
+                        </table>
+                        <h3 class="ex-subheading">Impacto de +1% no Peso do Tempo</h3>
+                        <table class="data-table">
+                            <thead><tr><th>Alt</th><th>ΔScore</th></tr></thead>
+                            <tbody>
+                                <tr><td>A</td><td>+0,0047</td></tr>
+                                <tr><td>B</td><td>+0,0052</td></tr>
+                                <tr class="row-winner"><td>C</td><td>+0,0100</td></tr>
+                                <tr><td>D</td><td>+0,0085</td></tr>
+                            </tbody>
+                        </table>
+                        <p><strong>Interpretação:</strong> A alternativa C é a mais sensível ao critério tempo, o que explica sua robustez no ranking.</p>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="calc-card" data-aos="fade-up">
+                    <div class="calc-card-header">7. Conclusão</div>
+                    <div class="calc-card-body">
+                        <p>A alternativa C (Sobradinho) apresenta desempenho superior em todos os cenários analisados, com alta robustez devido à dominância nos critérios de tempo e restrições.</p>
+                        <p>O trade-off principal do modelo ocorre entre as alternativas A (conectividade) e D (tempo), evidenciando o impacto estratégico da definição de pesos.</p>
+                    </div>
+                </div>
+
+            </div><!-- /bloco 04 -->
+
+            <!-- BLOCO 05: AHP INTERATIVO -->
+            <div class="ex-block" data-aos="fade-up">
+                <div class="ex-num">05</div>
+                <h2 class="ex-heading">AHP Interativo — Análise de Sensibilidade</h2>
+                <p>Ajuste os pesos dos critérios e veja o ranking se atualizar em tempo real.</p>
+
+                <div class="calc-card">
+                    <div class="calc-card-header">Ajuste de Pesos</div>
+                    <div class="calc-card-body">
+                        <div class="slider-group">
+                            <label>Conectividade <span class="slider-val" id="wc">0,28</span></label>
+                            <input type="range" min="0" max="1" step="0.01" value="0.28" id="wC">
+                        </div>
+                        <div class="slider-group">
+                            <label>Tempo <span class="slider-val" id="wt">0,64</span></label>
+                            <input type="range" min="0" max="1" step="0.01" value="0.64" id="wT">
+                        </div>
+                        <div class="slider-group">
+                            <label>Restrições <span class="slider-val" id="wr">0,08</span></label>
+                            <input type="range" min="0" max="1" step="0.01" value="0.08" id="wR">
+                        </div>
+                        <p class="slider-sum"><strong>Soma dos pesos:</strong> <span id="sum">1,00</span></p>
+                    </div>
+                </div>
+
+                <div class="calc-card">
+                    <div class="calc-card-header">Resultados</div>
+                    <div class="calc-card-body">
+                        <table class="data-table" id="tabela">
+                            <thead><tr><th>Alternativa</th><th>Score</th></tr></thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOCO 06: MAPAS E RESTRIÇÕES -->
+            <div class="ex-block" data-aos="fade-up">
+                <div class="ex-num">06</div>
+                <h2 class="ex-heading">Mapas e Análises Complementares</h2>
+
+                <div class="img-grid">
+                    <figure>
+                        <img src="img/transito1.png" alt="Trânsito 1">
+                        <figcaption>Análise de trânsito — cenário 1</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="img/transito2.png" alt="Trânsito 2">
+                        <figcaption>Análise de trânsito — cenário 2</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="img/EAC.png" alt="EAC">
+                        <figcaption>Espaço Aéreo Controlado (EAC)</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="img/REAH.png" alt="REAH">
+                        <figcaption>REAH</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="img/tma.png" alt="TMA">
+                        <figcaption>TMA — Área de Controle Terminal</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <!-- BLOCO 07: ENERGIA -->
+            <div class="ex-block" data-aos="fade-up">
+                <div class="ex-num">07</div>
+                <h2 class="ex-heading">Necessidades Energéticas dos Vertiportos</h2>
+
+                <p>Previamente à obtenção de dados de demanda, tráfego, operações/dia, número de aeronaves, tempo/consumo de recarga e infraestrutura energética do vertiporto, pode-se fazer a premissa inicial: o vertiporto da RA terá 2 TLOF/FATO/Safety + 2 Stands, por questão de módulo de redundância mínimo — denominado na literatura de <strong>'2-pad vertiport'</strong>, conforme diagrama elétrico mostrado na figura a seguir.</p>
+
+                <div class="single-img">
+                    <img src="img/energy.png" alt="Diagrama Elétrico">
+                </div>
+
+                <p>Considerando as 2 posições de recarga rápida (150–200 kWh/recarga, 15–25 min 'turnaround') tem-se, no horário de pico, 1,4–2 MW na recarga. Incluindo o consumo energético da infraestrutura, iluminação, HVAC, sistemas e operações, tem-se um total de 2–2,5 MW, para o que se dimensiona um transformador de 2,5 a 3 MVA, seguido de conversor e chave de proteção para a entrada da concessionária em 13,8 kV. Esta configuração inclui, como opcionais, reservas locais de baterias e painéis solares, o que reduz o gasto com a concessionária e torna o vertiporto mais ambientalmente sustentável.</p>
+                <p>No Brasil, esta infraestrutura pode representar um investimento de R$ 2–3 milhões e um consumo médio diário de 3 MWh, enquanto os 2 carregadores (da ordem de 1 MW cada) adicionam investimento da ordem de R$ 2 milhões.</p>
+                <p>A concessionária de distribuição no DF é a Neoenergia DF. A carga total disponível hoje para o DF está em torno de 1.000 MW. Um vertiporto de 2–2,5 MW deve poder ser atendido sem maior dificuldade, podendo exigir reforço local em 13,8 kV, o que pode custar de R$ 200–400 mil/km em Sobradinho. Como Ceilândia possui maior densidade de centros de distribuição, a distância provável e o custo devem ser bem menores.</p>
+
+                <div class="ex-highlight">
+                    <strong>Fontes:</strong> Neoenergia, ANEEL, Relatórios UNESP Eng. de Energia; NIA-NASA Urban Air Mobility Electric Infrastructure Study; FAA/NREL Vertiport Electrical Infrastructure Study; NASA Analysis of Electrical Grid Capacity by Interconnection for Urban Air Mobility.
+                </div>
+            </div>
+
+            <!-- BLOCO 08: EM DESENVOLVIMENTO -->
+            <div class="ex-block" data-aos="fade-up">
+                <div class="ex-num">08</div>
+                <h2 class="ex-heading">Em Desenvolvimento</h2>
+                <p>Esta seção será expandida com mapas, gráficos e resultados detalhados das análises espaciais e estimativas de demanda realizadas ao longo do projeto.</p>
+            </div>
+
         </div>
     </section>
-
-    <!-- CRITÉRIOS -->
-    <section class="section" data-aos="fade-up">
-        <h2>Definição dos Critérios</h2>
-        <p>Foram selecionados 3 critérios principais para seleção do sítio: <strong>Conectividade, Tempo de Deslocamento e Restrições</strong>.</p>
-        <p>Para definir os 3 critérios principais foi realizado um <strong>brainstorm</strong> com o grupo elencando critérios possíveis, e depois foi realizada uma <strong>votação</strong>. Os 3 critérios selecionados foram os que apresentaram maior quantidade de votos.</p>
-
-        <table class="data-table">
-            <thead>
-                <tr><th>Critério</th><th>Votos</th></tr>
-            </thead>
-            <tbody>
-                <tr class="winner"><td>Conectividade</td><td>5</td></tr>
-                <tr class="winner"><td>Tempo de Deslocamento</td><td>5</td></tr>
-                <tr class="winner"><td>Restrições</td><td>3</td></tr>
-                <tr><td>População</td><td>2</td></tr>
-                <tr><td>Ruído</td><td>0</td></tr>
-                <tr><td>Distância</td><td>0</td></tr>
-            </tbody>
-        </table>
-
-        <p>A fim de medir cada critério por alternativa, optou-se por utilizar <strong>métodos objetivos</strong> para quantificar tais atributos, tornando o modelo mais <strong>consistente e robusto</strong>.</p>
-
-        <table class="data-table">
-            <thead>
-                <tr><th>Critério</th><th>Definição</th><th>Método de cálculo</th><th>Interpretação</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Conectividade</td>
-                    <td>Grau de integração dos modais e interligação a diversas localidades, de modo fácil e acessível.</td>
-                    <td>Quantidade de modais a 10 min de distância caminhando. Pesos: Aéreo = 1, Metroviário = 2, Rodoviário = 3.*</td>
-                    <td>Quanto maior melhor.</td>
-                </tr>
-                <tr>
-                    <td>Tempo de Deslocamento</td>
-                    <td>Tempo de referência de deslocamento por modais "padrão" até o vertiporto natural — Aeroporto Internacional de Brasília.</td>
-                    <td>Tempo médio entre o sítio e o aeroporto na hora pico, considerando carro e transporte público. (em minutos)</td>
-                    <td>Quanto maior melhor.</td>
-                </tr>
-                <tr>
-                    <td>Restrições</td>
-                    <td>Limitações para operação devido a restrições legais, operacionais e/ou ambientais.</td>
-                    <td>Quantidade de restrições em relação ao Espaço Aéreo, à municipalidade e ao meio ambiente. Cada restrição equivale a 1 ponto.</td>
-                    <td>Quanto menor melhor.</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>*Pesos arbitrados levando em consideração análises como capacidade, flexibilidade, custo, capilaridade, tempo e escala.</p>
-
-        <p><strong>Estrutura para análise do método AHP</strong></p>
-        <div class="img-card-single" data-aos="fade-up">
-            <img src="img/estrutura.jpeg" alt="Estrutura AHP">
-        </div>
-    </section>
-
-    <!-- MEMÓRIA DE CÁLCULO -->
-    <section class="section" data-aos="fade-up">
-        <h2>Memória de Cálculo</h2>
-
-        <!-- CARD 1 -->
-        <div class="card" data-aos="fade-up">
-            <h3>1. Dados de Entrada</h3>
-
-            <p><strong>Conectividade</strong></p>
-            <table class="data-table">
-                <thead><tr><th>Alternativa</th><th>Detalhamento</th><th>Cálculo</th></tr></thead>
-                <tbody>
-                    <tr><td>Rodoviária</td><td>Rodoviária metropolitana, rodoviária interurbana/ônibus, metrô</td><td>(2×3 + 1×2) = <strong>8</strong></td></tr>
-                    <tr><td>Complexo 21</td><td>Heliponto, ônibus</td><td>(1×3 + 1×1) = <strong>4</strong></td></tr>
-                    <tr><td>Sobradinho</td><td>Rodoviária metropolitana, rodoviária interurbana/ônibus</td><td>(2×3) = <strong>6</strong></td></tr>
-                    <tr><td>Ceilândia</td><td>Metrô, ônibus</td><td>(1×2 + 1×3) = <strong>5</strong></td></tr>
-                </tbody>
-            </table>
-
-            <p><strong>Tempo de Deslocamento</strong></p>
-            <table class="data-table">
-                <thead><tr><th>Alternativa</th><th>Detalhamento</th><th>Cálculo</th></tr></thead>
-                <tbody>
-                    <tr><td>Rodoviária</td><td>53 min de transporte público e 14 min de carro</td><td>(53 + 14) / 2 = <strong>33,5 min</strong></td></tr>
-                    <tr><td>Complexo 21</td><td>56 min de transporte público e 18 min de carro</td><td>(56 + 18) / 2 = <strong>37 min</strong></td></tr>
-                    <tr><td>Sobradinho</td><td>103 min de transporte público e 40 min de carro</td><td>(103 + 40) / 2 = <strong>71,5 min</strong></td></tr>
-                    <tr><td>Ceilândia</td><td>72 min de transporte público e 50 min de carro</td><td>(72 + 50) / 2 = <strong>61 min</strong></td></tr>
-                </tbody>
-            </table>
-
-            <p><strong>Restrições</strong></p>
-            <table class="data-table">
-                <thead><tr><th>Alternativa</th><th>Detalhamento</th><th>Cálculo</th></tr></thead>
-                <tbody>
-                    <tr><td>Rodoviária</td><td>1 AGA (PBZPA SBBR) e 1 Patrimônio Cultural</td><td>(1 + 1) = <strong>2</strong></td></tr>
-                    <tr><td>Complexo 21</td><td>1 AGA (PBZPA SBBR) e 1 Patrimônio Cultural</td><td>(1 + 1) = <strong>2</strong></td></tr>
-                    <tr><td>Sobradinho</td><td>N/A</td><td><strong>0</strong></td></tr>
-                    <tr><td>Ceilândia</td><td>1 AGA (PBZPA SBBR)</td><td>(1) = <strong>1</strong></td></tr>
-                </tbody>
-            </table>
-
-            <p><strong>Detalhamento das Restrições de Espaço Aéreo</strong> → AGA + EAC + REAH</p>
-            <div class="img-card-single"><img src="img/restricoes EA.jpg" alt="Restrições Espaço Aéreo"></div>
-
-            <p><strong>Restrições Ambientais</strong> → Área de Proteção Ambiental - APA</p>
-            <div class="img-card-single"><img src="img/APA.png" alt="APA"></div>
-
-            <p><strong>Restrições Ambientais</strong> → APA Planalto Central</p>
-            <div class="img-card-single"><img src="img/APA PLANALTO CENTRAL.png" alt="APA Planalto Central"></div>
-
-            <p><strong>Quadro Resumo</strong></p>
-            <table class="data-table">
-                <thead><tr><th>Alternativa</th><th>Conectividade</th><th>Tempo</th><th>Restrições</th></tr></thead>
-                <tbody>
-                    <tr><td>Rodoviária</td><td>8</td><td>33,5</td><td>2</td></tr>
-                    <tr><td>Complexo 21</td><td>4</td><td>37</td><td>2</td></tr>
-                    <tr><td>Sobradinho</td><td>6</td><td>71,5</td><td>0</td></tr>
-                    <tr><td>Ceilândia</td><td>5</td><td>61</td><td>1</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="card" data-aos="fade-up">
-            <h3>2. Normalização</h3>
-            <p>Conectividade = valor / máximo</p>
-            <p>Tempo = valor / máximo</p>
-            <p>Restrições = 1 / (1 + restrições)</p>
-            <table class="data-table">
-                <thead><tr><th>Alt</th><th>Conectividade</th><th>Tempo</th><th>Restrições</th></tr></thead>
-                <tbody>
-                    <tr><td>A — Rodoviária</td><td>1,000</td><td>0,469</td><td>0,333</td></tr>
-                    <tr><td>B — Complexo 21</td><td>0,500</td><td>0,517</td><td>0,333</td></tr>
-                    <tr><td>C — Sobradinho</td><td>0,750</td><td>1,000</td><td>1,000</td></tr>
-                    <tr><td>D — Ceilândia</td><td>0,625</td><td>0,853</td><td>0,500</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="card" data-aos="fade-up">
-            <h3>3. Matriz AHP</h3>
-            <table class="data-table">
-                <thead><tr><th></th><th>Conectividade</th><th>Tempo</th><th>Restrições</th></tr></thead>
-                <tbody>
-                    <tr><td>Conectividade</td><td>1</td><td>0,333</td><td>5</td></tr>
-                    <tr><td>Tempo</td><td>3</td><td>1</td><td>7</td></tr>
-                    <tr><td>Restrições</td><td>0,2</td><td>0,143</td><td>1</td></tr>
-                </tbody>
-            </table>
-
-            <p><strong>Pesos Calculados</strong></p>
-            <table class="data-table">
-                <thead><tr><th>Critério</th><th>Peso</th></tr></thead>
-                <tbody>
-                    <tr><td>Conectividade</td><td>0,283</td></tr>
-                    <tr><td>Tempo</td><td>0,643</td></tr>
-                    <tr><td>Restrições</td><td>0,074</td></tr>
-                </tbody>
-            </table>
-            <div class="highlight">Consistência: CR = 0,056 (Aceitável)</div>
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="card" data-aos="fade-up">
-            <h3>4. Cálculo do Score</h3>
-            <p>Score = (C × 0,283) + (T × 0,643) + (R × 0,074)</p>
-            <table class="data-table">
-                <thead><tr><th>Alt</th><th>Cálculo</th><th>Score</th></tr></thead>
-                <tbody>
-                    <tr><td>A — Rodoviária</td><td>(1×0,283) + (0,469×0,643) + (0,333×0,074)</td><td>0,609</td></tr>
-                    <tr><td>B — Complexo 21</td><td>(0,5×0,283) + (0,517×0,643) + (0,333×0,074)</td><td>0,498</td></tr>
-                    <tr class="winner"><td>C — Sobradinho</td><td>(0,75×0,283) + (1×0,643) + (1×0,074)</td><td>0,929</td></tr>
-                    <tr class="winner"><td>D — Ceilândia</td><td>(0,625×0,283) + (0,853×0,643) + (0,5×0,074)</td><td>0,762</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- CARD 5 -->
-        <div class="card" data-aos="fade-up">
-            <h3>5. Ranking Final</h3>
-            <table class="data-table">
-                <thead><tr><th>Posição</th><th>Alternativa</th><th>Score</th></tr></thead>
-                <tbody>
-                    <tr class="winner"><td>1º</td><td>C — Sobradinho</td><td>0,929</td></tr>
-                    <tr class="winner"><td>2º</td><td>D — Ceilândia</td><td>0,762</td></tr>
-                    <tr><td>3º</td><td>A — Rodoviária</td><td>0,609</td></tr>
-                    <tr><td>4º</td><td>B — Complexo 21</td><td>0,498</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- CARD 6 -->
-        <div class="card" data-aos="fade-up">
-            <h3>6. Análise de Sensibilidade</h3>
-
-            <p><strong>Sensibilidade Marginal</strong></p>
-            <table class="data-table">
-                <thead><tr><th>Alt</th><th>dScore/dC</th><th>dScore/dT</th><th>dScore/dR</th></tr></thead>
-                <tbody>
-                    <tr><td>A — Rodoviária</td><td>1,000</td><td>0,469</td><td>0,333</td></tr>
-                    <tr><td>B — Complexo 21</td><td>0,500</td><td>0,517</td><td>0,333</td></tr>
-                    <tr class="winner"><td>C — Sobradinho</td><td>0,750</td><td>1,000</td><td>1,000</td></tr>
-                    <tr><td>D — Ceilândia</td><td>0,625</td><td>0,853</td><td>0,500</td></tr>
-                </tbody>
-            </table>
-
-            <p><strong>Impacto de +1% no Peso do Tempo</strong></p>
-            <table class="data-table">
-                <thead><tr><th>Alt</th><th>ΔScore</th></tr></thead>
-                <tbody>
-                    <tr><td>A — Rodoviária</td><td>+0,0047</td></tr>
-                    <tr><td>B — Complexo 21</td><td>+0,0052</td></tr>
-                    <tr class="winner"><td>C — Sobradinho</td><td>+0,0100</td></tr>
-                    <tr><td>D — Ceilândia</td><td>+0,0085</td></tr>
-                </tbody>
-            </table>
-            <div class="highlight">A alternativa C é a mais sensível ao critério tempo, o que explica sua robustez no ranking.</div>
-        </div>
-
-        <!-- CARD 7 -->
-        <div class="card" data-aos="fade-up">
-            <h3>7. Conclusão</h3>
-            <p>A alternativa C (Sobradinho) apresenta desempenho superior em todos os cenários analisados, com alta robustez devido à dominância nos critérios de tempo e restrições.</p>
-            <p>O trade-off principal do modelo ocorre entre as alternativas A (conectividade) e D (tempo), evidenciando o impacto estratégico da definição de pesos.</p>
-        </div>
-
-    </section>
-
 </main>
 
 <!-- CTA FINAL -->
-<section class="cta-final" style="background: url('img/foto_brasilia_2.jpg') center/cover no-repeat;">
-    <div class="cta-overlay">
-        <h2 data-aos="fade-up">Brasília como laboratório da UAM</h2>
-        <p data-aos="fade-up" data-aos-delay="200">Cidade planejada ideal para testar mobilidade aérea urbana</p>
+<section class="cta-dark">
+    <div class="cta-dark-bg" style="background-image: url('img/foto_brasilia_2.jpg');"></div>
+    <div class="cta-dark-overlay"></div>
+    <div class="cta-dark-content" data-aos="fade-up">
+        <h2>Brasília como laboratório da UAM</h2>
+        <p>Cidade planejada ideal para testar mobilidade aérea urbana.</p>
+        <a href="selecao_cidade.html" class="btn-hero-primary">Ver Seleção de Cidade</a>
     </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-    <p data-aos="fade-up">© 2026 Urban Air Mobility Project • Todos os direitos reservados</p>
+<footer class="footer-dark">
+    <div class="footer-dark-inner">
+        <span class="footer-logo">UAM Study</span>
+        <span class="footer-copy">© 2026 Urban Air Mobility Project • Todos os direitos reservados</span>
+    </div>
 </footer>
 
-<!-- SCRIPTS -->
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 800, once: true });
+    AOS.init({ duration: 900, once: true, offset: 60 });
+
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // AHP Interativo
+    const ahpData = {
+        'A — Rodoviária':  { c: 1.000, t: 0.469, r: 0.333 },
+        'B — Complexo 21': { c: 0.500, t: 0.517, r: 0.333 },
+        'C — Sobradinho':  { c: 0.750, t: 1.000, r: 1.000 },
+        'D — Ceilândia':   { c: 0.625, t: 0.853, r: 0.500 }
+    };
+
+    function calcular() {
+        const wC = parseFloat(document.getElementById('wC').value);
+        const wT = parseFloat(document.getElementById('wT').value);
+        const wR = parseFloat(document.getElementById('wR').value);
+        const soma = wC + wT + wR;
+
+        document.getElementById('wc').textContent = wC.toFixed(2).replace('.', ',');
+        document.getElementById('wt').textContent = wT.toFixed(2).replace('.', ',');
+        document.getElementById('wr').textContent = wR.toFixed(2).replace('.', ',');
+        document.getElementById('sum').textContent = soma.toFixed(2).replace('.', ',');
+
+        const resultados = Object.entries(ahpData).map(([alt, v]) => ({
+            alt,
+            score: v.c * wC + v.t * wT + v.r * wR
+        })).sort((a, b) => b.score - a.score);
+
+        const tabela = document.getElementById('tabela');
+        tabela.innerHTML = '<thead><tr><th>Alternativa</th><th>Score</th></tr></thead>';
+        resultados.forEach((r, i) => {
+            const cls = i < 2 ? 'row-winner' : '';
+            tabela.innerHTML += `<tr class="${cls}"><td>${r.alt}</td><td>${r.score.toFixed(3).replace('.', ',')}</td></tr>`;
+        });
+    }
+
+    document.querySelectorAll('#wC, #wT, #wR').forEach(el => {
+        el.addEventListener('input', calcular);
+    });
+
+    calcular();
 </script>
 
 </body>

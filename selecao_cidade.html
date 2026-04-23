@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análises - Projeto UAM</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Seleção da Cidade — UAM Study</title>
 
-    <link rel="stylesheet" href="css/selecao_cidade.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
-    <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <!-- Page-specific styles -->
+    <link href="css/selecao_cidade.css" rel="stylesheet" />
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -18,14 +24,11 @@
 <body>
 
 <!-- NAVBAR -->
-<nav class="main-navbar">
+<nav class="main-navbar" id="mainNav">
     <div class="main-navbar-inner">
-
         <a href="index.html" class="main-navbar-logo">UAM Study</a>
-
         <div class="main-navbar-menu">
-            <a href="index.html" class="main-nav-link active">Home</a>
-
+            <a href="index.html" class="main-nav-link">Home</a>
             <div class="dropdown">
                 <span class="main-nav-link">Revisão ▾</span>
                 <div class="submenu">
@@ -35,9 +38,8 @@
                     <a href="exercicio.html">Exercício Técnico Estruturado</a>
                 </div>
             </div>
-
             <div class="dropdown">
-                <span class="main-nav-link">Análises ▾</span>
+                <span class="main-nav-link active">Análises ▾</span>
                 <div class="submenu">
                     <a href="selecao_cidade.html">Seleção de Cidade</a>
                     <a href="caracterizacao_brasilia.html">Caracterização de Brasília</a>
@@ -45,187 +47,211 @@
                 </div>
             </div>
         </div>
-
     </div>
 </nav>
 
 <!-- HERO -->
-<header class="hero">
-    <div class="hero-content">
+<header class="page-hero" style="background-image: url('img/foto_brasilia_2.jpg');">
+    <div class="hero-dark-overlay"></div>
+    <div class="page-hero-content" data-aos="fade-up">
+        <p class="hero-eyebrow">Análises</p>
         <h1>Seleção da Cidade</h1>
-        <p>Resultados preliminares sobre o potencial de implantação da Urban Air Mobility</p>
+        <p class="hero-sub">Resultados preliminares sobre o potencial de implantação da Urban Air Mobility</p>
     </div>
 </header>
 
 <!-- MAIN -->
-<main class="container">
+<main class="fund-main">
+    <section class="fund-section fund-light">
+        <div class="fund-inner">
 
-    <section class="section" data-aos="fade-up">
-        <p>
-            Esta seção apresenta os resultados preliminares das análises realizadas no âmbito do estudo sobre o potencial de implantação de sistemas de <strong>Urban Air Mobility (UAM)</strong>.
-        </p>
-    </section>
+            <!-- Intro -->
+            <div class="ex-block" data-aos="fade-up">
+                <p>
+                    Esta seção apresenta os resultados preliminares das análises realizadas no âmbito do estudo sobre o potencial de implantação de sistemas de <strong>Urban Air Mobility (UAM)</strong>.
+                </p>
+            </div>
 
-    <!-- SELEÇÃO DA CIDADE -->
-    <section class="section" data-aos="fade-up">
-        <h2 id="cidade">Seleção da cidade</h2>
-        <p>
-            A metodologia deste estudo iniciou-se com uma investigação sobre possíveis abordagens para estimativa de demanda para <strong>Urban Air Mobility (UAM)</strong>. A literatura indica que variáveis como densidade populacional, atividade econômica, geração de viagens e concentração de polos urbanos são fatores relevantes para estimar o potencial de demanda desse tipo de serviço.
-        </p>
-        <p>
-            Durante a revisão bibliográfica foi identificado que muitos desses fatores também estão diretamente relacionados à demanda por operações de <strong>drones ou Unmanned Aircraft Systems (UAS)</strong>. Dessa forma, partiu-se da hipótese de que existe uma correlação entre a distribuição espacial de operações de drones e o potencial de demanda para serviços de mobilidade aérea urbana.
-        </p>
+            <!-- SELEÇÃO DA CIDADE -->
+            <div class="ex-block" data-aos="fade-up">
+                <div class="ex-num">01</div>
+                <h2 class="ex-heading">Seleção da cidade</h2>
 
-        <h3>Base de Dados Utilizada</h3>
-        <p>
-            Para investigar essa hipótese foi utilizada uma base de dados histórica de solicitações de voo de drones proveniente do sistema <strong>SARPAS</strong>, utilizado no Brasil para o registro e autorização de operações de aeronaves remotamente pilotadas.
-        </p>
-        <p>
-            A base analisada contém mais de <strong>800 mil solicitações de voo</strong> registradas entre os anos de <strong>2016 e 2022</strong>. Após esse período o sistema passou por alterações e os dados históricos deixaram de estar disponíveis publicamente.
-        </p>
+                <p>
+                    A metodologia deste estudo iniciou-se com uma investigação sobre possíveis abordagens para estimativa de demanda para <strong>Urban Air Mobility (UAM)</strong>. A literatura indica que variáveis como densidade populacional, atividade econômica, geração de viagens e concentração de polos urbanos são fatores relevantes para estimar o potencial de demanda desse tipo de serviço.
+                </p>
+                <p>
+                    Durante a revisão bibliográfica foi identificado que muitos desses fatores também estão diretamente relacionados à demanda por operações de <strong>drones ou Unmanned Aircraft Systems (UAS)</strong>. Dessa forma, partiu-se da hipótese de que existe uma correlação entre a distribuição espacial de operações de drones e o potencial de demanda para serviços de mobilidade aérea urbana.
+                </p>
 
-        <h3>Processamento dos Dados</h3>
-        <p>
-            A base de dados utilizada contém, entre outros atributos, as coordenadas geográficas (<em>latitude e longitude</em>) associadas às solicitações de voo. Esses dados foram processados utilizando o software de geoprocessamento <strong>QGIS</strong>, permitindo a realização de análises espaciais sobre a camada geográfica de municípios brasileiros.
-        </p>
-        <p>
-            A partir desse processamento foi possível avaliar a distribuição espacial das operações de drones no território nacional, identificando padrões de concentração que podem indicar regiões com maior potencial para desenvolvimento futuro de serviços de <strong>Urban Air Mobility</strong>.
-        </p>
+                <h3 class="ex-subheading">Base de Dados Utilizada</h3>
+                <p>
+                    Para investigar essa hipótese foi utilizada uma base de dados histórica de solicitações de voo de drones proveniente do sistema <strong>SARPAS</strong>, utilizado no Brasil para o registro e autorização de operações de aeronaves remotamente pilotadas.
+                </p>
+                <p>
+                    A base analisada contém mais de <strong>800 mil solicitações de voo</strong> registradas entre os anos de <strong>2016 e 2022</strong>. Após esse período o sistema passou por alterações e os dados históricos deixaram de estar disponíveis publicamente.
+                </p>
 
-        <h3>Visualização dos Resultados</h3>
-        <p>
-            Os resultados preliminares dessa análise são apresentados no dashboard interativo a seguir, desenvolvido na plataforma <strong>Power BI</strong>. A visualização permite explorar a distribuição das solicitações de voo de drones e sua relação com diferentes regiões do país.
-        </p>
+                <h3 class="ex-subheading">Processamento dos Dados</h3>
+                <p>
+                    A base de dados utilizada contém, entre outros atributos, as coordenadas geográficas (<em>latitude e longitude</em>) associadas às solicitações de voo. Esses dados foram processados utilizando o software de geoprocessamento <strong>QGIS</strong>, permitindo a realização de análises espaciais sobre a camada geográfica de municípios brasileiros.
+                </p>
+                <p>
+                    A partir desse processamento foi possível avaliar a distribuição espacial das operações de drones no território nacional, identificando padrões de concentração que podem indicar regiões com maior potencial para desenvolvimento futuro de serviços de <strong>Urban Air Mobility</strong>.
+                </p>
 
-        <div class="iframe-wrapper" data-aos="fade-up">
-            <iframe
-                title="UAM - Análise de solicitações de voo de drones"
-                width="100%"
-                height="500"
-                src="https://app.powerbi.com/view?r=eyJrIjoiMGIyYTc0YTMtNmU4OC00NmNmLWFkYzgtNjllNDdhM2Y0ZjY2IiwidCI6IjI2MjI4ZGNhLTcwZDMtNDkxNy04MjMzLTA4M2FjMzY1NWE5MSJ9"
-                frameborder="0"
-                allowFullScreen="true">
-            </iframe>
+                <h3 class="ex-subheading">Visualização dos Resultados</h3>
+                <p>
+                    Os resultados preliminares dessa análise são apresentados no dashboard interativo a seguir, desenvolvido na plataforma <strong>Power BI</strong>. A visualização permite explorar a distribuição das solicitações de voo de drones e sua relação com diferentes regiões do país.
+                </p>
+
+                <div class="iframe-wrapper" data-aos="fade-up">
+                    <iframe
+                        title="UAM - Análise de solicitações de voo de drones"
+                        width="100%"
+                        height="500"
+                        src="https://app.powerbi.com/view?r=eyJrIjoiMGIyYTc0YTMtNmU4OC00NmNmLWFkYzgtNjllNDdhM2Y0ZjY2IiwidCI6IjI2MjI4ZGNhLTcwZDMtNDkxNy04MjMzLTA4M2FjMzY1NWE5MSJ9"
+                        frameborder="0"
+                        allowFullScreen="true">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- BRASÍLIA -->
+            <div class="ex-block" data-aos="fade-up">
+                <div class="ex-num">02</div>
+                <h2 class="ex-heading">Estudo Preliminar de Brasília como Sítio para Vertiporto</h2>
+
+                <p>
+                    Brasília pode ser considerada um caso preliminar promissor para implantação de um vertiporto voltado à mobilidade aérea avançada de passageiros, desde que a análise seja conduzida por uma <strong>abordagem multicritério</strong>. Em vez de justificar a escolha apenas pela proximidade física entre pontos estratégicos, o mais adequado é considerar simultaneamente fatores como centralidade urbana, relevância institucional, acessibilidade, sensibilidade do espaço aéreo, potencial de economia de tempo e possibilidade futura de integração com a infraestrutura aeroportuária e urbana existente (ANAC, 2022; MERCAN et al., 2025).
+                </p>
+                <p>
+                    No contexto desta pesquisa, propõe-se uma <strong>rede inicial com três pontos</strong>: o Aeroporto Internacional de Brasília, como ponto obrigatório de conexão; um segundo ponto em área próxima ao centro governamental, preferencialmente fora da região mais sensível da Esplanada dos Ministérios; e um terceiro ponto em área central de uso cotidiano, com vocação comercial e intermodal. Essa lógica permite estruturar uma rede com função aeroportuária, institucional e urbana, aproximando-se dos critérios de localização de vertiportos discutidos na literatura recente (MERCAN et al., 2025; RIBEIRO et al., 2023).
+                </p>
+                <p>
+                    A justificativa de demanda, nesta etapa, deve ser tratada como <strong>demanda potencial</strong> e não como demanda comprovada. Para um serviço eVTOL de passageiros, a literatura mostra que a atratividade inicial tende a se concentrar em usuários com maior sensibilidade ao tempo, maior disposição a pagar e necessidade de deslocamentos previsíveis. Assim, para Brasília, a hipótese mais consistente é a de uso inicial por perfis ligados a compromissos institucionais, atividades corporativas e conexões aeroportuárias, e não por mobilidade massificada desde o início (ASMER et al., 2025).
+                </p>
+                <p>
+                    Por outro lado, a escolha de Brasília também apresenta limitações importantes, principalmente relacionadas às <strong>restrições do espaço aéreo</strong> em áreas sensíveis. A ICA 100-40 estabelece cuidados especiais em áreas de segurança e inclui entre seus exemplos as sedes de governos, além de prever a necessidade de observância de Flight Restriction Zones (FRZ) e de outros condicionamentos operacionais. O eAIP Brasil define formalmente os espaços aéreos condicionados, como áreas proibidas, restritas e perigosas, que devem ser considerados no planejamento operacional (DECEA, 2023; DECEA, 2026a).
+                </p>
+                <p>
+                    Esse ponto é particularmente relevante para Brasília, pois a proximidade com áreas governamentais estratégicas representa, ao mesmo tempo, uma vantagem de mercado e uma restrição técnica. Em termos de decisão locacional, isso sugere que a proposta de vertiporto não deve priorizar a implantação direta sobre a Esplanada dos Ministérios, mas sim áreas próximas com menor conflito potencial com exigências de segurança e gestão do espaço aéreo.
+                </p>
+            </div>
+
+            <!-- DEMANDA -->
+            <div class="ex-block" data-aos="fade-up">
+                <div class="ex-num">03</div>
+                <h2 class="ex-heading">Justificativa de Demanda e Seleção do Estudo de Caso</h2>
+
+                <p>
+                    A escolha de Brasília como estudo de caso para análise preliminar de mobilidade aérea urbana (UAM) pode ser sustentada por um conjunto de indicadores socioeconômicos, urbanos e de mobilidade. Esses indicadores permitem justificar a existência de uma <strong>demanda potencial</strong> para serviços de transporte aéreo urbano baseados em eVTOL, especialmente em um contexto inicial de adoção voltado a usuários com maior sensibilidade ao tempo e maior capacidade de pagamento.
+                </p>
+                <p>
+                    O quadro a seguir apresenta um resumo dos principais indicadores utilizados para sustentar essa hipótese de demanda potencial.
+                </p>
+
+                <h3 class="ex-subheading">Quadro – Indicadores para Justificativa de Demanda Potencial</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Indicador</th>
+                            <th>Variável analisada</th>
+                            <th>Valor</th>
+                            <th>Justificativa para UAM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hub aeroportuário</td>
+                            <td>Passageiros em conexão no Aeroporto de Brasília</td>
+                            <td>Mais de 40%</td>
+                            <td>Indica massa relevante de usuários que já passam pelo aeroporto e podem demandar conexão rápida com a cidade.</td>
+                        </tr>
+                        <tr>
+                            <td>Capacidade de pagamento</td>
+                            <td>PIB per capita de Brasília</td>
+                            <td>R$ 129.790,44</td>
+                            <td>Sustenta a hipótese de adoção inicial de um serviço premium, como eVTOL de passageiros.</td>
+                        </tr>
+                        <tr>
+                            <td>Desenvolvimento urbano</td>
+                            <td>IDHM de Brasília</td>
+                            <td>0,824</td>
+                            <td>Reforça o perfil socioeconômico compatível com serviços de maior valor agregado.</td>
+                        </tr>
+                        <tr>
+                            <td>Base potencial de usuários</td>
+                            <td>População estimada do Distrito Federal</td>
+                            <td>2.996.899 habitantes</td>
+                            <td>Indica massa urbana suficiente para estudo de demanda potencial.</td>
+                        </tr>
+                        <tr>
+                            <td>Valor do tempo</td>
+                            <td>Congestionamento médio em Brasília (2025)</td>
+                            <td>34,4%</td>
+                            <td>Ajuda a justificar o eVTOL como alternativa para reduzir incerteza e atraso em deslocamentos estratégicos.</td>
+                        </tr>
+                        <tr>
+                            <td>Perda de tempo no trânsito</td>
+                            <td>Horas perdidas por ano</td>
+                            <td>58 h/ano</td>
+                            <td>Reforça a relevância de um modo de transporte com maior previsibilidade temporal.</td>
+                        </tr>
+                        <tr>
+                            <td>Massa crítica em rota mais longa</td>
+                            <td>População urbana de Taguatinga</td>
+                            <td>210.498 habitantes</td>
+                            <td>Sugere um polo urbano mais distante e populoso, potencialmente adequado para cenários alternativos de rede.</td>
+                        </tr>
+                        <tr>
+                            <td>Massa crítica em rota mais longa</td>
+                            <td>População urbana de Ceilândia</td>
+                            <td>350.347 habitantes</td>
+                            <td>Indica polo de alta densidade populacional, útil para testar cenários de demanda mais robustos.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    A análise desses indicadores sugere que Brasília reúne características relevantes para exploração de cenários de mobilidade aérea urbana, especialmente considerando seu perfil institucional, nível de renda elevado e concentração de deslocamentos relacionados a atividades governamentais e corporativas.
+                </p>
+            </div>
+
         </div>
     </section>
-
-    <!-- BRASÍLIA -->
-    <section class="section" data-aos="fade-up">
-        <h2 id="brasilia">Estudo Preliminar de Brasília como Sítio para Vertiporto</h2>
-        <p>
-            Brasília pode ser considerada um caso preliminar promissor para implantação de um vertiporto voltado à mobilidade aérea avançada de passageiros, desde que a análise seja conduzida por uma <strong>abordagem multicritério</strong>. Em vez de justificar a escolha apenas pela proximidade física entre pontos estratégicos, o mais adequado é considerar simultaneamente fatores como centralidade urbana, relevância institucional, acessibilidade, sensibilidade do espaço aéreo, potencial de economia de tempo e possibilidade futura de integração com a infraestrutura aeroportuária e urbana existente (ANAC, 2022; MERCAN et al., 2025).
-        </p>
-        <p>
-            No contexto desta pesquisa, propõe-se uma <strong>rede inicial com três pontos</strong>: o Aeroporto Internacional de Brasília, como ponto obrigatório de conexão; um segundo ponto em área próxima ao centro governamental, preferencialmente fora da região mais sensível da Esplanada dos Ministérios; e um terceiro ponto em área central de uso cotidiano, com vocação comercial e intermodal. Essa lógica permite estruturar uma rede com função aeroportuária, institucional e urbana, aproximando-se dos critérios de localização de vertiportos discutidos na literatura recente (MERCAN et al., 2025; RIBEIRO et al., 2023).
-        </p>
-        <p>
-            A justificativa de demanda, nesta etapa, deve ser tratada como <strong>demanda potencial</strong> e não como demanda comprovada. Para um serviço eVTOL de passageiros, a literatura mostra que a atratividade inicial tende a se concentrar em usuários com maior sensibilidade ao tempo, maior disposição a pagar e necessidade de deslocamentos previsíveis. Assim, para Brasília, a hipótese mais consistente é a de uso inicial por perfis ligados a compromissos institucionais, atividades corporativas e conexões aeroportuárias, e não por mobilidade massificada desde o início (ASMER et al., 2025).
-        </p>
-        <p>
-            Por outro lado, a escolha de Brasília também apresenta limitações importantes, principalmente relacionadas às <strong>restrições do espaço aéreo</strong> em áreas sensíveis. A ICA 100-40 estabelece cuidados especiais em áreas de segurança e inclui entre seus exemplos as sedes de governos, além de prever a necessidade de observância de Flight Restriction Zones (FRZ) e de outros condicionamentos operacionais. O eAIP Brasil define formalmente os espaços aéreos condicionados, como áreas proibidas, restritas e perigosas, que devem ser considerados no planejamento operacional (DECEA, 2023; DECEA, 2026a).
-        </p>
-        <p>
-            Esse ponto é particularmente relevante para Brasília, pois a proximidade com áreas governamentais estratégicas representa, ao mesmo tempo, uma vantagem de mercado e uma restrição técnica. Em termos de decisão locacional, isso sugere que a proposta de vertiporto não deve priorizar a implantação direta sobre a Esplanada dos Ministérios, mas sim áreas próximas com menor conflito potencial com exigências de segurança e gestão do espaço aéreo.
-        </p>
-    </section>
-
-    <!-- DEMANDA -->
-    <section class="section" data-aos="fade-up">
-        <h2 id="pressupostos">Justificativa de Demanda e Seleção do Estudo de Caso</h2>
-        <p>
-            A escolha de Brasília como estudo de caso para análise preliminar de mobilidade aérea urbana (UAM) pode ser sustentada por um conjunto de indicadores socioeconômicos, urbanos e de mobilidade. Esses indicadores permitem justificar a existência de uma <strong>demanda potencial</strong> para serviços de transporte aéreo urbano baseados em eVTOL, especialmente em um contexto inicial de adoção voltado a usuários com maior sensibilidade ao tempo e maior capacidade de pagamento.
-        </p>
-        <p>
-            O quadro a seguir apresenta um resumo dos principais indicadores utilizados para sustentar essa hipótese de demanda potencial.
-        </p>
-
-        <h3>Quadro – Indicadores para Justificativa de Demanda Potencial</h3>
-
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Indicador</th>
-                    <th>Variável analisada</th>
-                    <th>Valor</th>
-                    <th>Justificativa para UAM</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Hub aeroportuário</td>
-                    <td>Passageiros em conexão no Aeroporto de Brasília</td>
-                    <td>Mais de 40%</td>
-                    <td>Indica massa relevante de usuários que já passam pelo aeroporto e podem demandar conexão rápida com a cidade.</td>
-                </tr>
-                <tr>
-                    <td>Capacidade de pagamento</td>
-                    <td>PIB per capita de Brasília</td>
-                    <td>R$ 129.790,44</td>
-                    <td>Sustenta a hipótese de adoção inicial de um serviço premium, como eVTOL de passageiros.</td>
-                </tr>
-                <tr>
-                    <td>Desenvolvimento urbano</td>
-                    <td>IDHM de Brasília</td>
-                    <td>0,824</td>
-                    <td>Reforça o perfil socioeconômico compatível com serviços de maior valor agregado.</td>
-                </tr>
-                <tr>
-                    <td>Base potencial de usuários</td>
-                    <td>População estimada do Distrito Federal</td>
-                    <td>2.996.899 habitantes</td>
-                    <td>Indica massa urbana suficiente para estudo de demanda potencial.</td>
-                </tr>
-                <tr>
-                    <td>Valor do tempo</td>
-                    <td>Congestionamento médio em Brasília (2025)</td>
-                    <td>34,4%</td>
-                    <td>Ajuda a justificar o eVTOL como alternativa para reduzir incerteza e atraso em deslocamentos estratégicos.</td>
-                </tr>
-                <tr>
-                    <td>Perda de tempo no trânsito</td>
-                    <td>Horas perdidas por ano</td>
-                    <td>58 h/ano</td>
-                    <td>Reforça a relevância de um modo de transporte com maior previsibilidade temporal.</td>
-                </tr>
-                <tr>
-                    <td>Massa crítica em rota mais longa</td>
-                    <td>População urbana de Taguatinga</td>
-                    <td>210.498 habitantes</td>
-                    <td>Sugere um polo urbano mais distante e populoso, potencialmente adequado para cenários alternativos de rede.</td>
-                </tr>
-                <tr>
-                    <td>Massa crítica em rota mais longa</td>
-                    <td>População urbana de Ceilândia</td>
-                    <td>350.347 habitantes</td>
-                    <td>Indica polo de alta densidade populacional, útil para testar cenários de demanda mais robustos.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p>
-            A análise desses indicadores sugere que Brasília reúne características relevantes para exploração de cenários de mobilidade aérea urbana, especialmente considerando seu perfil institucional, nível de renda elevado e concentração de deslocamentos relacionados a atividades governamentais e corporativas.
-        </p>
-    </section>
-
 </main>
 
 <!-- CTA FINAL -->
-<section class="cta-final" style="background: url('img/foto_brasilia_2.jpg') center/cover no-repeat;">
-    <div class="cta-overlay">
-        <h2 data-aos="fade-up">Brasília como laboratório da UAM</h2>
-        <p data-aos="fade-up" data-aos-delay="200">Cidade planejada ideal para testar mobilidade aérea urbana</p>
+<section class="cta-dark">
+    <div class="cta-dark-bg" style="background-image: url('img/foto_brasilia_2.jpg');"></div>
+    <div class="cta-dark-overlay"></div>
+    <div class="cta-dark-content" data-aos="fade-up">
+        <h2>Brasília como laboratório da UAM</h2>
+        <p>Cidade planejada ideal para testar mobilidade aérea urbana.</p>
+        <a href="caracterizacao_brasilia.html" class="btn-hero-primary">Ver Caracterização de Brasília</a>
     </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-    <p data-aos="fade-up">© 2026 Urban Air Mobility Project • Todos os direitos reservados</p>
+<footer class="footer-dark">
+    <div class="footer-dark-inner">
+        <span class="footer-logo">UAM Study</span>
+        <span class="footer-copy">© 2026 Urban Air Mobility Project • Todos os direitos reservados</span>
+    </div>
 </footer>
 
-<!-- SCRIPTS -->
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 800, once: true });
+    AOS.init({ duration: 900, once: true, offset: 60 });
+
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
 </script>
 
 </body>

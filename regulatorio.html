@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Estrutura Regulatória e Planejamento</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Estrutura Regulatória e Planejamento — UAM Study</title>
 
-    <link rel="stylesheet" href="css/regulatorio.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
-    <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <!-- Page-specific styles -->
+    <link href="css/regulatorio.css" rel="stylesheet" />
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<nav class="main-navbar">
+<nav class="main-navbar" id="mainNav">
     <div class="main-navbar-inner">
-
         <a href="index.html" class="main-navbar-logo">UAM Study</a>
-
         <div class="main-navbar-menu">
-            <a href="index.html" class="main-nav-link active">Home</a>
-
+            <a href="index.html" class="main-nav-link">Home</a>
             <div class="dropdown">
-                <span class="main-nav-link">Revisão ▾</span>
+                <span class="main-nav-link active">Revisão ▾</span>
                 <div class="submenu">
                     <a href="fundamentacao.html">Fundamentação Teórica e Análise Crítica</a>
                     <a href="aplicacao.html">Aplicação Operacional e Infraestrutural</a>
@@ -35,7 +38,6 @@
                     <a href="exercicio.html">Exercício Técnico Estruturado</a>
                 </div>
             </div>
-
             <div class="dropdown">
                 <span class="main-nav-link">Análises ▾</span>
                 <div class="submenu">
@@ -45,86 +47,158 @@
                 </div>
             </div>
         </div>
-
     </div>
 </nav>
 
 <!-- HERO -->
-<header class="hero">
-    <div class="hero-content">
-        <h1>Estrutura Regulatória e Planejamento</h1>
-        <p>Regulamentação, riscos comunitários e o futuro da mobilidade aérea avançada</p>
+<header class="page-hero" style="background-image: url('img/imagem_regulatorio.jpg');">
+    <div class="hero-dark-overlay"></div>
+    <div class="page-hero-content" data-aos="fade-up">
+        <p class="hero-eyebrow">Revisão da Literatura</p>
+        <h1>Estrutura Regulatória<br>e Planejamento</h1>
+        <p class="hero-sub">Regulamentação, riscos comunitários e o futuro da mobilidade aérea avançada</p>
     </div>
 </header>
 
 <!-- MAIN -->
-<main class="container">
+<main class="fund-main">
 
-    <section class="section" data-aos="fade-up">
-        <h2>Como a regulamentação atual (FAA, EASA, ANAC) facilita ou limita a AAM?</h2>
-        <p>
-            A regulamentação destas agências tem desempenhado papel fundamental no desenvolvimento da UAM, através do trabalho conjunto com os fabricantes de aeronaves, visando acelerar a certificação destes veículos ao estabelecer novos requisitos de segurança, processos de certificação e testes em ambientes experimentais, com o objetivo de validar novos paradigmas de operação.
-        </p>
-        <p>
-            Atuam ainda no desenvolvimento de sistemas que possibilitem a integração destas aeronaves com as normas de espaço aéreo existentes. Entretanto, a regulamentação pode também limitar o avanço da UAM, dados os processos de certificação ainda complexos e demorados, assim como lacunas regulatórias relacionadas com os vertiportos e com as operações urbanas em baixa altitude.
-        </p>
-    </section>
+    <section class="fund-section fund-light" data-aos="fade-up">
+        <div class="fund-inner">
+            <div class="section-label">Revisão Regulatória</div>
+            <h2 class="fund-heading">Temas Regulatórios</h2>
+            <p class="fund-lead">Selecione um tema para expandir o conteúdo.</p>
 
-    <section class="section" data-aos="fade-up">
-        <h2>Quais riscos comunitários devem ser considerados no planejamento urbano?</h2>
-        <p>
-            Um dos principais riscos comunitários é o ruído aeronáutico — ainda que projetadas para serem mais silenciosas, o aumento da frequência de voos pode gerar incômodos significativos para moradores e instituições próximos a vertiportos e/ou rotas aéreas.
-        </p>
-        <p>
-            Outro aspecto importante é a segurança operacional — em áreas densamente povoadas, falhas técnicas, colisões ou emergências podem constituir riscos para pessoas e infraestruturas no solo. O planejamento urbano deve considerar rotas seguras, áreas de pouso de emergência, comunicações confiáveis e recursos avançados de controle de tráfego aéreo.
-        </p>
-        <div class="highlight">
-            Ruído aeronáutico e segurança operacional são os dois vetores centrais de risco comunitário na implantação da UAM.
-        </div>
-    </section>
+            <div class="acc-stack">
 
-    <section class="section" data-aos="fade-up">
-        <h2>Como equilibrar inovação tecnológica e segurança operacional?</h2>
-        <p>
-            É fundamental adotar processos rigorosos de testes e certificação antes da liberação e entrada de novas tecnologias em operação. Autoridades reguladoras — FAA, EASA e ANAC — elaboram novas bases de certificação (Special Conditions) para novas aeronaves e sistemas, assim como extensivos testes, para garantir que a inovação (geralmente motivada por economias, maiores níveis de serviço ou performance) não comprometa a confiabilidade das operações.
-        </p>
-        <p>
-            O equilíbrio entre inovação e segurança é alcançado por meio de regulamentação adequada, testes rigorosos, implementação gradual e colaboração estreita entre reguladores e fabricantes. Na aviação civil, a segurança operacional deve servir de fator de desempate vis-à-vis novas tecnologias, até que rigorosamente provadas.
-        </p>
-    </section>
+                <!-- Item 1 -->
+                <div class="acc-item">
+                    <button class="acc-trigger" aria-expanded="false">
+                        <span class="acc-num">01</span>
+                        <span class="acc-title">Como a regulamentação atual (FAA, EASA, ANAC) facilita ou limita a AAM?</span>
+                        <span class="acc-chevron">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </span>
+                    </button>
+                    <div class="acc-panel">
+                        <div class="acc-panel-inner">
+                            <p>A regulamentação destas agências tem desempenhado papel fundamental no desenvolvimento da UAM, através do trabalho conjunto com os fabricantes de aeronaves, visando acelerar a certificação destes veículos ao estabelecer novos requisitos de segurança, processos de certificação e testes em ambientes experimentais, com o objetivo de validar novos paradigmas de operação.</p>
+                            <p>Atuam ainda no desenvolvimento de sistemas que possibilitem a integração destas aeronaves com as normas de espaço aéreo existentes. Entretanto, a regulamentação pode também limitar o avanço da UAM, dados os processos de certificação ainda complexos e demorados, assim como lacunas regulatórias relacionadas com os vertiportos e com as operações urbanas em baixa altitude.</p>
+                        </div>
+                    </div>
+                </div>
 
-    <section class="section" data-aos="fade-up">
-        <h2>A AAM é solução para mobilidade rural ou permanece centrada em grandes centros?</h2>
-        <p>
-            A UAM/AAM é geralmente associada a grandes metrópoles porque o conceito veio da Uber Elevate, em 2016, principalmente para reduzir congestionamentos e gerar novas receitas, melhorando assim o transporte público em cidades densamente povoadas.
-        </p>
-        <p>
-            A AAM, conceito mais amplo originado na NASA e hoje adotado pela ICAO, preconiza o uso de drones e de aeronaves VTOL para transportar passageiros e carga nos âmbitos urbano, rural e regional (RAM), operando a partir de vertiportos e integrando-se a outros modais de transporte.
-        </p>
-        <div class="highlight">
-            Nota: Drones atualmente não têm normas ou previsão para transporte de passageiros.
+                <!-- Item 2 -->
+                <div class="acc-item">
+                    <button class="acc-trigger" aria-expanded="false">
+                        <span class="acc-num">02</span>
+                        <span class="acc-title">Quais riscos comunitários devem ser considerados no planejamento urbano?</span>
+                        <span class="acc-chevron">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </span>
+                    </button>
+                    <div class="acc-panel">
+                        <div class="acc-panel-inner">
+                            <p>Um dos principais riscos comunitários é o ruído aeronáutico — ainda que projetadas para serem mais silenciosas, o aumento da frequência de voos pode gerar incômodos significativos para moradores e instituições próximos a vertiportos e/ou rotas aéreas.</p>
+                            <p>Outro aspecto importante é a segurança operacional — em áreas densamente povoadas, falhas técnicas, colisões ou emergências podem constituir riscos para pessoas e infraestruturas no solo. O planejamento urbano deve considerar rotas seguras, áreas de pouso de emergência, comunicações confiáveis e recursos avançados de controle de tráfego aéreo.</p>
+                            <div class="acc-highlight">
+                                Ruído aeronáutico e segurança operacional são os dois vetores centrais de risco comunitário na implantação da UAM.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="acc-item">
+                    <button class="acc-trigger" aria-expanded="false">
+                        <span class="acc-num">03</span>
+                        <span class="acc-title">Como equilibrar inovação tecnológica e segurança operacional?</span>
+                        <span class="acc-chevron">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </span>
+                    </button>
+                    <div class="acc-panel">
+                        <div class="acc-panel-inner">
+                            <p>É fundamental adotar processos rigorosos de testes e certificação antes da liberação e entrada de novas tecnologias em operação. Autoridades reguladoras — FAA, EASA e ANAC — elaboram novas bases de certificação (Special Conditions) para novas aeronaves e sistemas, assim como extensivos testes, para garantir que a inovação (geralmente motivada por economias, maiores níveis de serviço ou performance) não comprometa a confiabilidade das operações.</p>
+                            <p>O equilíbrio entre inovação e segurança é alcançado por meio de regulamentação adequada, testes rigorosos, implementação gradual e colaboração estreita entre reguladores e fabricantes. Na aviação civil, a segurança operacional deve servir de fator de desempate vis-à-vis novas tecnologias, até que rigorosamente provadas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="acc-item">
+                    <button class="acc-trigger" aria-expanded="false">
+                        <span class="acc-num">04</span>
+                        <span class="acc-title">A AAM é solução para mobilidade rural ou permanece centrada em grandes centros?</span>
+                        <span class="acc-chevron">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </span>
+                    </button>
+                    <div class="acc-panel">
+                        <div class="acc-panel-inner">
+                            <p>A UAM/AAM é geralmente associada a grandes metrópoles porque o conceito veio da Uber Elevate, em 2016, principalmente para reduzir congestionamentos e gerar novas receitas, melhorando assim o transporte público em cidades densamente povoadas.</p>
+                            <p>A AAM, conceito mais amplo originado na NASA e hoje adotado pela ICAO, preconiza o uso de drones e de aeronaves VTOL para transportar passageiros e carga nos âmbitos urbano, rural e regional (RAM), operando a partir de vertiportos e integrando-se a outros modais de transporte.</p>
+                            <div class="acc-highlight">
+                                Nota: Drones atualmente não têm normas ou previsão para transporte de passageiros.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /acc-stack -->
         </div>
     </section>
 
 </main>
 
 <!-- CTA FINAL -->
-<section class="cta-final" style="background: url('img/imagem_regulatorio.jpg') center/cover no-repeat;">
-    <div class="cta-overlay">
-        <h2 data-aos="fade-up">Regulação como alicerce da AAM</h2>
-        <p data-aos="fade-up" data-aos-delay="200">Segurança, inovação e planejamento urbano integrados</p>
+<section class="cta-dark">
+    <div class="cta-dark-bg" style="background-image: url('img/imagem_regulatorio.jpg');"></div>
+    <div class="cta-dark-overlay"></div>
+    <div class="cta-dark-content" data-aos="fade-up">
+        <h2>Regulação como alicerce da AAM</h2>
+        <p>Segurança, inovação e planejamento urbano integrados.</p>
+        <a href="exercicio.html" class="btn-hero-primary">Ver Exercício Técnico</a>
     </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-    <p data-aos="fade-up">© 2026 Urban Air Mobility Project • Todos os direitos reservados</p>
+<footer class="footer-dark">
+    <div class="footer-dark-inner">
+        <span class="footer-logo">UAM Study</span>
+        <span class="footer-copy">© 2026 Urban Air Mobility Project • Todos os direitos reservados</span>
+    </div>
 </footer>
 
-<!-- SCRIPTS -->
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 800, once: true });
+    AOS.init({ duration: 900, once: true, offset: 60 });
+
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Accordion — múltiplos abertos simultaneamente
+    document.querySelectorAll('.acc-trigger').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item   = btn.closest('.acc-item');
+            const panel  = item.querySelector('.acc-panel');
+            const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+            if (isOpen) {
+                btn.setAttribute('aria-expanded', 'false');
+                panel.style.maxHeight = null;
+                item.classList.remove('is-open');
+            } else {
+                btn.setAttribute('aria-expanded', 'true');
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+                item.classList.add('is-open');
+            }
+        });
+    });
 </script>
 
 </body>

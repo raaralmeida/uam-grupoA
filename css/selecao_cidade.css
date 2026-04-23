@@ -1,245 +1,120 @@
-/* =========================
-   RESET
-========================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ============================================================
+   selecao_cidade.css — UAM Study
+   Estilos específicos da página de Seleção de Cidade.
+   Depende de styles.css para: .main-navbar, .hero-dark-overlay,
+   .cta-dark, .footer-dark, .btn-hero-primary, .section-label,
+   .hero-eyebrow, .hero-sub
+   ============================================================ */
 
 /* =========================
-   BASE
+   HERO DA PÁGINA
 ========================= */
-body {
-    font-family: 'Inter', Arial, sans-serif;
-    background-color: #f8fafc;
-    color: #1e293b;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* =========================
-   NAVBAR
-========================= */
-.main-navbar {
-    background: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
-    font-family: 'Lato', sans-serif;
-}
-
-.main-navbar-inner {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 24px;
-    height: 64px;
-}
-
-.main-navbar-logo {
-    font-weight: 700;
-    font-size: 20px;
-    color: #0f172a;
-    text-decoration: none;
-    letter-spacing: -0.3px;
-    transition: color 0.2s ease;
-}
-
-.main-navbar-logo:hover {
-    color: #2563eb;
-}
-
-.main-navbar-menu {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.main-nav-link {
-    text-decoration: none;
-    color: #475569;
-    font-weight: 500;
-    font-size: 15px;
-    padding: 8px 14px;
-    border-radius: 6px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
-    white-space: nowrap;
-}
-
-.main-nav-link:hover {
-    background-color: #f1f5f9;
-    color: #0f172a;
-}
-
-.main-nav-link.active {
-    color: #2563eb;
-    background-color: #eff6ff;
-    font-weight: 600;
-}
-
-/* =========================
-   DROPDOWN
-========================= */
-.dropdown {
+.page-hero {
     position: relative;
-}
-
-.dropdown .submenu {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
-    border-radius: 10px;
-    min-width: 320px;
+    min-height: 70vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 8rem;
+    background-size: cover;
+    background-position: center;
     overflow: hidden;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(6px);
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
 }
 
-.dropdown .submenu a {
-    display: block;
-    padding: 12px 18px;
-    text-decoration: none;
-    color: #475569;
-    font-size: 14px;
-    font-weight: 500;
-    border-bottom: 1px solid #f1f5f9;
-    transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+.page-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
 }
 
-.dropdown .submenu a:last-child {
+.page-hero-content h1 {
+    font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+/* =========================
+   LAYOUT GERAL
+========================= */
+.fund-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.fund-section {
+    padding: 8rem 0;
+}
+
+.fund-light { background: #f8fafc; }
+
+.fund-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* =========================
+   BLOCOS DE SEÇÃO
+========================= */
+.ex-block {
+    margin-bottom: 72px;
+    padding-bottom: 72px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.ex-block:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
     border-bottom: none;
 }
 
-.dropdown .submenu a:hover {
-    background-color: #eff6ff;
-    color: #2563eb;
-    padding-left: 22px;
+.ex-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 12px;
 }
 
-.dropdown:hover .submenu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+.ex-heading {
+    font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    color: #0a0a0a;
+    margin-bottom: 24px;
 }
 
-/* =========================
-   HERO
-========================= */
-.hero {
-    position: relative;
-    height: 50vh;
-    background: url('../img/foto_brasilia_2.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-    color: white;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(15, 23, 42, 0.25),
-        rgba(30, 41, 59, 0.25)
-    );
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
-
-.hero h1 {
-    font-size: 44px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-}
-
-.hero p {
-    margin-top: 12px;
-    color: #e2e8f0;
-    font-size: 16px;
-}
-
-/* =========================
-   CONTAINER
-========================= */
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 70px 24px;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-.section {
-    margin-bottom: 60px;
-}
-
-.section h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    border-left: 5px solid #2563eb;
-    padding-left: 12px;
-    font-weight: 600;
+.ex-subheading {
+    font-size: 1rem;
+    font-weight: 700;
     color: #0f172a;
+    margin: 32px 0 12px;
+    letter-spacing: -0.1px;
 }
 
-.section h3 {
-    font-size: 18px;
-    font-weight: 600;
-    color: #0f172a;
-    margin: 28px 0 12px 0;
-}
-
-/* =========================
-   TEXT
-========================= */
-.section p {
+.ex-block p {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.8;
     margin-bottom: 16px;
-    color: #475569;
-    font-size: 16px;
-}
-
-.section ul {
-    margin-left: 22px;
-    margin-top: 10px;
-    color: #475569;
-}
-
-.section li {
-    margin-bottom: 10px;
-    padding-left: 4px;
 }
 
 /* =========================
-   IFRAME
+   IFRAME POWER BI
 ========================= */
 .iframe-wrapper {
-    margin: 30px 0 40px 0;
+    margin: 28px 0 8px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+    border: 1px solid #e2e8f0;
 }
 
 .iframe-wrapper iframe {
@@ -254,15 +129,15 @@ body {
 .data-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0 32px 0;
-    font-size: 15px;
+    margin: 16px 0 28px;
+    font-size: 14px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 
 .data-table thead tr {
-    background-color: #2563eb;
+    background-color: #0a0a0a;
     color: #ffffff;
     text-align: left;
 }
@@ -270,6 +145,7 @@ body {
 .data-table th {
     padding: 14px 18px;
     font-weight: 600;
+    font-size: 13px;
     letter-spacing: 0.3px;
 }
 
@@ -277,6 +153,8 @@ body {
     padding: 13px 18px;
     color: #475569;
     border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+    line-height: 1.6;
     vertical-align: top;
 }
 
@@ -289,95 +167,32 @@ body {
 }
 
 .data-table tbody tr:hover {
-    background-color: #eff6ff;
-    transition: background-color 0.2s ease;
-}
-
-/* =========================
-   CTA FINAL
-========================= */
-.cta-final {
-    position: relative;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.cta-final::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(15, 23, 42, 0.35),
-        rgba(30, 41, 59, 0.35)
-    );
-}
-
-.cta-overlay {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 20px;
-}
-
-.cta-overlay h2 {
-    color: #ffffff;
-    font-size: 32px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.cta-overlay p {
-    color: #e2e8f0;
-    font-size: 18px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* =========================
-   FOOTER
-========================= */
-footer {
-    background: #f8f9fa;
-    color: #64748b;
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
+    background-color: #f1f5f9;
+    transition: background-color 0.15s ease;
 }
 
 /* =========================
    RESPONSIVIDADE
 ========================= */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 32px;
+    .page-hero {
+        min-height: 60vh;
+        padding-bottom: 5rem;
     }
 
-    .container {
-        padding: 50px 18px;
+    .page-hero-content,
+    .fund-inner {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
-    .section h2 {
-        font-size: 24px;
+    .fund-section {
+        padding: 5rem 0;
     }
 
-    .main-navbar-menu {
-        gap: 2px;
-    }
-
-    .main-nav-link {
-        font-size: 14px;
-        padding: 8px 10px;
-    }
-
-    .dropdown .submenu {
-        min-width: 260px;
-    }
-
-    .cta-overlay h2 {
-        font-size: 24px;
+    .ex-block {
+        margin-bottom: 48px;
+        padding-bottom: 48px;
     }
 
     .data-table {

@@ -9,8 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Custom CSS -->
     <link href="css/styles.css" rel="stylesheet" />
@@ -22,7 +21,7 @@
 <body>
 
 <!-- NAVBAR -->
-<nav class="main-navbar">
+<nav class="main-navbar" id="mainNav">
     <div class="main-navbar-inner">
 
         <a href="index.html" class="main-navbar-logo">UAM Study</a>
@@ -53,125 +52,148 @@
     </div>
 </nav>
 
-<!-- MASTHEAD -->
-<header class="masthead">
-    <div class="container position-relative">
-        <div class="row justify-content-center">
-            <div class="col-xl-6">
-                <div class="text-center text-white" data-aos="fade-up">
-                    <h1 class="mb-5">Onde e como implementar o UAM de forma eficiente?</h1>
-                    <p class="lead mb-4">
-                        Uma estratégia inteligente para planejar a integração do UAM e definir localizações estratégicas.
-                    </p>
-                </div>
-            </div>
+<!-- HERO -->
+<header class="hero-dark" id="hero">
+    <!-- Camada 1: Imagem estática (aparece primeiro) -->
+    <div class="hero-bg-img" id="heroBgImg" style="background-image: url('img/foto_brasilia_2.jpg');"></div>
+
+    <!-- Camada 2: Vídeo YouTube (aparece depois com fade) -->
+    <div class="hero-bg-video" id="heroBgVideo">
+        <iframe
+            id="heroIframe"
+            src="https://www.youtube.com/embed/9nr3WFrRP4s?start=10&autoplay=1&mute=1&controls=0&loop=1&playlist=9nr3WFrRP4s&playsinline=1&rel=0&showinfo=0&modestbranding=1&enablejsapi=1"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="hero-dark-overlay"></div>
+
+    <div class="hero-dark-content" data-aos="fade-up">
+        <p class="hero-eyebrow">Urban Air Mobility — Brasil</p>
+        <h1>Onde e como implementar<br>o UAM de forma eficiente?</h1>
+        <p class="hero-sub">Uma estratégia inteligente para planejar a integração do UAM e definir localizações estratégicas.</p>
+        <div class="hero-actions">
+            <a href="selecao_cidade.html" class="btn-hero-primary">Explorar Análises</a>
+            <a href="caracterizacao_brasilia.html" class="btn-hero-outline">Sobre Brasília</a>
         </div>
     </div>
 </header>
 
-<!-- FEATURES ICONS -->
-<section class="features-icons bg-light text-center">
+<!-- O QUE FAZEMOS -->
+<section class="what-we-do">
     <div class="container">
-        <h2 class="mb-5" data-aos="fade-up">O desafio da mobilidade urbana</h2>
-        <p class="lead mb-4" data-aos="fade-up">O crescimento urbano gera deslocamentos mais complexos.</p>
+        <div class="section-label" data-aos="fade-up">O Desafio</div>
+        <h2 class="section-title" data-aos="fade-up">A mobilidade urbana<br>precisa evoluir</h2>
+        <p class="section-sub" data-aos="fade-up">O crescimento urbano gera deslocamentos mais complexos. Como atender a esses fluxos de forma mais eficiente?</p>
 
-        <div class="row">
+        <div class="row g-4 mt-4">
             <div class="col-lg-4" data-aos="fade-up">
-                <h3>Alta dependência do sistema viário</h3>
-                <p class="lead">Congestionamentos e aumento no tempo de viagem.</p>
+                <div class="challenge-card">
+                    <div class="challenge-number">01</div>
+                    <h3>Alta dependência do sistema viário</h3>
+                    <p>Congestionamentos e aumento no tempo de viagem afetam a produtividade e qualidade de vida.</p>
+                </div>
             </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
-                <h3>Fluxos concentrados</h3>
-                <p class="lead">Pressão sobre a infraestrutura existente.</p>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="challenge-card">
+                    <div class="challenge-number">02</div>
+                    <h3>Fluxos concentrados</h3>
+                    <p>Pressão crescente sobre a infraestrutura existente, com poucos corredores absorvendo toda a demanda.</p>
+                </div>
             </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                <h3>Longos tempos de deslocamento</h3>
-                <p class="lead">Impacto na produtividade e qualidade de vida.</p>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="challenge-card">
+                    <div class="challenge-number">03</div>
+                    <h3>Longos tempos de deslocamento</h3>
+                    <p>Impacto direto na produtividade e na qualidade de vida da população urbana.</p>
+                </div>
             </div>
-        </div>
-
-        <div class="mt-5" data-aos="fade-up">
-            <p class="lead">Como atender a esses deslocamentos de forma mais eficiente?</p>
         </div>
     </div>
 </section>
 
-<!-- SHOWCASE -->
-<section class="showcase">
-    <div class="container-fluid p-0">
+<!-- SHOWCASE ESCURO -->
+<section class="showcase-dark">
 
-        <!-- BLOCO 1 -->
-        <div class="row g-0">
-            <div class="col-lg-6 order-lg-2 text-white showcase-img"
-                 style="background-image: url('assets/img/data_uam.png')"
-                 data-aos="fade-up"></div>
-            <div class="col-lg-6 order-lg-1 my-auto showcase-text" data-aos="fade-up">
-                <h2>Estimar a demanda por UAM ainda é um desafio</h2>
-                <p class="lead mb-4">
-                    A definição depende de densidade populacional, atividade econômica e padrões de deslocamento.
-                </p>
-                <a href="selecao_cidade.html" class="showcase-btn">Ver Seleção de Cidade →</a>
-            </div>
+    <!-- BLOCO 1 -->
+    <div class="showcase-dark-block" data-aos="fade-up">
+        <div class="showcase-dark-img" style="background-image: url('assets/img/data_uam.png');"></div>
+        <div class="showcase-dark-text">
+            <div class="section-label light">Demanda</div>
+            <h2>Estimar a demanda por UAM ainda é um desafio</h2>
+            <p>A definição depende de densidade populacional, atividade econômica e padrões de deslocamento.</p>
+            <a href="selecao_cidade.html" class="btn-showcase">Ver Seleção de Cidade →</a>
         </div>
-
-        <!-- BLOCO 2 -->
-        <div class="row g-0">
-            <div class="col-lg-6 text-white showcase-img"
-                 style="background-image: url('assets/img/sarpas.jpeg')"
-                 data-aos="fade-up"></div>
-            <div class="col-lg-6 my-auto showcase-text" data-aos="fade-up">
-                <h2>Um indicador real já disponível: operações de drones</h2>
-                <p class="lead mb-4">
-                    A distribuição espacial dessas operações pode indicar demanda para UAM.
-                </p>
-                <a href="caracterizacao_brasilia.html" class="showcase-btn">Ver Caracterização de Brasília →</a>
-            </div>
-        </div>
-
-        <!-- BLOCO 3 -->
-        <div class="row g-0">
-            <div class="col-lg-6 order-lg-2 text-white showcase-img"
-                 style="background-image: url('assets/img/map_sarpas.png')"
-                 data-aos="fade-up"></div>
-            <div class="col-lg-6 order-lg-1 my-auto showcase-text" data-aos="fade-up">
-                <h2>Mais de 800 mil operações analisadas</h2>
-                <p class="lead mb-4">
-                    Identificação de padrões espaciais e regiões com maior concentração.
-                </p>
-                <a href="selecao_vertiporto.html" class="showcase-btn">Ver Seleção de Vertiporto →</a>
-            </div>
-        </div>
-
     </div>
+
+    <!-- BLOCO 2 -->
+    <div class="showcase-dark-block reverse" data-aos="fade-up">
+        <div class="showcase-dark-img" style="background-image: url('assets/img/sarpas.jpeg');"></div>
+        <div class="showcase-dark-text">
+            <div class="section-label light">Dados</div>
+            <h2>Um indicador real já disponível: operações de drones</h2>
+            <p>A distribuição espacial dessas operações pode indicar demanda para UAM no Brasil.</p>
+            <a href="caracterizacao_brasilia.html" class="btn-showcase">Ver Caracterização de Brasília →</a>
+        </div>
+    </div>
+
+    <!-- BLOCO 3 -->
+    <div class="showcase-dark-block" data-aos="fade-up">
+        <div class="showcase-dark-img" style="background-image: url('assets/img/map_sarpas.png');"></div>
+        <div class="showcase-dark-text">
+            <div class="section-label light">Análise</div>
+            <h2>Mais de 800 mil operações analisadas</h2>
+            <p>Identificação de padrões espaciais e regiões com maior concentração de demanda potencial.</p>
+            <a href="selecao_vertiporto.html" class="btn-showcase">Ver Seleção de Vertiporto →</a>
+        </div>
+    </div>
+
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials text-center bg-light">
+<!-- CIDADES -->
+<section class="cities-section">
     <div class="container">
-        <h2 class="mb-5" data-aos="fade-up">Cidades com maior potencial para UAM</h2>
-        <p class="lead mb-4" data-aos="fade-up">
-            A partir da análise das operações de drones, foi possível identificar um ranking.
-        </p>
-        <div class="row">
+        <div class="section-label" data-aos="fade-up">Ranking</div>
+        <h2 class="section-title" data-aos="fade-up">Cidades com maior potencial para UAM</h2>
+        <p class="section-sub" data-aos="fade-up">A partir da análise das operações de drones, foi possível identificar um ranking nacional.</p>
+
+        <div class="row g-4 mt-4">
             <div class="col-lg-4" data-aos="fade-up">
-                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounded-circle mb-3" src="assets/img/sp.jpg" alt="São Paulo" />
-                    <h5>1º Lugar - São Paulo-SP</h5>
-                    <p class="font-weight-light mb-0">Maior região metropolitana e elevado potencial, apesar da complexidade.</p>
+                <div class="city-card">
+                    <div class="city-card-img">
+                        <img src="assets/img/sp.jpg" alt="São Paulo">
+                        <div class="city-rank">01</div>
+                    </div>
+                    <div class="city-card-body">
+                        <h4>São Paulo — SP</h4>
+                        <p>Maior região metropolitana e elevado potencial, apesar da complexidade operacional.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
-                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounded-circle mb-3" src="assets/img/rj.jpg" alt="Rio de Janeiro" />
-                    <h5>2º Lugar - Rio de Janeiro-RJ</h5>
-                    <p class="font-weight-light mb-0">Forte demanda turística e urbana, com desafios operacionais.</p>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="city-card">
+                    <div class="city-card-img">
+                        <img src="assets/img/rj.jpg" alt="Rio de Janeiro">
+                        <div class="city-rank">02</div>
+                    </div>
+                    <div class="city-card-body">
+                        <h4>Rio de Janeiro — RJ</h4>
+                        <p>Forte demanda turística e urbana, com desafios operacionais únicos.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounded-circle mb-3" src="assets/img/brasilia.jpg" alt="Brasília" />
-                    <h5>3º Lugar - Brasília-DF</h5>
-                    <p class="font-weight-light mb-0">Alta concentração per capita e planejamento urbano favorável.</p>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="city-card">
+                    <div class="city-card-img">
+                        <img src="assets/img/brasilia.jpg" alt="Brasília">
+                        <div class="city-rank">03</div>
+                    </div>
+                    <div class="city-card-body">
+                        <h4>Brasília — DF</h4>
+                        <p>Alta concentração per capita e planejamento urbano favorável à implantação.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -181,11 +203,11 @@
 <!-- EQUIPE -->
 <section class="team-section">
     <div class="container">
-        <div class="team-header" data-aos="fade-up">
-            <h2>Equipe</h2>
-            <p>Pesquisadores dedicados ao estudo da mobilidade aérea urbana no Brasil</p>
-        </div>
-        <div class="row justify-content-center">
+        <div class="section-label" data-aos="fade-up">Equipe</div>
+        <h2 class="section-title" data-aos="fade-up">Grupo de Trabalho</h2>
+        <p class="section-sub" data-aos="fade-up">Pesquisadores dedicados ao estudo da mobilidade aérea urbana no Brasil</p>
+
+        <div class="row justify-content-center g-4 mt-2">
             <div class="col-lg-3 col-md-6" data-aos="fade-up">
                 <div class="team-card">
                     <div class="team-card-img">
@@ -215,7 +237,7 @@
                     </div>
                     <div class="team-card-body">
                         <h5>Eduardo</h5>
-                        <span class="team-card-role">Pesquisador</span>
+                        <span class="team-card-role">Orientador</span>
                     </div>
                 </div>
             </div>
@@ -234,33 +256,57 @@
     </div>
 </section>
 
-<!-- CALL TO ACTION -->
-<section class="call-to-action text-white text-center" id="signup">
-    <div class="container position-relative" data-aos="fade-up">
-        <div class="row justify-content-center">
-            <div class="col-xl-6">
-                <h2 class="mb-4">Pronto para explorar o potencial do UAM?</h2>
-                <p class="lead mb-4">
-                    Descubra como dados reais podem orientar decisões estratégicas de mobilidade aérea urbana.
-                </p>
-                <a href="#" class="btn btn-primary btn-lg">Saiba mais</a>
-            </div>
-        </div>
+<!-- CTA FINAL -->
+<section class="cta-dark">
+    <div class="cta-dark-bg" style="background-image: url('img/foto_brasilia_2.jpg');"></div>
+    <div class="cta-dark-overlay"></div>
+    <div class="cta-dark-content" data-aos="fade-up">
+        <h2>Pronto para explorar o potencial do UAM?</h2>
+        <p>Descubra como dados reais podem orientar decisões estratégicas de mobilidade aérea urbana.</p>
+        <a href="selecao_cidade.html" class="btn-hero-primary">Explorar Análises</a>
     </div>
 </section>
 
 <!-- FOOTER -->
-<footer style="text-align: center; padding: 20px; background: #f1f5f9;">
-    <p style="color: #475569; font-size: 14px;">
-        &copy; 2026 Urban Air Mobility Project • Todos os direitos reservados
-    </p>
+<footer class="footer-dark">
+    <div class="footer-dark-inner">
+        <span class="footer-logo">UAM Study</span>
+        <span class="footer-copy">© 2026 Urban Air Mobility Project • Todos os direitos reservados</span>
+    </div>
 </footer>
+
+<!-- Script de transição imagem → vídeo -->
+<script>
+    window.addEventListener('load', () => {
+        const bgImg   = document.getElementById('heroBgImg');
+        const bgVideo = document.getElementById('heroBgVideo');
+
+        // Após 2.5s mostra o vídeo com fade suave
+        setTimeout(() => {
+            bgVideo.classList.add('visible');
+            // Após a transição do vídeo ficar totalmente visível, some a imagem
+            setTimeout(() => {
+                bgImg.style.display = 'none';
+            }, 1200);
+        }, 2500);
+    });
+</script>
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 900, once: true, offset: 60 });
+
+    // Navbar scroll effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 60) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
 </script>
 
 </body>
