@@ -32,9 +32,7 @@
             <div class="dropdown">
                 <span class="main-nav-link">Revisão ▾</span>
                 <div class="submenu">
-                    <a href="fundamentacao.html">Fundamentação Teórica e Análise Crítica</a>
-                    <a href="aplicacao.html">Aplicação Operacional e Infraestrutural</a>
-                    <a href="regulatorio.html">Estrutura Regulatória e Planejamento</a>
+                    <a href="fundamentacao_teorica.html">Fundamentação Teórica e Análise Crítica</a>
                     <a href="exercicio.html">Exercício Técnico Estruturado</a>
                 </div>
             </div>
@@ -57,15 +55,11 @@
     <!-- Camada 1: Imagem estática (aparece primeiro) -->
     <div class="hero-bg-img" id="heroBgImg" style="background-image: url('img/foto_brasilia_2.jpg');"></div>
 
-    <!-- Camada 2: Vídeo YouTube (aparece depois com fade) -->
+    <!-- Camada 2: Vídeo local MP4 (aparece depois com fade) -->
     <div class="hero-bg-video" id="heroBgVideo">
-        <iframe
-            id="heroIframe"
-            src="https://www.youtube.com/embed/9nr3WFrRP4s?start=10&autoplay=1&mute=1&controls=0&loop=1&playlist=9nr3WFrRP4s&playsinline=1&rel=0&showinfo=0&modestbranding=1&enablejsapi=1"
-            frameborder="0"
-            allow="autoplay; fullscreen"
-            allowfullscreen>
-        </iframe>
+        <video id="heroVideo" autoplay muted loop playsinline preload="auto">
+            <source src="img/video_brasilia.mp4" type="video/mp4">
+        </video>
     </div>
 
     <div class="hero-dark-overlay"></div>
@@ -200,62 +194,6 @@
     </div>
 </section>
 
-<!-- EQUIPE -->
-<section class="team-section">
-    <div class="container">
-        <div class="section-label" data-aos="fade-up">Equipe</div>
-        <h2 class="section-title" data-aos="fade-up">Grupo de Trabalho</h2>
-        <p class="section-sub" data-aos="fade-up">Pesquisadores dedicados ao estudo da mobilidade aérea urbana no Brasil</p>
-
-        <div class="row justify-content-center g-4 mt-2">
-            <div class="col-lg-3 col-md-6" data-aos="fade-up">
-                <div class="team-card">
-                    <div class="team-card-img">
-                        <img src="img/rafael.png" alt="Rafael Almeida">
-                    </div>
-                    <div class="team-card-body">
-                        <h5>Rafael Almeida</h5>
-                        <span class="team-card-role">Pesquisador</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="team-card">
-                    <div class="team-card-img">
-                        <img src="img/caio.jpeg" alt="Caio Honorato">
-                    </div>
-                    <div class="team-card-body">
-                        <h5>Caio Honorato</h5>
-                        <span class="team-card-role">Pesquisador</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="team-card">
-                    <div class="team-card-img">
-                        <img src="img/eduardo.jpeg" alt="Eduardo">
-                    </div>
-                    <div class="team-card-body">
-                        <h5>Eduardo</h5>
-                        <span class="team-card-role">Orientador</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="team-card">
-                    <div class="team-card-img">
-                        <img src="img/gian.jpeg" alt="Gianluca Furtado">
-                    </div>
-                    <div class="team-card-body">
-                        <h5>Gianluca Furtado</h5>
-                        <span class="team-card-role">Pesquisador</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- CTA FINAL -->
 <section class="cta-dark">
     <div class="cta-dark-bg" style="background-image: url('img/foto_brasilia_2.jpg');"></div>
@@ -275,16 +213,23 @@
     </div>
 </footer>
 
+
 <!-- Script de transição imagem → vídeo -->
 <script>
     window.addEventListener('load', () => {
         const bgImg   = document.getElementById('heroBgImg');
         const bgVideo = document.getElementById('heroBgVideo');
+        const video   = document.getElementById('heroVideo');
+
+        // Força o play (necessário em alguns browsers com autoplay policy)
+        const tryPlay = () => {
+            video.play().catch(() => {});
+        };
+        tryPlay();
 
         // Após 2.5s mostra o vídeo com fade suave
         setTimeout(() => {
             bgVideo.classList.add('visible');
-            // Após a transição do vídeo ficar totalmente visível, some a imagem
             setTimeout(() => {
                 bgImg.style.display = 'none';
             }, 1200);

@@ -29,20 +29,22 @@
 <!-- NAVBAR -->
 <nav class="main-navbar" id="mainNav">
     <div class="main-navbar-inner">
+
         <a href="index.html" class="main-navbar-logo">UAM Study</a>
+
         <div class="main-navbar-menu">
-            <a href="index.html" class="main-nav-link">Home</a>
+            <a href="index.html" class="main-nav-link active">Home</a>
+
             <div class="dropdown">
                 <span class="main-nav-link">Revisão ▾</span>
                 <div class="submenu">
-                    <a href="fundamentacao.html">Fundamentação Teórica e Análise Crítica</a>
-                    <a href="aplicacao.html">Aplicação Operacional e Infraestrutural</a>
-                    <a href="regulatorio.html">Estrutura Regulatória e Planejamento</a>
+                    <a href="fundamentacao_teorica.html">Fundamentação Teórica e Análise Crítica</a>
                     <a href="exercicio.html">Exercício Técnico Estruturado</a>
                 </div>
             </div>
+
             <div class="dropdown">
-                <span class="main-nav-link active">Análises ▾</span>
+                <span class="main-nav-link">Análises ▾</span>
                 <div class="submenu">
                     <a href="selecao_cidade.html">Seleção de Cidade</a>
                     <a href="caracterizacao_brasilia.html">Caracterização de Brasília</a>
@@ -50,6 +52,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </nav>
 
@@ -66,7 +69,7 @@
 <!-- MAIN -->
 <main class="fund-main">
     <section class="fund-section fund-light">
-        <div class="fund-inner">
+        <div class="fund-inner fund-inner--wide">
 
             <!-- BLOCO 01: AHP -->
             <div class="ex-block" data-aos="fade-up">
@@ -87,7 +90,7 @@
                 <p>O <strong>Complexo 21</strong> foi considerado por apresentar <strong>demanda</strong> constante com eventos ao longo da semana e o <strong>perfil socioeconômico</strong>.</p>
                 <p><strong>Ceilândia e Sobradinho</strong> foram escolhidos considerando <strong>localizações opostas</strong> entre si, maior <strong>volume populacional e potencial de ganho de tempo</strong> para deslocamento ao aeroporto ou Plano Piloto.</p>
 
-                <table class="data-table">
+                <div class="table-wrap"><table class="data-table">
                     <thead>
                         <tr><th>Plano Piloto</th><th>RA</th></tr>
                     </thead>
@@ -95,7 +98,7 @@
                         <tr><td>Rodoviária</td><td>Sobradinho</td></tr>
                         <tr><td>Complexo 21</td><td>Ceilândia</td></tr>
                     </tbody>
-                </table>
+                </table></div>
 
                 <p><strong>Sobradinho</strong> foi escolhido no eixo norte por combinar <strong>alta demanda pendular, forte dependência do sistema viário e posição estratégica intermediária</strong>, funcionando como <strong>hub regional</strong> dentro do DF capaz de captar fluxos de áreas mais distantes (como Planaltina) de forma mais eficiente.</p>
                 <p><strong>Ceilândia</strong> foi selecionada no eixo oeste por apresentar <strong>forte geração de viagens, dependência relevante de transporte coletivo e melhor ganho de tempo em relação a Taguatinga</strong>, além de atuar como ponto de <strong>absorção regional</strong> para deslocamentos mais longos.</p>
@@ -126,7 +129,7 @@
                 <p>Foram selecionados 3 critérios principais para seleção do sítio: <strong>Conectividade, Tempo de Deslocamento e Restrições</strong>.</p>
                 <p>Para definir os 3 critérios principais foi realizado um <strong>brainstorm</strong> com o grupo elencando critérios possíveis, seguido de uma <strong>votação</strong>. Os 3 critérios selecionados foram os que apresentaram maior quantidade de votos.</p>
 
-                <table class="data-table">
+                <div class="table-wrap"><table class="data-table">
                     <thead>
                         <tr><th>Critério</th><th>Votos</th></tr>
                     </thead>
@@ -138,11 +141,11 @@
                         <tr><td>Ruído</td><td>0</td></tr>
                         <tr><td>Distância</td><td>0</td></tr>
                     </tbody>
-                </table>
+                </table></div>
 
                 <p>A fim de medir cada critério por alternativa, optou-se por utilizar <strong>métodos objetivos</strong> para quantificar tais atributos, tornando o modelo mais <strong>consistente e robusto</strong>.</p>
 
-                <table class="data-table">
+                <div class="table-wrap"><table class="data-table">
                     <thead>
                         <tr><th>Critério</th><th>Definição</th><th>Método de cálculo</th><th>Interpretação</th></tr>
                     </thead>
@@ -166,7 +169,7 @@
                             <td>Quanto menor, melhor.</td>
                         </tr>
                     </tbody>
-                </table>
+                </table></div>
 
                 <p class="ex-footnote">*Pesos arbitrados levando em consideração análises como capacidade, flexibilidade, custo, capilaridade, tempo e escala.</p>
 
@@ -187,7 +190,7 @@
                     <div class="calc-card-body">
 
                         <h3 class="ex-subheading">Conectividade</h3>
-                        <table class="data-table">
+                        <div class="table-wrap"><table class="data-table">
                             <thead><tr><th>Alternativa</th><th>Detalhamento</th><th>Cálculo</th></tr></thead>
                             <tbody>
                                 <tr><td>Rodoviária</td><td>Rodoviária metropolitana, rodoviária interurbana/ônibus, metrô</td><td>(2×3 + 1×2) = <strong>8</strong></td></tr>
@@ -195,10 +198,10 @@
                                 <tr><td>Sobradinho</td><td>Rodoviária metropolitana, rodoviária interurbana/ônibus</td><td>(2×3) = <strong>6</strong></td></tr>
                                 <tr><td>Ceilândia</td><td>Metrô, ônibus</td><td>(1×2 + 1×3) = <strong>5</strong></td></tr>
                             </tbody>
-                        </table>
+                        </table></div>
 
                         <h3 class="ex-subheading">Tempo de Deslocamento</h3>
-                        <table class="data-table">
+                        <div class="table-wrap"><table class="data-table">
                             <thead><tr><th>Alternativa</th><th>Detalhamento</th><th>Cálculo</th></tr></thead>
                             <tbody>
                                 <tr><td>Rodoviária</td><td>53 min de transporte público e 14 min de carro</td><td>(53 + 14)/2 = <strong>33,5 min</strong></td></tr>
@@ -206,10 +209,10 @@
                                 <tr><td>Sobradinho</td><td>103 min de transporte público e 40 min de carro</td><td>(103 + 40)/2 = <strong>71,5 min</strong></td></tr>
                                 <tr><td>Ceilândia</td><td>72 min de transporte público e 50 min de carro</td><td>(72 + 50)/2 = <strong>61 min</strong></td></tr>
                             </tbody>
-                        </table>
+                        </table></div>
 
                         <h3 class="ex-subheading">Restrição</h3>
-                        <table class="data-table">
+                        <div class="table-wrap"><table class="data-table">
                             <thead><tr><th>Alternativa</th><th>Detalhamento</th><th>Cálculo</th></tr></thead>
                             <tbody>
                                 <tr><td>Rodoviária</td><td>1 AGA (PBZPA SBBR) e 1 Patrimônio Cultural</td><td>(1 + 1) = <strong>2</strong></td></tr>
@@ -217,7 +220,7 @@
                                 <tr><td>Sobradinho</td><td>N/A</td><td><strong>0</strong></td></tr>
                                 <tr><td>Ceilândia</td><td>1 AGA (PBZPA SBBR)</td><td>(1) = <strong>1</strong></td></tr>
                             </tbody>
-                        </table>
+                        </table></div>
 
                         <h3 class="ex-subheading">Detalhamento das Restrições</h3>
                         <p>Restrições Espaço Aéreo → AGA + EAC + REAH</p>
@@ -228,7 +231,7 @@
                         <div class="single-img"><img src="img/APA PLANALTO CENTRAL.png" alt="APA Planalto Central"></div>
 
                         <h3 class="ex-subheading">Quadro Resumo</h3>
-                        <table class="data-table">
+                        <div class="table-wrap"><table class="data-table">
                             <thead><tr><th>Alternativa</th><th>Conectividade</th><th>Tempo</th><th>Restrições</th></tr></thead>
                             <tbody>
                                 <tr><td>Rodoviária</td><td>8</td><td>33,5</td><td>2</td></tr>
@@ -236,7 +239,7 @@
                                 <tr><td>Sobradinho</td><td>6</td><td>71,5</td><td>0</td></tr>
                                 <tr><td>Ceilândia</td><td>5</td><td>61</td><td>1</td></tr>
                             </tbody>
-                        </table>
+                        </table></div>
                     </div>
                 </div>
 
@@ -245,7 +248,7 @@
                     <div class="calc-card-header">2. Normalização</div>
                     <div class="calc-card-body">
                         <p>Conectividade = valor / máximo &nbsp;|&nbsp; Tempo = valor / máximo &nbsp;|&nbsp; Restrições = 1 / (1 + restrições)</p>
-                        <table class="data-table">
+                        <div class="table-wrap"><table class="data-table">
                             <thead><tr><th>Alt</th><th>Conectividade</th><th>Tempo</th><th>Restrições</th></tr></thead>
                             <tbody>
                                 <tr><td>A — Rodoviária</td><td>1,000</td><td>0,469</td><td>0,333</td></tr>
@@ -253,7 +256,7 @@
                                 <tr><td>C — Sobradinho</td><td>0,750</td><td>1,000</td><td>1,000</td></tr>
                                 <tr><td>D — Ceilândia</td><td>0,625</td><td>0,853</td><td>0,500</td></tr>
                             </tbody>
-                        </table>
+                        </table></div>
                     </div>
                 </div>
 
@@ -261,23 +264,23 @@
                 <div class="calc-card" data-aos="fade-up">
                     <div class="calc-card-header">3. Matriz AHP</div>
                     <div class="calc-card-body">
-                        <table class="data-table">
+                        <div class="table-wrap"><table class="data-table">
                             <thead><tr><th></th><th>Conectividade</th><th>Tempo</th><th>Restrições</th></tr></thead>
                             <tbody>
                                 <tr><td>Conectividade</td><td>1</td><td>0,333</td><td>5</td></tr>
                                 <tr><td>Tempo</td><td>3</td><td>1</td><td>7</td></tr>
                                 <tr><td>Restrições</td><td>0,2</td><td>0,143</td><td>1</td></tr>
                             </tbody>
-                        </table>
+                        </table></div>
                         <h3 class="ex-subheading">Pesos Calculados</h3>
-                        <table class="data-table">
+                        <div class="table-wrap"><table class="data-table">
                             <thead><tr><th>Critério</th><th>Peso</th></tr></thead>
                             <tbody>
                                 <tr><td>Conectividade</td><td>0,283</td></tr>
                                 <tr><td>Tempo</td><td>0,643</td></tr>
                                 <tr><td>Restrições</td><td>0,074</td></tr>
                             </tbody>
-                        </table>
+                        </table></div>
                         <p><strong>Consistência:</strong> CR = 0,056 (Aceitável)</p>
                     </div>
                 </div>
@@ -287,7 +290,7 @@
                     <div class="calc-card-header">4. Cálculo do Score</div>
                     <div class="calc-card-body">
                         <p>Score = (C × 0,283) + (T × 0,643) + (R × 0,074)</p>
-                        <table class="data-table">
+                        <div class="table-wrap"><table class="data-table">
                             <thead><tr><th>Alt</th><th>Cálculo</th><th>Score</th></tr></thead>
                             <tbody>
                                 <tr><td>A — Rodoviária</td><td>(1×0,283)+(0,469×0,643)+(0,333×0,074)</td><td>0,609</td></tr>
@@ -295,7 +298,7 @@
                                 <tr class="row-winner"><td>C — Sobradinho</td><td>(0,75×0,283)+(1×0,643)+(1×0,074)</td><td><strong>0,929</strong></td></tr>
                                 <tr class="row-winner"><td>D — Ceilândia</td><td>(0,625×0,283)+(0,853×0,643)+(0,5×0,074)</td><td><strong>0,762</strong></td></tr>
                             </tbody>
-                        </table>
+                        </table></div>
                     </div>
                 </div>
 
@@ -303,7 +306,7 @@
                 <div class="calc-card" data-aos="fade-up">
                     <div class="calc-card-header">5. Ranking Final</div>
                     <div class="calc-card-body">
-                        <table class="data-table">
+                        <div class="table-wrap"><table class="data-table">
                             <thead><tr><th>Posição</th><th>Alternativa</th><th>Score</th></tr></thead>
                             <tbody>
                                 <tr class="row-winner"><td>1º</td><td>C — Sobradinho</td><td><strong>0,929</strong></td></tr>
@@ -311,7 +314,7 @@
                                 <tr><td>3º</td><td>A — Rodoviária</td><td>0,609</td></tr>
                                 <tr><td>4º</td><td>B — Complexo 21</td><td>0,498</td></tr>
                             </tbody>
-                        </table>
+                        </table></div>
                     </div>
                 </div>
 
@@ -320,7 +323,7 @@
                     <div class="calc-card-header">6. Análise de Sensibilidade</div>
                     <div class="calc-card-body">
                         <h3 class="ex-subheading">Sensibilidade Marginal</h3>
-                        <table class="data-table">
+                        <div class="table-wrap"><table class="data-table">
                             <thead><tr><th>Alt</th><th>dScore/dC</th><th>dScore/dT</th><th>dScore/dR</th></tr></thead>
                             <tbody>
                                 <tr><td>A</td><td>1,000</td><td>0,469</td><td>0,333</td></tr>
@@ -328,9 +331,9 @@
                                 <tr class="row-winner"><td>C</td><td>0,750</td><td>1,000</td><td>1,000</td></tr>
                                 <tr><td>D</td><td>0,625</td><td>0,853</td><td>0,500</td></tr>
                             </tbody>
-                        </table>
+                        </table></div>
                         <h3 class="ex-subheading">Impacto de +1% no Peso do Tempo</h3>
-                        <table class="data-table">
+                        <div class="table-wrap"><table class="data-table">
                             <thead><tr><th>Alt</th><th>ΔScore</th></tr></thead>
                             <tbody>
                                 <tr><td>A</td><td>+0,0047</td></tr>
@@ -338,7 +341,7 @@
                                 <tr class="row-winner"><td>C</td><td>+0,0100</td></tr>
                                 <tr><td>D</td><td>+0,0085</td></tr>
                             </tbody>
-                        </table>
+                        </table></div>
                         <p><strong>Interpretação:</strong> A alternativa C é a mais sensível ao critério tempo, o que explica sua robustez no ranking.</p>
                     </div>
                 </div>
@@ -468,6 +471,12 @@
     </div>
 </footer>
 
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <img id="lightboxImg" src="" alt="">
+</div>
+
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -516,6 +525,32 @@
     });
 
     calcular();
+</script>
+
+<script>
+    // Lightbox
+    const overlay    = document.getElementById('lightbox');
+    const lbImg      = document.getElementById('lightboxImg');
+    const lbClose    = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.img-grid figure img, .img-pair figure img, .single-img img').forEach(img => {
+        img.addEventListener('click', () => {
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    function closeLightbox() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+    }
+
+    lbClose.addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
 
 </body>
