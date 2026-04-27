@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Demanda de UAM — Análise Estatística Completa</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- styles.css do projeto (navbar, footer, dropdown) -->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <!-- CSS específico desta página -->
+    <link href="css/demanda_uam.css" rel="stylesheet" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="main-navbar" id="mainNav">
+    <div class="main-navbar-inner">
+
+        <a href="index.html" class="main-navbar-logo">UAM Study</a>
+
+        <div class="main-navbar-menu">
+            <a href="index.html" class="main-nav-link">Home</a>
+
+            <div class="dropdown">
+                <span class="main-nav-link">Revisão ▾</span>
+                <div class="submenu">
+                    <a href="fundamentacao_teorica.html">Fundamentação Teórica e Análise Crítica</a>
+                    <a href="exercicio.html">Exercício Técnico Estruturado</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <span class="main-nav-link">Análises ▾</span>
+                <div class="submenu">
+                    <a href="selecao_cidade.html">Seleção de Cidade</a>
+                    <a href="caracterizacao_brasilia.html">Caracterização de Brasília</a>
+                    <a href="selecao_vertiporto.html">Seleção de Vertiporto</a>
+                    <a href="mapas_qgis.html">Mapas QGIS</a>
+                </div>
+            </div>
+
+            <a href="demanda_uam.html" class="main-nav-link active">Demanda de UAM</a>
+        </div>
+
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero-demanda">
+    <div class="hero-overlay"></div>
+    <div class="hero-content" data-aos="fade-up">
+        <p class="hero-eyebrow">Urban Air Mobility — Brasília</p>
+        <h1>Análise de Demanda de UAM</h1>
+        <p class="hero-sub">Estudo estatístico e modelagem de demanda para Urban Air Mobility em Brasília</p>
+        <span class="hero-badge">87 Observações &nbsp;|&nbsp; 5 Modelos &nbsp;|&nbsp; 11 Variáveis</span>
+    </div>
+</header>
+
+<!-- ===================== SEÇÃO DATASET ===================== -->
+<section class="d-section d-light">
+    <div class="d-container">
+        <div class="d-section-header" data-aos="fade-up">
+            <span class="d-label">Base de Dados</span>
+            <h2>Dataset Completo</h2>
+            <p>Dados mensais de janeiro de 2019 a março de 2026</p>
+        </div>
+
+        <!-- Estatísticas rápidas -->
+        <div class="d-stats-grid" data-aos="fade-up">
+            <div class="d-stat-card">
+                <div class="d-stat-number">87</div>
+                <div class="d-stat-label">Observações</div>
+            </div>
+            <div class="d-stat-card">
+                <div class="d-stat-number">557</div>
+                <div class="d-stat-label">Média de Movimentos</div>
+            </div>
+            <div class="d-stat-card">
+                <div class="d-stat-number">340</div>
+                <div class="d-stat-label">Mínimo HEL (abr/2020)</div>
+            </div>
+            <div class="d-stat-card">
+                <div class="d-stat-number">805</div>
+                <div class="d-stat-label">Máximo HEL (ago/2019)</div>
+            </div>
+        </div>
+
+        <!-- Tabela de dados brutos -->
+        <div data-aos="fade-up">
+            <h3 class="d-table-title">Tabela de Dados Brutos</h3>
+            <div class="d-table-wrap">
+                <table class="d-table">
+                    <thead>
+                        <tr>
+                            <th>Ano</th>
+                            <th>Mês</th>
+                            <th>HEL</th>
+                            <th>RPC (R$)</th>
+                            <th>POP</th>
+                            <th>FROTA</th>
+                            <th>HELIPT</th>
+                            <th>QAV</th>
+                            <th>PANDEMIA</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dados-tbody"></tbody>
+                </table>
+            </div>
+            <p class="d-table-note">* Exibindo 20 registros representativos. Dataset completo disponível no Excel.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SEÇÃO VARIÁVEIS ===================== -->
+<section class="d-section d-dark">
+    <div class="d-container">
+        <div class="d-section-header light" data-aos="fade-up">
+            <span class="d-label light">Codificação</span>
+            <h2>Variáveis do Dataset</h2>
+            <p>Descrição completa de cada variável utilizada na análise</p>
+        </div>
+
+        <div class="d-var-grid" data-aos="fade-up">
+            <div class="d-var-card">
+                <span class="d-var-code">ANO</span>
+                <h4>Ano</h4>
+                <p>Valor do ano do registro (2019–2026)</p>
+            </div>
+            <div class="d-var-card">
+                <span class="d-var-code">MES</span>
+                <h4>Mês</h4>
+                <p>Valor do mês do registro (1–12)</p>
+            </div>
+            <div class="d-var-card">
+                <span class="d-var-code">HEL</span>
+                <h4>Movimento de Helicópteros</h4>
+                <p>Número de operações mensais em Brasília. Principal variável dependente (alvo).</p>
+                <span class="d-var-source">TATIC FLOW e BIMTRA (somente SBBR)</span>
+            </div>
+            <div class="d-var-card">
+                <span class="d-var-code">RPC</span>
+                <h4>Renda Per Capita</h4>
+                <p>Renda média per capita do Distrito Federal em reais.</p>
+                <span class="d-var-source">Anuário IPE-DF</span>
+            </div>
+            <div class="d-var-card">
+                <span class="d-var-code">POP</span>
+                <h4>População</h4>
+                <p>Estimativa populacional do Distrito Federal.</p>
+                <span class="d-var-source">Anuário IPE-DF</span>
+            </div>
+            <div class="d-var-card">
+                <span class="d-var-code">FROTA</span>
+                <h4>Frota de Veículos</h4>
+                <p>Número de veículos registrados em circulação no DF.</p>
+                <span class="d-var-source">Power BI — Mobilidade Urbana</span>
+            </div>
+            <div class="d-var-card">
+                <span class="d-var-code">HELIPT</span>
+                <h4>Helipontos</h4>
+                <p>Quantidade de helipontos civis cadastrados na região.</p>
+                <span class="d-var-source">ANAC — Aeródromos Civis Cadastrados</span>
+            </div>
+            <div class="d-var-card">
+                <span class="d-var-code">QAV</span>
+                <h4>Preço do QAV</h4>
+                <p>Preço do querosene de aviação — fator de custo operacional.</p>
+                <span class="d-var-source">ANP — Preços de Derivados de Petróleo</span>
+            </div>
+            <div class="d-var-card">
+                <span class="d-var-code">QAVREF</span>
+                <h4>QAV Corrigido (IPCA)</h4>
+                <p>Preço do QAV deflacionado pelo IPCA para o mês de referência (mar/26).</p>
+            </div>
+            <div class="d-var-card">
+                <span class="d-var-code">PAND</span>
+                <h4>Dummy Pandemia</h4>
+                <p>Variável binária: 1 = a partir de março de 2020, controla efeito COVID-19.</p>
+                <span class="d-var-source">Marcação manual</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SEÇÃO MODELOS ===================== -->
+<section class="d-section d-light">
+    <div class="d-container">
+        <div class="d-section-header" data-aos="fade-up">
+            <span class="d-label">Estatística</span>
+            <h2>Modelos de Regressão</h2>
+            <p>Cinco modelos desenvolvidos para estimar a demanda futura de UAM</p>
+        </div>
+
+        <div class="d-models-grid" data-aos="fade-up">
+
+            <!-- Modelo 1 -->
+            <div class="d-model-card">
+                <div class="d-model-num">01</div>
+                <h3>Modelo Simples</h3>
+                <p class="d-model-desc">Regressão linear simples com apenas a data como preditor. Serve como baseline de comparação.</p>
+                <div class="d-model-stats">
+                    <div class="d-stat-row"><span>Observações</span><strong>87</strong></div>
+                    <div class="d-stat-row"><span>R²</span><strong>0.0016</strong></div>
+                    <div class="d-stat-row"><span>R² Ajustado</span><strong>−0.0101</strong></div>
+                    <div class="d-stat-row"><span>Erro Padrão</span><strong>106.01</strong></div>
+                </div>
+                <p class="d-model-note">⚠ Baixo poder explicativo — modelo de referência apenas.</p>
+            </div>
+
+            <!-- Modelo 2 -->
+            <div class="d-model-card d-model-highlight">
+                <div class="d-model-num highlight">02</div>
+                <h3>Com Sazonalidade</h3>
+                <p class="d-model-desc">Inclui dummies mensais (DM1–DM11) para capturar padrões sazonais ao longo do ano.</p>
+                <div class="d-model-stats">
+                    <div class="d-stat-row"><span>Observações</span><strong>87</strong></div>
+                    <div class="d-stat-row"><span>R²</span><strong>0.2354</strong></div>
+                    <div class="d-stat-row"><span>R² Ajustado</span><strong>0.1099</strong></div>
+                    <div class="d-stat-row"><span>Erro Padrão</span><strong>98.76</strong></div>
+                    <div class="d-stat-row"><span>Significância F</span><strong>0.027</strong></div>
+                    <div class="d-stat-row"><span>Intercepto</span><strong>513.71</strong></div>
+                </div>
+                <p class="d-model-note">✅ Melhoria significativa. Sazonalidade explica 23,5% da variância.</p>
+            </div>
+
+            <!-- Modelo 3 -->
+            <div class="d-model-card">
+                <div class="d-model-num">03</div>
+                <h3>Com Socioeconômia</h3>
+                <p class="d-model-desc">Extensão do Modelo 2 com adição de RPC e POP para capturar efeitos socioeconômicos.</p>
+                <div class="d-model-stats">
+                    <div class="d-stat-row"><span>Observações</span><strong>87</strong></div>
+                    <div class="d-stat-row"><span>Variáveis</span><strong>14</strong></div>
+                    <div class="d-stat-row"><span>Base</span><strong>Extensão M2</strong></div>
+                    <div class="d-stat-row"><span>Adicionadas</span><strong>RPC, POP</strong></div>
+                </div>
+                <p class="d-model-note">Captura relação entre renda, população e demanda aérea.</p>
+            </div>
+
+            <!-- Modelo 4 -->
+            <div class="d-model-card">
+                <div class="d-model-num">04</div>
+                <h3>Com Infraestrutura</h3>
+                <p class="d-model-desc">Incorpora FROTA, HELIPT e QAV — fatores de infraestrutura e custo operacional.</p>
+                <div class="d-model-stats">
+                    <div class="d-stat-row"><span>Observações</span><strong>87</strong></div>
+                    <div class="d-stat-row"><span>Variáveis</span><strong>15</strong></div>
+                    <div class="d-stat-row"><span>Base</span><strong>Alternativo M2</strong></div>
+                    <div class="d-stat-row"><span>Adicionadas</span><strong>FROTA, HELIPT, QAV</strong></div>
+                </div>
+                <p class="d-model-note">Avalia impacto de infraestrutura urbana e custo do combustível.</p>
+            </div>
+
+            <!-- Modelo 5 -->
+            <div class="d-model-card">
+                <div class="d-model-num">05</div>
+                <h3>Modelo Completo</h3>
+                <p class="d-model-desc">Combina todas as variáveis: sazonalidade, socioeconômica, infraestrutura e pandemia.</p>
+                <div class="d-model-stats">
+                    <div class="d-stat-row"><span>Observações</span><strong>87</strong></div>
+                    <div class="d-stat-row"><span>Variáveis</span><strong>17</strong></div>
+                    <div class="d-stat-row"><span>Tipo</span><strong>Full Model</strong></div>
+                    <div class="d-stat-row"><span>Inclui</span><strong>PAND, QAVREF</strong></div>
+                </div>
+                <p class="d-model-note">Maior capacidade explicativa — modelo final de referência.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SEÇÃO ANÁLISE DESCRITIVA ===================== -->
+<section class="d-section d-dark">
+    <div class="d-container">
+        <div class="d-section-header light" data-aos="fade-up">
+            <span class="d-label light">Estatísticas</span>
+            <h2>Análise Descritiva</h2>
+            <p>Resumo estatístico das principais variáveis do dataset</p>
+        </div>
+
+        <div class="d-analysis-grid" data-aos="fade-up">
+
+            <div class="d-analysis-box">
+                <h3>Movimentos de Helicópteros (HEL)</h3>
+                <div class="d-analysis-stats">
+                    <div class="d-stat-item">
+                        <span class="d-stat-item-label">Mínimo</span>
+                        <span class="d-stat-item-value">340</span>
+                        <span class="d-stat-item-note">abr/2020 — Pandemia</span>
+                    </div>
+                    <div class="d-stat-item">
+                        <span class="d-stat-item-label">Máximo</span>
+                        <span class="d-stat-item-value">805</span>
+                        <span class="d-stat-item-note">ago/2019 — Pré-Pandemia</span>
+                    </div>
+                    <div class="d-stat-item">
+                        <span class="d-stat-item-label">Média</span>
+                        <span class="d-stat-item-value">557</span>
+                        <span class="d-stat-item-note">Período total</span>
+                    </div>
+                    <div class="d-stat-item">
+                        <span class="d-stat-item-label">Desvio Padrão</span>
+                        <span class="d-stat-item-value">~106</span>
+                        <span class="d-stat-item-note">Modelo 1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-analysis-box">
+                <h3>Período de Análise</h3>
+                <div class="d-analysis-stats">
+                    <div class="d-stat-item">
+                        <span class="d-stat-item-label">Início</span>
+                        <span class="d-stat-item-value">jan/2019</span>
+                    </div>
+                    <div class="d-stat-item">
+                        <span class="d-stat-item-label">Fim</span>
+                        <span class="d-stat-item-value">mar/2026</span>
+                    </div>
+                    <div class="d-stat-item">
+                        <span class="d-stat-item-label">Duração</span>
+                        <span class="d-stat-item-value">87 meses</span>
+                    </div>
+                    <div class="d-stat-item">
+                        <span class="d-stat-item-label">Queda Pandemia</span>
+                        <span class="d-stat-item-value">−35%</span>
+                        <span class="d-stat-item-note">abr/2020</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-analysis-box">
+                <h3>Padrões Observados</h3>
+                <ul class="d-patterns-list">
+                    <li><strong>Sazonalidade:</strong> Picos em julho–agosto (férias) e mínimos em maio–junho</li>
+                    <li><strong>Pandemia:</strong> Queda abrupta em abril de 2020, recuperação gradual até 2022</li>
+                    <li><strong>Tendência:</strong> Crescimento pré-pandemia, estabilização no pós-pandemia</li>
+                    <li><strong>Normalização:</strong> Retorno a patamares históricos em 2022–2023</li>
+                    <li><strong>Perspectiva:</strong> Dados de 2024–2026 indicam nova tendência crescente</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SEÇÃO INSIGHTS ===================== -->
+<section class="d-section d-light">
+    <div class="d-container">
+        <div class="d-section-header" data-aos="fade-up">
+            <span class="d-label">Conclusões</span>
+            <h2>Principais Insights</h2>
+            <p>Conclusões extraídas da análise estatística dos dados</p>
+        </div>
+
+        <div class="d-insights-grid" data-aos="fade-up">
+            <div class="d-insight-card">
+                <div class="d-insight-icon">📊</div>
+                <h3>Sazonalidade Significativa</h3>
+                <p>O Modelo 2 com dummies mensais explica 23,5% da variância — indicando forte padrão sazonal nas operações aéreas.</p>
+            </div>
+            <div class="d-insight-card">
+                <div class="d-insight-icon">📉</div>
+                <h3>Impacto COVID-19</h3>
+                <p>Queda de ~35% em abril de 2020. Recuperação gradual ao longo de 2021 e normalização a partir de 2022.</p>
+            </div>
+            <div class="d-insight-card">
+                <div class="d-insight-icon">🏙️</div>
+                <h3>Demanda Latente</h3>
+                <p>Crescimento populacional e expansão da frota sugerem demanda potencial não atendida para UAM.</p>
+            </div>
+            <div class="d-insight-card">
+                <div class="d-insight-icon">📈</div>
+                <h3>Tendência Pós-Pandemia</h3>
+                <p>Dados de 2023–2026 mostram retomada consistente, indicando novo patamar de demanda consolidado.</p>
+            </div>
+            <div class="d-insight-card">
+                <div class="d-insight-icon">💰</div>
+                <h3>Fatores Socioeconômicos</h3>
+                <p>RPC e POP do DF correlacionam com demanda aérea, reforçando a relação com o desenvolvimento urbano.</p>
+            </div>
+            <div class="d-insight-card">
+                <div class="d-insight-icon">🛬</div>
+                <h3>Infraestrutura Crítica</h3>
+                <p>Helipontos e preço do QAV são preditores relevantes para modelos avançados de demanda UAM.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SEÇÃO FONTES ===================== -->
+<section class="d-section d-dark">
+    <div class="d-container">
+        <div class="d-section-header light" data-aos="fade-up">
+            <span class="d-label light">Referências</span>
+            <h2>Fontes de Dados</h2>
+            <p>Todas as fontes utilizadas para construção do dataset</p>
+        </div>
+
+        <div class="d-sources-grid" data-aos="fade-up">
+            <div class="d-source-card">
+                <h3>TATIC FLOW / BIMTRA</h3>
+                <p>Sistemas de controle de movimentação aérea em Brasília (SBBR)</p>
+                <span class="d-source-tag">HEL — Movimento de Helicópteros</span>
+            </div>
+            <div class="d-source-card">
+                <h3>Anuário IPE-DF</h3>
+                <p>Instituto de Planejamento e Estratégia do Distrito Federal</p>
+                <span class="d-source-tag">RPC e POP</span>
+                <a href="https://anuario.ipe.df.gov.br/home" target="_blank" class="d-source-link">Acessar →</a>
+            </div>
+            <div class="d-source-card">
+                <h3>Power BI — Mobilidade DF</h3>
+                <p>Dashboard oficial de mobilidade urbana do Distrito Federal</p>
+                <span class="d-source-tag">FROTA</span>
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiMGQ2MjdiMWYtNzQxZS00Mzk2LWE0NmEtMzFiMTNmNzI1OTk3IiwidCI6ImI1NzQ4ZjZlLWI0YTQtNGIyYi1hYjJhLWVmOTUyMjM2ODM2NiIsImMiOjR9" target="_blank" class="d-source-link">Acessar →</a>
+            </div>
+            <div class="d-source-card">
+                <h3>ANAC</h3>
+                <p>Agência Nacional de Aviação Civil — Lista de aeródromos civis cadastrados</p>
+                <span class="d-source-tag">HELIPT — Helipontos</span>
+                <a href="https://www.gov.br/anac/pt-br/assuntos/regulados/aeroportos-e-aerodromos/lista-de-aerodromos-civis-cadastrados" target="_blank" class="d-source-link">Acessar →</a>
+            </div>
+            <div class="d-source-card">
+                <h3>ANP</h3>
+                <p>Agência Nacional do Petróleo — Preços de produtores e importadores de derivados</p>
+                <span class="d-source-tag">QAV e QAVREF</span>
+                <a href="https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/precos-de-produtores-e-importadores-de-derivados-de-petroleo-e-biodiesel" target="_blank" class="d-source-link">Acessar →</a>
+            </div>
+            <div class="d-source-card">
+                <h3>Período de Referência</h3>
+                <p>Janeiro de 2019 a março de 2026 — IPCA como deflator para QAVREF</p>
+                <span class="d-source-tag">87 observações mensais</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SEÇÃO DOWNLOAD ===================== -->
+<section class="d-section d-light">
+    <div class="d-container">
+        <div class="d-download-box" data-aos="fade-up">
+            <h2>Dados Completos</h2>
+            <p>Acesse o dataset e os modelos estatísticos completos</p>
+            <div class="d-download-buttons">
+                <a href="Demanda_UAM.xlsx" class="d-btn-download" download>
+                    <span>📊 Download Excel</span>
+                    <span>Dataset + 5 Modelos de Regressão</span>
+                </a>
+                <a href="Demanda_UAM.pdf" class="d-btn-download d-btn-secondary" download>
+                    <span>📄 Relatório Técnico</span>
+                    <span>PDF com Análise Detalhada</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-dark">
+    <div class="footer-dark-inner">
+        <span class="footer-logo">UAM Study</span>
+        <span class="footer-copy">© 2026 Urban Air Mobility Project • Todos os direitos reservados</span>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    // ── Dados do Excel ──────────────────────────────────────────
+    const dadosExcel = [
+        {ano:2019,mes:1, hel:589, rpc:2047.86, pop:3015000, frota:null, helipt:6, qav:null, pand:0},
+        {ano:2019,mes:2, hel:601, rpc:2047.86, pop:3015000, frota:null, helipt:6, qav:null, pand:0},
+        {ano:2019,mes:3, hel:579, rpc:2047.86, pop:3015000, frota:null, helipt:6, qav:null, pand:0},
+        {ano:2019,mes:4, hel:614, rpc:2047.86, pop:3015000, frota:null, helipt:6, qav:null, pand:0},
+        {ano:2019,mes:5, hel:670, rpc:2047.86, pop:3015000, frota:null, helipt:6, qav:null, pand:0},
+        {ano:2019,mes:6, hel:636, rpc:2047.86, pop:3015000, frota:null, helipt:6, qav:null, pand:0},
+        {ano:2019,mes:7, hel:763, rpc:2047.86, pop:3015000, frota:null, helipt:6, qav:null, pand:0},
+        {ano:2019,mes:8, hel:805, rpc:2047.86, pop:3015000, frota:null, helipt:6, qav:null, pand:0},
+        {ano:2019,mes:9, hel:612, rpc:2047.86, pop:3015000, frota:null, helipt:6, qav:null, pand:0},
+        {ano:2019,mes:10,hel:679, rpc:2047.86, pop:3015000, frota:null, helipt:7, qav:null, pand:0},
+        {ano:2019,mes:11,hel:624, rpc:2047.86, pop:3015000, frota:null, helipt:7, qav:null, pand:0},
+        {ano:2019,mes:12,hel:700, rpc:2047.86, pop:3015000, frota:null, helipt:7, qav:null, pand:0},
+        {ano:2020,mes:1, hel:597, rpc:null,    pop:3052546, frota:null, helipt:7, qav:null, pand:0},
+        {ano:2020,mes:2, hel:526, rpc:null,    pop:3052546, frota:null, helipt:7, qav:null, pand:0},
+        {ano:2020,mes:3, hel:563, rpc:null,    pop:3052546, frota:null, helipt:7, qav:null, pand:0},
+        {ano:2020,mes:4, hel:340, rpc:null,    pop:3052546, frota:null, helipt:7, qav:null, pand:1},
+        {ano:2020,mes:5, hel:448, rpc:null,    pop:3052546, frota:null, helipt:7, qav:null, pand:1},
+        {ano:2020,mes:6, hel:486, rpc:null,    pop:3052546, frota:null, helipt:7, qav:null, pand:1},
+        {ano:2020,mes:7, hel:517, rpc:null,    pop:3052546, frota:null, helipt:7, qav:null, pand:1},
+        {ano:2020,mes:8, hel:402, rpc:null,    pop:3052546, frota:null, helipt:7, qav:null, pand:1},
+    ];
+
+    const meses = ['','jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+
+    const tbody = document.getElementById('dados-tbody');
+    dadosExcel.forEach(r => {
+        const isPand = r.pand === 1;
+        const tr = document.createElement('tr');
+        if (isPand) tr.classList.add('d-row-pand');
+        tr.innerHTML = `
+            <td>${r.ano}</td>
+            <td>${meses[r.mes]}</td>
+            <td class="d-td-hel">${r.hel}</td>
+            <td>${r.rpc ? 'R$ ' + r.rpc.toLocaleString('pt-BR') : '—'}</td>
+            <td>${r.pop ? r.pop.toLocaleString('pt-BR') : '—'}</td>
+            <td>${r.frota ?? '—'}</td>
+            <td>${r.helipt ?? '—'}</td>
+            <td>${r.qav ?? '—'}</td>
+            <td>${isPand ? '<span class="d-badge-pand">COVID</span>' : '—'}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+
+    // ── AOS ─────────────────────────────────────────────────────
+    AOS.init({ duration: 900, once: true, offset: 60 });
+
+    // ── Navbar scroll ────────────────────────────────────────────
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+</script>
+
+</body>
+</html>
