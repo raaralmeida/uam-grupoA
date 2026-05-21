@@ -23,9 +23,7 @@
 <!-- NAVBAR -->
 <nav class="main-navbar" id="mainNav">
     <div class="main-navbar-inner">
-
         <a href="index.html" class="main-navbar-logo">UAM Study</a>
-
         <div class="main-navbar-menu">
             <a href="index.html" class="main-nav-link">Home</a>
 
@@ -47,9 +45,14 @@
                 </div>
             </div>
 
-            <a href="demanda_UAM.html" class="main-nav-link">Demanda de UAM</a>
+            <div class="dropdown">
+                <span class="main-nav-link active">Demanda de UAM ▾</span>
+                <div class="submenu">
+                    <a href="demanda_uam.html">Análise de Demanda</a>
+                    <a href="memorial_vertiporto.html">Memorial Descritivo de Vertiporto</a>
+                </div>
+            </div>
         </div>
-
     </div>
 </nav>
 
@@ -58,11 +61,15 @@
     <!-- Camada 1: Imagem estática (aparece primeiro) -->
     <div class="hero-bg-img" id="heroBgImg" style="background-image: url('img/foto_brasilia_2.jpg');"></div>
 
-    <!-- Camada 2: Vídeo local MP4 (aparece depois com fade) -->
+    <!-- Camada 2: Vídeo YouTube (aparece depois com fade) -->
     <div class="hero-bg-video" id="heroBgVideo">
-        <video id="heroVideo" autoplay muted loop playsinline preload="auto">
-            <source src="img/video_brasilia.mp4" type="video/mp4">
-        </video>
+        <iframe
+            id="heroIframe"
+            src="https://www.youtube.com/embed/9nr3WFrRP4s?start=10&autoplay=1&mute=1&controls=0&loop=1&playlist=9nr3WFrRP4s&playsinline=1&rel=0&showinfo=0&modestbranding=1&enablejsapi=1"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+        </iframe>
     </div>
 
     <div class="hero-dark-overlay"></div>
@@ -116,7 +123,9 @@
 
     <!-- BLOCO 1 -->
     <div class="showcase-dark-block" data-aos="fade-up">
-        <div class="showcase-dark-img" style="background-image: url('assets/img/data_uam.png');"></div>
+        <div class="showcase-dark-img showcase-dark-img--fit">
+            <img src="assets/img/data_uam.png" alt="Estimar a demanda por UAM" />
+        </div>
         <div class="showcase-dark-text">
             <div class="section-label light">Demanda</div>
             <h2>Estimar a demanda por UAM ainda é um desafio</h2>
@@ -216,23 +225,16 @@
     </div>
 </footer>
 
-
 <!-- Script de transição imagem → vídeo -->
 <script>
     window.addEventListener('load', () => {
         const bgImg   = document.getElementById('heroBgImg');
         const bgVideo = document.getElementById('heroBgVideo');
-        const video   = document.getElementById('heroVideo');
-
-        // Força o play (necessário em alguns browsers com autoplay policy)
-        const tryPlay = () => {
-            video.play().catch(() => {});
-        };
-        tryPlay();
 
         // Após 2.5s mostra o vídeo com fade suave
         setTimeout(() => {
             bgVideo.classList.add('visible');
+            // Após a transição do vídeo ficar totalmente visível, some a imagem
             setTimeout(() => {
                 bgImg.style.display = 'none';
             }, 1200);

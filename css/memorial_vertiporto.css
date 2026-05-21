@@ -1,0 +1,394 @@
+/* ============================================================
+   css/memorial_vertiporto.css
+   Estilos da página Memorial Descritivo de Vertiporto
+   Depende de: css/styles.css (navbar, footer, dropdown, data-table)
+   ============================================================ */
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+.mv-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 8rem;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 60%, #0a0a0a 100%);
+    overflow: hidden;
+}
+
+.mv-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0.2) 0%,
+        rgba(10,10,10,0.7) 60%,
+        rgba(10,10,10,1) 100%
+    );
+    z-index: 1;
+}
+
+.mv-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+}
+
+.mv-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 16px;
+    display: block;
+}
+
+.mv-hero-content h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 16px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.mv-hero-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    max-width: 580px;
+}
+
+/* ─────────────────────────────────────────
+   LAYOUT PRINCIPAL
+───────────────────────────────────────── */
+.mv-main {
+    background: #ffffff;
+}
+
+.mv-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* ─────────────────────────────────────────
+   SEÇÕES
+───────────────────────────────────────── */
+.mv-section {
+    padding: 4rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.mv-section:last-child {
+    border-bottom: none;
+}
+
+/* ─────────────────────────────────────────
+   TÍTULOS
+───────────────────────────────────────── */
+.mv-section h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0a0a0a;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.3px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.mv-num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    flex-shrink: 0;
+}
+
+.mv-section h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    padding-left: 12px;
+    border-left: 3px solid #0a0a0a;
+}
+
+/* ─────────────────────────────────────────
+   TEXTO
+───────────────────────────────────────── */
+.mv-section p {
+    font-size: 0.9375rem;
+    color: #475569;
+    line-height: 1.85;
+    margin-bottom: 1rem;
+}
+
+.mv-section p:last-child {
+    margin-bottom: 0;
+}
+
+.mv-section strong {
+    color: #0f172a;
+    font-weight: 700;
+}
+
+/* ─────────────────────────────────────────
+   LISTAS
+───────────────────────────────────────── */
+.mv-section ul {
+    margin: 1rem 0 1rem 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.mv-section ul li {
+    font-size: 0.9375rem;
+    color: #475569;
+    line-height: 1.8;
+    padding: 6px 0 6px 20px;
+    position: relative;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.mv-section ul li:last-child {
+    border-bottom: none;
+}
+
+.mv-section ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #94a3b8;
+    font-size: 11px;
+    top: 9px;
+}
+
+/* Referências bibliográficas */
+.mv-bib {
+    margin: 1.5rem 0 0 0 !important;
+}
+
+.mv-bib li {
+    padding: 12px 0 12px 0 !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    color: #475569 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.7 !important;
+}
+
+.mv-bib li::before {
+    display: none !important;
+}
+
+.mv-bib strong {
+    color: #0f172a;
+}
+
+/* ─────────────────────────────────────────
+   CAIXAS DE FÓRMULA
+───────────────────────────────────────── */
+.mv-formula-box {
+    background: #0a0a0a;
+    border-radius: 8px;
+    padding: 16px 24px;
+    margin: 1rem 0;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-family: 'Inter', monospace;
+    letter-spacing: 0.3px;
+}
+
+.mv-formula-box strong {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+/* ─────────────────────────────────────────
+   FIGURAS
+───────────────────────────────────────── */
+.mv-figure {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.mv-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    display: block;
+}
+
+/* ─────────────────────────────────────────
+   CAPTION DE FIGURA
+───────────────────────────────────────── */
+.mv-caption {
+    font-size: 0.8rem !important;
+    color: #94a3b8 !important;
+    font-style: italic;
+    text-align: center;
+    margin-top: 0.5rem !important;
+}
+
+/* ─────────────────────────────────────────
+   TABELA ESTILO WORD
+───────────────────────────────────────── */
+.mv-section .table-wrap {
+    margin: 1rem 0 0 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.mv-section .data-table {
+    border-collapse: collapse;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.mv-section .data-table thead tr {
+    background: #ffffff;
+    color: #000000;
+}
+
+.mv-section .data-table th {
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: none;
+    letter-spacing: 0;
+    color: #000000;
+    border: 1px solid #000000;
+    background: #ffffff;
+}
+
+.mv-section .data-table td {
+    padding: 10px 14px;
+    color: #000000;
+    border: 1px solid #000000;
+    font-size: 0.9rem;
+    vertical-align: middle;
+    background: #ffffff;
+}
+
+.mv-section .data-table tbody tr:nth-child(even) {
+    background: #ffffff;
+}
+
+.mv-section .data-table tbody tr:hover {
+    background: #f5f5f5;
+}
+
+/* ─────────────────────────────────────────
+   DOWNLOADS
+───────────────────────────────────────── */
+.mv-downloads {
+    background: #0a0a0a;
+    padding: 5rem 0;
+}
+
+.mv-downloads-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+}
+
+.mv-downloads-sub {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 2.5rem;
+}
+
+.mv-downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 16px;
+}
+
+.mv-download-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 24px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.mv-download-card:hover {
+    border-color: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-3px);
+}
+
+.mv-download-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.mv-download-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.mv-download-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+}
+
+.mv-download-info strong {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+.mv-download-desc {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+}
+
+.mv-download-btn {
+    flex-shrink: 0;
+    background: #ffffff;
+    color: #0a0a0a;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+    transition: background 0.2s;
+}
+
+.mv-download-card:hover .mv-download-btn {
+    background: #e2e8f0;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVIDADE
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+    .mv-container { padding: 0 20px; }
+    .mv-hero-content { padding: 0 20px; }
+    .mv-section { padding: 3rem 0; }
+    .mv-section h2 { font-size: 1.25rem; }
+    .mv-formula-box { font-size: 0.95rem; padding: 14px 18px; }
+}

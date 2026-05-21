@@ -1,54 +1,426 @@
 /* ============================================================
-   revisao.css — UAM Study
-   Estilos exclusivos da página revisao.html (sistema de abas)
-   Tudo o mais está em styles.css
+   css/revisao.css
+   Estilos exclusivos da página Revisão da Literatura
+   Depende de: css/styles.css (navbar, footer, dropdown, botões)
    ============================================================ */
-
-/* ── BARRA DE ABAS ── */
+ 
+/* =========================
+   HERO (subpágina)
+========================= */
+.page-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 6rem;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+ 
+.page-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+}
+ 
+.page-hero-content h1 {
+    font-size: clamp(2rem, 4.5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    color: #ffffff;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+}
+ 
+/* =========================
+   TAB BAR
+========================= */
 .tab-bar {
     position: sticky;
-    top: 72px; /* altura da navbar */
+    top: 72px;
     z-index: 100;
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.97);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-
+ 
 .tab-bar-inner {
-    max-width: 900px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
-    gap: 0;
+    gap: 4px;
+    height: 52px;
+    align-items: center;
     overflow-x: auto;
-    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
 }
-.tab-bar-inner::-webkit-scrollbar { display: none; }
-
-/* ── BOTÕES DAS ABAS ── */
+ 
 .tab-btn {
-    flex-shrink: 0;
     background: none;
     border: none;
-    border-bottom: 3px solid transparent;
-    padding: 18px 24px;
-    font-family: var(--font);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    padding: 8px 16px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: color 0.2s, border-color 0.2s;
+    transition: color 0.2s, background 0.2s;
     white-space: nowrap;
     letter-spacing: 0.2px;
 }
-.tab-btn:hover  { color: var(--text-main); }
-.tab-btn.active { color: var(--black); border-bottom-color: var(--black); }
-
-/* ── PAINÉIS ── */
-.tab-panel        { display: none; }
-.tab-panel.active { display: block; }
-
-/* ── RESPONSIVIDADE ── */
+ 
+.tab-btn:hover {
+    color: var(--white);
+    background: rgba(255,255,255,0.08);
+}
+ 
+.tab-btn.active {
+    color: var(--white);
+    font-weight: 700;
+    background: rgba(255,255,255,0.1);
+}
+ 
+/* =========================
+   TAB PANELS
+========================= */
+.tab-panel {
+    display: none;
+}
+ 
+.tab-panel.active {
+    display: block;
+}
+ 
+/* =========================
+   LAYOUT SUBPÁGINA
+========================= */
+.fund-main {
+    display: flex;
+    flex-direction: column;
+}
+ 
+.fund-section {
+    padding: 8rem 0;
+}
+ 
+.fund-light {
+    background: #f8fafc;
+}
+ 
+.fund-dark {
+    background: #0a0a0a;
+}
+ 
+.fund-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+ 
+/* =========================
+   TIPOGRAFIA INTERNA
+========================= */
+.fund-heading {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.3px;
+    color: #0a0a0a;
+    margin-bottom: 24px;
+}
+ 
+.fund-heading.light {
+    color: #ffffff;
+}
+ 
+.fund-lead {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 48px;
+}
+ 
+.fund-lead.light {
+    color: rgba(255,255,255,0.45);
+}
+ 
+/* =========================
+   ACORDEÃO
+========================= */
+.acc-stack {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #e2e8f0;
+}
+ 
+.acc-stack.dark {
+    border-top-color: rgba(255,255,255,0.08);
+}
+ 
+.acc-item {
+    border-bottom: 1px solid #e2e8f0;
+    overflow: hidden;
+    background: transparent;
+}
+ 
+.acc-item.dark {
+    border-bottom-color: rgba(255,255,255,0.08);
+}
+ 
+.acc-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s;
+}
+ 
+.acc-trigger:hover {
+    background: rgba(0,0,0,0.025);
+}
+ 
+.acc-trigger.dark:hover {
+    background: rgba(255,255,255,0.03);
+}
+ 
+.acc-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #94a3b8;
+    min-width: 28px;
+    flex-shrink: 0;
+}
+ 
+.acc-trigger.dark .acc-num {
+    color: rgba(255,255,255,0.25);
+}
+ 
+.acc-title {
+    flex: 1;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.4;
+    letter-spacing: -0.1px;
+}
+ 
+.acc-trigger.dark .acc-title {
+    color: var(--white);
+}
+ 
+.acc-chevron {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: #94a3b8;
+    transition: transform 0.3s ease, color 0.2s;
+}
+ 
+.acc-trigger.dark .acc-chevron {
+    color: rgba(255,255,255,0.3);
+}
+ 
+.acc-item.is-open .acc-chevron {
+    transform: rotate(180deg);
+    color: #0a0a0a;
+}
+ 
+.acc-item.dark.is-open .acc-chevron {
+    transform: rotate(180deg);
+    color: var(--white);
+}
+ 
+.acc-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.38s ease;
+}
+ 
+.acc-panel-inner {
+    padding: 0 4px 32px 48px;
+    background: transparent;
+}
+ 
+.fund-light .acc-panel-inner {
+    background: #f8fafc;
+}
+ 
+.acc-panel-inner p {
+    font-size: 0.9375rem;
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+ 
+.acc-panel-inner p:last-child {
+    margin-bottom: 0;
+}
+ 
+.acc-panel.dark .acc-panel-inner p {
+    color: rgba(255,255,255,0.55);
+}
+ 
+.acc-panel-inner ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 16px;
+}
+ 
+.acc-panel-inner ul li {
+    font-size: 0.875rem;
+    color: #475569;
+    line-height: 1.7;
+    padding: 8px 0 8px 18px;
+    position: relative;
+    border-bottom: 1px solid #f1f5f9;
+}
+ 
+.acc-panel.dark .acc-panel-inner ul li {
+    color: rgba(255,255,255,0.5);
+    border-bottom-color: rgba(255,255,255,0.05);
+}
+ 
+.acc-panel-inner ul li:last-child {
+    border-bottom: none;
+}
+ 
+.acc-panel-inner ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    font-size: 11px;
+    top: 10px;
+    color: #94a3b8;
+}
+ 
+.acc-panel.dark .acc-panel-inner ul li::before {
+    color: rgba(255,255,255,0.25);
+}
+ 
+.acc-highlight {
+    background: #eff6ff;
+    border-left: 3px solid #2563eb;
+    border-radius: 6px;
+    padding: 16px 20px;
+    font-size: 0.875rem;
+    color: #1e40af;
+    line-height: 1.7;
+    margin-top: 16px;
+}
+ 
+/* =========================
+   ANÁLISE CRÍTICA
+========================= */
+.analysis-box {
+    background: rgba(255,255,255,0.04);
+    border-left: 3px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 24px;
+    margin-bottom: 48px;
+}
+ 
+.analysis-box p {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+ 
+.analysis-box p:last-child {
+    margin-bottom: 0;
+}
+ 
+.analysis-box strong {
+    color: rgba(255,255,255,0.85);
+}
+ 
+.fund-img-wrap {
+    margin-bottom: 48px;
+}
+ 
+.fund-img-wrap img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.07);
+    display: block;
+}
+ 
+.analysis-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+ 
+.analysis-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 24px;
+    transition: border-color 0.2s, transform 0.2s;
+}
+ 
+.analysis-item:hover {
+    border-color: rgba(255,255,255,0.18);
+    transform: translateY(-3px);
+}
+ 
+.analysis-item h3 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+ 
+.analysis-item p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+    margin: 0;
+}
+ 
+/* =========================
+   RESPONSIVIDADE
+========================= */
 @media (max-width: 768px) {
-    .tab-bar-inner { padding: 0 20px; }
-    .tab-btn       { padding: 16px 16px; font-size: 13px; }
+    .page-hero {
+        min-height: 60vh;
+        padding-bottom: 5rem;
+    }
+ 
+    .page-hero-content {
+        padding: 0 20px;
+    }
+ 
+    .tab-bar-inner {
+        padding: 0 20px;
+    }
+ 
+    .fund-inner {
+        padding: 0 20px;
+    }
+ 
+    .fund-section {
+        padding: 5rem 0;
+    }
+ 
+    .acc-panel-inner {
+        padding-left: 20px;
+    }
+ 
+    .analysis-details {
+        grid-template-columns: 1fr;
+    }
 }

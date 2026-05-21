@@ -1,0 +1,223 @@
+/* ============================================================
+   css/mapas_qgis.css
+   Estilos exclusivos da página Mapas QGIS
+   Depende de: css/styles.css (navbar, footer, dropdown, botões)
+   ============================================================ */
+
+/* =========================
+   HERO (subpágina)
+========================= */
+.page-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 6rem;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.page-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+}
+
+.page-hero-content h1 {
+    font-size: clamp(2rem, 4.5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+}
+
+/* =========================
+   LAYOUT SUBPÁGINA
+========================= */
+.fund-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.fund-section {
+    padding: 8rem 0;
+}
+
+.fund-light {
+    background: #f8fafc;
+}
+
+.fund-dark {
+    background: var(--dark);
+}
+
+.fund-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* =========================
+   BLOCOS NUMERADOS
+========================= */
+.ex-block {
+    margin-bottom: 3.5rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.ex-block:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.ex-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 12px;
+}
+
+.ex-heading {
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    color: var(--dark);
+    margin-bottom: 20px;
+}
+
+.ex-block p {
+    font-size: 0.9375rem;
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+.ex-block p:last-child {
+    margin-bottom: 0;
+}
+
+.ex-block strong {
+    color: var(--dark);
+    font-weight: 700;
+}
+
+/* =========================
+   IMAGENS
+========================= */
+.single-img {
+    margin: 24px 0;
+}
+
+.single-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    cursor: zoom-in;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.single-img img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,0.92);
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    padding: 24px;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+}
+
+.lightbox-overlay img {
+    max-width: 92vw;
+    max-height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    object-fit: contain;
+    cursor: default;
+    animation: lb-in 0.2s ease;
+}
+
+@keyframes lb-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.12);
+    border: none;
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 10000;
+}
+
+.lightbox-close:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+@media (max-width: 768px) {
+    .page-hero {
+        min-height: 50vh;
+        padding-bottom: 4rem;
+    }
+
+    .page-hero-content {
+        padding: 0 20px;
+    }
+
+    .fund-inner {
+        padding: 0 20px;
+    }
+
+    .fund-section {
+        padding: 5rem 0;
+    }
+
+    .ex-block {
+        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .footer-dark-inner {
+        padding: 0 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+}

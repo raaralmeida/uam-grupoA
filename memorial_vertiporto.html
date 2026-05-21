@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Memorial Descritivo — Pré-dimensionamento de Vertiporto</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/memorial_vertiporto.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="main-navbar" id="mainNav">
+    <div class="main-navbar-inner">
+        <a href="index.html" class="main-navbar-logo">UAM Study</a>
+        <div class="main-navbar-menu">
+            <a href="index.html" class="main-nav-link">Home</a>
+
+            <div class="dropdown">
+                <span class="main-nav-link">Revisão ▾</span>
+                <div class="submenu">
+                    <a href="fundamentacao_teorica.html">Fundamentação Teórica e Análise Crítica</a>
+                    <a href="exercicio.html">Exercício Técnico Estruturado</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <span class="main-nav-link">Análises ▾</span>
+                <div class="submenu">
+                    <a href="selecao_cidade.html">Seleção de Cidade</a>
+                    <a href="caracterizacao_brasilia.html">Caracterização de Brasília</a>
+                    <a href="selecao_vertiporto.html">Seleção de Vertiporto</a>
+                    <a href="mapas_qgis.html">Mapas QGIS</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <span class="main-nav-link active">Demanda de UAM ▾</span>
+                <div class="submenu">
+                    <a href="demanda_uam.html">Análise de Demanda</a>
+                    <a href="memorial_vertiporto.html">Memorial Descritivo de Vertiporto</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="mv-hero">
+    <div class="mv-hero-overlay"></div>
+    <div class="mv-hero-content" data-aos="fade-up">
+        <p class="mv-eyebrow">ITA · IT-214 — Mobilidade Aérea Urbana</p>
+        <h1>Pré-dimensionamento de Vertiporto</h1>
+        <p class="mv-hero-sub">Memorial Descritivo · Caio Honorato, Eduardo de Vasconcellos, Gianluca Furtado, Rafael Almeida</p>
+    </div>
+</header>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<main class="mv-main">
+    <div class="mv-container">
+
+        <!-- 1. IDENTIFICAÇÃO E OBJETIVO -->
+        <section class="mv-section" id="identificacao" data-aos="fade-up">
+            <h2><span class="mv-num">1.</span> Identificação e Objetivo</h2>
+            <p>O presente memorial descritivo tem por finalidade apresentar os critérios adotados para o pré-dimensionamento geométrico de um vertiporto destinado à operação de aeronaves do tipo eVTOL/VTOL, considerando uma abordagem conservadora baseada nas normas nacional e internacionais. O estudo foi desenvolvido para subsidiar a elaboração de desenhos preliminares, com definição das principais áreas operacionais, tais como TLOF, FATO, área de segurança, taxiway, rota de táxi terrestre e aéreo.</p>
+            <p>Este documento tem como premissa principal adotar o maior parâmetro encontrado entre as aeronaves analisadas e, simultaneamente, os critérios normativos mais conservadores ou mais completos entre as referências consultadas. A intenção é estabelecer um projeto conceitual e preliminar de aceitação internacional atendendo a todos os critérios e permitindo futura adaptação conforme evolução da regulamentação.</p>
+            <p>Como ainda há incertezas relevantes sobre a certificação final de diversas aeronaves eVTOL, bem como sobre os requisitos nacionais e internacionais específicos para vertiportos, o pré-dimensionamento foi conduzido com margens geométricas prudentes.</p>
+            <p>No contexto brasileiro, não há, até o momento considerado neste estudo, um Regulamento Brasileiro da Aviação Civil específico e definitivo para vertiportos e aeronaves eVTOL. Por esse motivo, a referência nacional disponível para consulta é o <strong>RBAC 155</strong>, voltado a helipontos. No entanto, para o caso descrito nesse documento foi adotada uma estratégia mais ampla, utilizando também referências internacionais da <strong>FAA</strong>, <strong>EASA</strong> e <strong>CASA</strong>.</p>
+        </section>
+
+        <!-- 2. ESCOPO -->
+        <section class="mv-section" id="escopo" data-aos="fade-up">
+            <h2><span class="mv-num">2.</span> Escopo do Pré-dimensionamento</h2>
+            <p>O escopo deste memorial contempla o pré-dimensionamento das áreas físicas principais necessárias para operação de um vertiporto em nível conceitual. Foram considerados os seguintes elementos:</p>
+            <ul>
+                <li>área de toque e elevação inicial, denominada <strong>TLOF</strong>;</li>
+                <li>área de aproximação final e decolagem, denominada <strong>FATO</strong>;</li>
+                <li>área de segurança ou envelope externo de proteção;</li>
+                <li>rota de táxi terrestre, entendida como faixa protegida para deslocamento terrestre da aeronave;</li>
+                <li>rota de táxi aéreo, entendida como faixa protegida para deslocamento aéreo em baixa altura.</li>
+            </ul>
+            <p>O conteúdo deste memorial possui finalidade de anteprojeto servindo como base para desenho, apresentação técnica e consolidação de premissas.</p>
+        </section>
+
+        <!-- 3. AERONAVE CRÍTICA -->
+        <section class="mv-section" id="aeronave" data-aos="fade-up">
+            <h2><span class="mv-num">3.</span> Aeronave Crítica Adotada</h2>
+            <p>Para o pré-dimensionamento a aeronave crítica adotada foi a <strong>BETA ALIA VTOL</strong>, considerada por apresentar uma dimensão de envergadura de aproximadamente <strong>15,24 m</strong>. Entre as aeronaves analisadas para o estudo, esse valor se mostrou ligeiramente superior às dimensões consideradas para modelos como Archer Midnight, Joby S4, Eve eVTOL, Volocopter VoloCity e EHang EH216-S.</p>
+            <p>A escolha da BETA ALIA VTOL como aeronave crítica atende ao princípio de dimensionamento pelo maior equipamento previsto. Em infraestrutura aeronáutica, é comum que a aeronave crítica oriente as dimensões mínimas das áreas operacionais, de modo que aeronaves menores possam ser acomodadas com maior folga. Dessa forma, ao adotar uma aeronave de maior porte, o layout preliminar tende a ser mais conservador e mais compatível com diferentes configurações futuras de aeronaves eVTOL.</p>
+            <p>Para efeito deste memorial, foi adotado:</p>
+            <div class="mv-formula-box">
+                <strong>D = 15,24 m</strong>
+            </div>
+            <p>onde <strong>D</strong> corresponde ao diâmetro do menor círculo capaz de conter a projeção horizontal da aeronave em planta, considerando sua configuração operacional. Esse conceito é mais adequado para eVTOLs do que simplesmente utilizar o comprimento da aeronave, pois muitos modelos possuem geometrias não convencionais, com múltiplos rotores, asas, braços estruturais e propulsores distribuídos.</p>
+            <p>A adoção de <strong>D = 15,24 m</strong> também é coerente com a tentativa de criar um padrão de implantação internacional, uma vez que o valor considera a aeronave de maior dimensão dentre as analisadas e permite aplicação das fórmulas de pré-dimensionamento adotadas para TLOF, FATO, safety area e taxi-routes.</p>
+            <div class="mv-figure">
+                <img src="img/aeronaves_analisadas.jpeg" alt="Comparativo dimensional das aeronaves analisadas" />
+                <p class="mv-caption">Figura 1 — Comparativo dimensional eVTOLs.</p>
+            </div>
+        </section>
+
+        <!-- 4. REFERÊNCIAS NORMATIVAS -->
+        <section class="mv-section" id="referencias" data-aos="fade-up">
+            <h2><span class="mv-num">4.</span> Referências Normativas e Técnicas Consideradas</h2>
+            <p>O pré-dimensionamento considerou um conjunto de referências normativas e técnicas de caráter nacional e internacional. As principais referências foram:</p>
+
+            <h3>4.1 ANAC / RBAC 155</h3>
+            <p>No Brasil, a referência atualmente aplicável por analogia é o <strong>RBAC 155</strong>, que estabelece requisitos para helipontos. Embora o regulamento não tenha sido criado especificamente para vertiportos e aeronaves eVTOL, ele serve como base nacional para interpretação preliminar de áreas de pouso e decolagem vertical.</p>
+            <p>Para o presente documento o RBAC 155 não foi usado como critério principal de dimensionamento, pois a intenção foi gerar uma alternativa internacional conservadora. Mesmo assim, ele permanece relevante para comparação com a alternativa nacional e para demonstrar que o estudo reconhece a ausência de regra brasileira específica para vertiportos.</p>
+
+            <h3>4.2 FAA — Engineering Brief 105A</h3>
+            <p>A <strong>FAA</strong>, por meio do Engineering Brief 105A, apresenta orientações para planejamento, projeto e construção de vertiportos ou heliportos destinados a aeronaves VTOL. Essa referência é especialmente importante porque propõe critérios específicos para vertiportos, incluindo dimensões mínimas para TLOF, FATO e Safety Area.</p>
+            <p>A FAA utiliza, para determinados elementos, o parâmetro <strong>RD</strong> associado ao rotor/propulsor, além do parâmetro <strong>D</strong> para a dimensão controladora da aeronave. Como o dado RD específico das aeronaves analisadas não estava disponível de forma completa para todas elas, este memorial adotou o D como aproximação conservadora para pré-layout.</p>
+
+            <h3>4.3 EASA — PTS-VPT-DSN</h3>
+            <p>A <strong>EASA</strong> publicou especificações técnicas prototípicas para o projeto de vertiportos VFR, fornecendo uma base detalhada para áreas físicas, rotas de taxiamento, áreas de segurança, superfícies de proteção e conceitos de operação. Essa referência é uma das mais completas para eVTOLs e serviu como base importante para os critérios de rotas de táxi terrestre e aéreo.</p>
+
+            <h3>4.4 CASA — Guide to Vertiport Design</h3>
+            <p>A autoridade australiana <strong>CASA</strong> publicou um guia de projeto de vertiportos com abordagem bastante didática e aplicável a estudos preliminares. O documento apresenta conceitos de Design VCA, Design D, FATO, TLOF, taxi-routes, stands e afastamentos. Por ser voltado à interpretação prática e ao planejamento inicial, foi utilizado como referência complementar importante para organizar o raciocínio do pré-dimensionamento.</p>
+        </section>
+
+        <!-- 5. PREMISSAS -->
+        <section class="mv-section" id="premissas" data-aos="fade-up">
+            <h2><span class="mv-num">5.</span> Premissas Adotadas no Pré-dimensionamento</h2>
+            <p>As premissas adotadas foram definidas para permitir a elaboração de um desenho preliminar consistente, mesmo diante da ausência de todos os dados certificados das aeronaves eVTOL.</p>
+
+            <h3>5.1 Aeronave crítica</h3>
+            <p>A aeronave crítica adotada foi a <strong>BETA ALIA VTOL</strong>, com:</p>
+            <div class="mv-formula-box"><strong>D = 15,24 m</strong></div>
+            <p>Esse valor foi adotado como dimensão de referência para as áreas circulares principais e para os corredores de taxiamento.</p>
+
+            <h3>5.2 UCW adotado</h3>
+            <p>O único valor de UCW identificado de forma objetiva durante o estudo foi de aproximadamente <strong>2,90 m</strong> para a Joby. Para aplicação em aeronaves maiores e considerando a incerteza das demais configurações, adotou-se:</p>
+            <div class="mv-formula-box"><strong>UCW = 3,50 m</strong></div>
+            <p>Esse valor não deve ser interpretado como fator de segurança normativo. Trata-se de uma <strong>hipótese conservadora de anteprojeto</strong>, obtida pela majoração do valor disponível para permitir a definição preliminar da taxiway pavimentada.</p>
+
+            <h3>5.3 Geometria circular</h3>
+            <p>As áreas principais foram representadas em formato circular, por se tratar de uma geometria compatível com operação omnidirecional e por facilitar a aplicação direta do parâmetro D. A representação circular também simplifica a visualização das envoltórias de segurança em planta e pode ser posteriormente adaptada para geometria quadrada, retangular ou poligonal, conforme condicionantes do terreno e exigências operacionais.</p>
+        </section>
+
+        <!-- 6. TLOF -->
+        <section class="mv-section" id="tlof" data-aos="fade-up">
+            <h2><span class="mv-num">6.</span> Dimensionamento da TLOF</h2>
+            <p>A <strong>TLOF</strong> corresponde à área de toque e elevação inicial, ou seja, a superfície onde a aeronave efetivamente toca o solo ou estrutura durante o pouso e de onde inicia a decolagem. Ela deve possuir resistência adequada, estar livre de obstáculos incompatíveis, apresentar superfície regular e permitir a operação segura do trem de pouso.</p>
+            <p>Foi adotado critério conservador internacional (FAA):</p>
+            <div class="mv-formula-box"><strong>TLOF = 1,00 × D</strong></div>
+            <p>Substituindo o valor adotado:</p>
+            <div class="mv-formula-box"><strong>TLOF = 1,00 × 15,24 = 15,24 m</strong></div>
+            <p>Portanto, a TLOF foi pré-dimensionada como uma área circular com diâmetro de <strong>15,24 m</strong>.</p>
+            <p>Essa escolha é mais conservadora que a referência típica de heliponto baseada em 0,83D, pois permite acomodar com maior segurança a projeção da aeronave e seu trem de pouso, especialmente em um contexto de eVTOLs de geometrias variadas.</p>
+        </section>
+
+        <!-- 7. FATO -->
+        <section class="mv-section" id="fato" data-aos="fade-up">
+            <h2><span class="mv-num">7.</span> Dimensionamento da FATO</h2>
+            <p>A <strong>FATO</strong>, ou Final Approach and Take-off Area, é a área de aproximação final e decolagem. Trata-se de uma região destinada a conter a fase final de aproximação e o início da decolagem, oferecendo margem para desvios, correções e eventual rejeição de decolagem, conforme critérios da aeronave e procedimento operacional.</p>
+            <p>Foi adotado critério conservador:</p>
+            <div class="mv-formula-box"><strong>FATO = 2,00 × D</strong></div>
+            <p>Substituindo o valor de D:</p>
+            <div class="mv-formula-box"><strong>FATO = 2,00 × 15,24 = 30,48 m</strong></div>
+            <p>Portanto, a FATO foi pré-dimensionada como uma área circular com diâmetro de <strong>30,48 m</strong>.</p>
+            <p>Esse valor é coerente com a intenção de criar um padrão internacional conservador. Em algumas referências, a FATO mínima pode ser menor, por exemplo 1,5D, desde que observadas as condições da aeronave e o manual de voo. Entretanto, para o presente estudo, a adoção de 2,0D aumenta a margem geométrica e reduz o risco de subdimensionamento.</p>
+        </section>
+
+        <!-- 8. ÁREA DE SEGURANÇA -->
+        <section class="mv-section" id="seguranca" data-aos="fade-up">
+            <h2><span class="mv-num">8.</span> Dimensionamento da Área de Segurança</h2>
+            <p>A área de segurança tem a função de reduzir o risco de danos à aeronave em caso de desvios da FATO, além de contribuir para a proteção contra obstáculos e para a organização da área operacional.</p>
+            <p>Foi adotado:</p>
+            <div class="mv-formula-box"><strong>Área de segurança = 2,50 × D</strong></div>
+            <p>Substituindo:</p>
+            <div class="mv-formula-box"><strong>Área de segurança = 2,50 × 15,24 = 38,10 m</strong></div>
+            <p>Portanto, a área de segurança foi definida com diâmetro de <strong>38,10 m</strong>.</p>
+            <p>Como a FATO foi definida com 30,48 m, a faixa de segurança entre a borda da FATO e a borda do envelope externo é calculada por:</p>
+            <div class="mv-formula-box">
+                <strong>Faixa além do FATO = (38,10 − 30,48) / 2 = 3,81 m por lado</strong>
+            </div>
+            <div class="mv-figure">
+                <img src="img/pista1.jpeg" alt="Planta FATO e área de segurança" />
+                <p class="mv-caption">Figura 2 — Planta FATO e área de segurança.</p>
+            </div>
+        </section>
+
+        <!-- 9. TAXIWAY -->
+        <section class="mv-section" id="taxiway" data-aos="fade-up">
+            <h2><span class="mv-num">9.</span> Dimensionamento da Taxiway Pavimentada</h2>
+            <p>A taxiway pavimentada é a faixa física destinada ao deslocamento terrestre da aeronave, seja por meios próprios, por rodas ou por equipamento de reboque, conforme a configuração da aeronave e o conceito operacional do vertiporto.</p>
+            <p>As referências EASA/CASA indicam, para a taxiway associada a aeronaves eVTOL, uma largura mínima baseada no UCW. O critério adotado foi:</p>
+            <div class="mv-formula-box"><strong>Taxiway pavimentada = 2 × UCW</strong></div>
+            <p>Com a premissa conservadora de UCW = 3,50 m, tem-se:</p>
+            <div class="mv-formula-box"><strong>Taxiway pavimentada = 2 × 3,50 = 7,00 m</strong></div>
+            <p>Portanto, a taxiway pavimentada foi pré-dimensionada com largura de <strong>7,00 m</strong>.</p>
+        </section>
+
+        <!-- 10. ROTA TÁXI TERRESTRE -->
+        <section class="mv-section" id="taxi-terrestre" data-aos="fade-up">
+            <h2><span class="mv-num">10.</span> Dimensionamento da Rota de Táxi Terrestre</h2>
+            <p>A rota de táxi terrestre corresponde à área protegida associada à taxiway terrestre. Ele não representa necessariamente toda a faixa pavimentada, mas sim o envelope dentro do qual a aeronave pode se deslocar com segurança, considerando sua largura total e as folgas necessárias em relação a objetos ou limites operacionais.</p>
+            <p>Foi adotado:</p>
+            <div class="mv-formula-box"><strong>Rota de táxi terrestre = 1,50 × D</strong></div>
+            <p>Substituindo:</p>
+            <div class="mv-formula-box"><strong>Rota de táxi terrestre = 1,50 × 15,24 = 22,86 m</strong></div>
+            <p>Portanto, a rota de táxi terrestre foi definida com largura total de <strong>22,86 m</strong>.</p>
+            <p>Como a taxiway pavimentada possui 7,00 m, a faixa livre adicional em cada lado é:</p>
+            <div class="mv-formula-box">
+                <strong>Faixa livre além da taxiway = (22,86 − 7,00) / 2 = 7,93 m por lado</strong>
+            </div>
+        </section>
+
+        <!-- 11. ROTA TÁXI AÉREO -->
+        <section class="mv-section" id="taxi-aereo" data-aos="fade-up">
+            <h2><span class="mv-num">11.</span> Dimensionamento da Rota de Táxi Aéreo</h2>
+            <p>A rota de táxi aéreo corresponde à faixa protegida para deslocamento da aeronave em baixa altura, geralmente em condição de hover taxi ou deslocamento próximo ao solo. Esse tipo de operação pode gerar efeitos significativos de downwash e exige maior afastamento lateral do que o taxiamento terrestre.</p>
+            <p>Para a Tabela A, foi adotado:</p>
+            <div class="mv-formula-box"><strong>Rota de táxi aéreo = 2,00 × D</strong></div>
+            <p>Substituindo:</p>
+            <div class="mv-formula-box"><strong>Rota de táxi aéreo = 2,00 × 15,24 = 30,48 m</strong></div>
+            <p>Assim, a rota de táxi aéreo foi definida com largura total de <strong>30,48 m</strong>.</p>
+            <p>Considerando a taxiway pavimentada de 7,00 m, a faixa livre lateral em cada lado é:</p>
+            <div class="mv-formula-box">
+                <strong>Faixa livre além da taxiway para air taxi = (30,48 − 7,00) / 2 = 11,74 m por lado</strong>
+            </div>
+            <p>Esse envelope é importante para prever uma condição operacional mais crítica, especialmente em vertiportos onde a aeronave não se deslocará apenas por taxiamento terrestre. Em situações nas quais o conceito operacional excluir a rota de tráfego aéreo, essa faixa poderá ser tratada como reserva futura ou área de proteção complementar.</p>
+            <div class="mv-figure">
+                <img src="img/pista2.jpeg" alt="Esquema linear taxiway e zonas de proteção" />
+                <p class="mv-caption">Figura 3 — Esquema linear taxiway e zonas de proteção.</p>
+            </div>
+        </section>
+
+        <!-- 12. QUADRO RESUMO -->
+        <section class="mv-section" id="resumo" data-aos="fade-up">
+            <h2><span class="mv-num">12.</span> Quadro Resumo dos Valores Adotados</h2>
+            <p>A seguir, apresenta-se o resumo dos valores adotados para o pré-dimensionamento:</p>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Elemento</th>
+                            <th>Fórmula adotada</th>
+                            <th>Valor adotado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aeronave crítica</td>
+                            <td>BETA ALIA VTOL</td>
+                            <td><strong>D = 15,24 m</strong></td>
+                        </tr>
+                        <tr>
+                            <td>UCW adotado</td>
+                            <td>Hipótese conservadora</td>
+                            <td>3,50 m</td>
+                        </tr>
+                        <tr>
+                            <td>TLOF</td>
+                            <td>1,00 × D</td>
+                            <td><strong>15,24 m</strong></td>
+                        </tr>
+                        <tr>
+                            <td>FATO</td>
+                            <td>2,00 × D</td>
+                            <td><strong>30,48 m</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Área de segurança</td>
+                            <td>2,50 × D</td>
+                            <td><strong>38,10 m</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Faixa além do FATO</td>
+                            <td>(38,10 − 30,48) / 2</td>
+                            <td>3,81 m por lado</td>
+                        </tr>
+                        <tr>
+                            <td>Taxiway pavimentada</td>
+                            <td>2 × UCW</td>
+                            <td><strong>7,00 m</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Rota de táxi terrestre</td>
+                            <td>1,50 × D</td>
+                            <td><strong>22,86 m</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Faixa além da taxiway</td>
+                            <td>(22,86 − 7,00) / 2</td>
+                            <td>7,93 m por lado</td>
+                        </tr>
+                        <tr>
+                            <td>Rota de táxi aéreo</td>
+                            <td>2,00 × D</td>
+                            <td><strong>30,48 m</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Faixa além da taxiway para air taxi</td>
+                            <td>(30,48 − 7,00) / 2</td>
+                            <td>11,74 m por lado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 13. CONCLUSÃO -->
+        <section class="mv-section" id="conclusao" data-aos="fade-up">
+            <h2><span class="mv-num">13.</span> Conclusão</h2>
+            <p>O pré-dimensionamento foi desenvolvido com o objetivo de criar uma alternativa conservadora e internacionalmente orientada para implantação preliminar de vertiporto. A aeronave crítica adotada foi a <strong>BETA ALIA VTOL</strong>, com <strong>D = 15,24 m</strong>, por representar a maior dimensão dentre as aeronaves consideradas no estudo.</p>
+            <p>Com base nesse parâmetro, foram definidos os principais elementos geométricos: <strong>TLOF = 15,24 m</strong>, <strong>FATO = 30,48 m</strong> e <strong>área de segurança = 38,10 m</strong>. Para taxiamento, adotou-se <strong>UCW = 3,50 m</strong> como hipótese conservadora preliminar, resultando em <strong>taxiway pavimentada = 7,00 m</strong>. Complementarmente, foram definidos <strong>rota de táxi terrestre = 22,86 m</strong> e <strong>rota de táxi aéreo = 30,48 m</strong>, permitindo maior clareza na separação entre faixa física de rolamento e envelope operacional protegido.</p>
+            <p>A solução proposta é adequada para fase de estudo e apresentação, pois estabelece dimensões claras, rastreáveis e justificáveis. O uso combinado de referências FAA, EASA, CASA e ANAC permite uma abordagem mais robusta do que a simples aplicação de critérios de heliponto, reconhecendo as particularidades geométricas das aeronaves eVTOL.</p>
+            <p>Recomenda-se que, em etapa posterior, os valores sejam revisados com base nos dados oficiais da aeronave escolhida, incluindo manual de voo, geometria certificada, UCW real, RD quando aplicável e procedimentos operacionais.</p>
+        </section>
+
+        <!-- 14. REFERÊNCIAS BIBLIOGRÁFICAS -->
+        <section class="mv-section" id="referencias-bib" data-aos="fade-up">
+            <h2><span class="mv-num">14.</span> Referências Bibliográficas</h2>
+            <ul class="mv-bib">
+                <li>AGÊNCIA NACIONAL DE AVIAÇÃO CIVIL. <strong>RBAC nº 155: Helipontos</strong>. Brasília: ANAC, versão vigente.</li>
+                <li>AGÊNCIA NACIONAL DE AVIAÇÃO CIVIL. <strong>Alerta aos Operadores de Aeródromos nº 001/2023: Infraestrutura para pouso e decolagem de aeronaves eVTOL</strong>. Brasília: ANAC, 2023.</li>
+                <li>CIVIL AVIATION SAFETY AUTHORITY. <strong>Guide to Vertiport Design</strong>. Canberra: CASA, 2024.</li>
+                <li>EUROPEAN UNION AVIATION SAFETY AGENCY. <strong>Prototype Technical Specifications for the Design of VFR Vertiports — PTS-VPT-DSN</strong>. Cologne: EASA, 2022.</li>
+                <li>FEDERAL AVIATION ADMINISTRATION. <strong>Engineering Brief No. 105A: Vertiport Design, Supplemental Guidance to AC 150/5390-2D, Heliport Design</strong>. Washington, DC: FAA, 2024.</li>
+                <li>BETA TECHNOLOGIES. <strong>ALIA VTOL Aircraft — Technical and product information</strong>. South Burlington: BETA Technologies, página institucional.</li>
+            </ul>
+        </section>
+
+    </div>
+</main>
+
+<!-- DOWNLOADS -->
+<section class="mv-downloads">
+    <div class="mv-container">
+        <h2 class="mv-downloads-title">Arquivos para Download</h2>
+        <p class="mv-downloads-sub">Acesse o memorial completo e o projeto de pré-dimensionamento</p>
+        <div class="mv-downloads-grid">
+            <a href="Memorial_descritivo_Vertiporto.docx" class="mv-download-card" download>
+                <div class="mv-download-icon">📄</div>
+                <div class="mv-download-info">
+                    <span class="mv-download-label">Word</span>
+                    <strong>Memorial Descritivo de Vertiporto</strong>
+                    <span class="mv-download-desc">Documento completo com critérios e premissas</span>
+                </div>
+                <span class="mv-download-btn">Baixar</span>
+            </a>
+            <a href="PROJ_EVTOL_IT214_2-A4.pdf" class="mv-download-card" download>
+                <div class="mv-download-icon">📐</div>
+                <div class="mv-download-info">
+                    <span class="mv-download-label">PDF</span>
+                    <strong>Projeto Pré-dimensionamento Vertiporto</strong>
+                    <span class="mv-download-desc">Prancha técnica com plantas e escalas</span>
+                </div>
+                <span class="mv-download-btn">Baixar</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-dark">
+    <div class="footer-dark-inner">
+        <span class="footer-logo">UAM Study</span>
+        <span class="footer-copy">© 2026 Urban Air Mobility Project • ITA IT-214</span>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 900, once: true, offset: 60 });
+
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+</script>
+
+</body>
+</html>
