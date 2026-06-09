@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Análise Meteorológica — UAM Study</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ── PAGE HERO ─────────────────────────────────── */
+        .page-hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+        .hero-dark-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                rgba(10,10,10,0.45) 0%,
+                rgba(10,10,10,0.72) 60%,
+                rgba(10,10,10,1) 100%);
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 24px;
+        }
+        .hero-eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 16px;
+        }
+        .page-hero-content h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+        .hero-sub {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.55);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ── MAIN LAYOUT ───────────────────────────────── */
+        .met-main {
+            background: #0a0a0a;
+            padding-bottom: 80px;
+        }
+        .met-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px 0;
+        }
+        @media(max-width:768px){ .met-section { padding: 48px 20px 0; } }
+
+        .met-block {
+            margin-bottom: 80px;
+        }
+
+        .block-num {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.2);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .block-heading {
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+        .block-sub {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 680px;
+        }
+
+        /* ── ROSE GRID ─────────────────────────────────── */
+        .rose-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        @media(max-width:600px){ .rose-grid { grid-template-columns: repeat(2,1fr); } }
+
+        .rose-cell {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 16px 8px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .rose-cell-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .rose-cell canvas { width: 100% !important; }
+
+        /* ── ANNUAL ROSE ───────────────────────────────── */
+        .annual-rose-wrap {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .annual-rose-wrap canvas {
+            max-width: 460px;
+            width: 100%;
+        }
+
+        /* ── LEGEND ────────────────────────────────────── */
+        .wind-legend {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .wind-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.55);
+        }
+        .wind-legend-swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+        }
+
+        /* ── BAR CHARTS ────────────────────────────────── */
+        .chart-wrap {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 32px 32px 24px;
+        }
+        .chart-wrap canvas { width: 100% !important; }
+        .chart-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        /* ── DIVIDER ───────────────────────────────────── */
+        .met-divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            margin: 0 40px;
+        }
+        @media(max-width:768px){ .met-divider { margin: 0 20px; } }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="main-navbar" id="mainNav">
+    <div class="main-navbar-inner">
+        <a href="index.html" class="main-navbar-logo">UAM Study</a>
+        <div class="main-navbar-menu">
+            <a href="index.html" class="main-nav-link">Home</a>
+
+            <div class="dropdown">
+                <span class="main-nav-link">Revisão ▾</span>
+                <div class="submenu">
+                    <a href="fundamentacao_teorica.html">Fundamentação Teórica e Análise Crítica</a>
+                    <a href="exercicio.html">Exercício Técnico Estruturado</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <span class="main-nav-link active">Análises ▾</span>
+                <div class="submenu">
+                    <a href="selecao_cidade.html">Seleção de Cidade</a>
+                    <a href="caracterizacao_brasilia.html">Caracterização de Brasília</a>
+                    <a href="selecao_vertiporto.html">Seleção de Vertiporto</a>
+                    <a href="mapas_qgis.html">Mapas QGIS</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <span class="main-nav-link">Demanda de UAM ▾</span>
+                <div class="submenu">
+                    <a href="demanda_uam.html">Análise de Demanda</a>
+                    <a href="memorial_vertiporto.html">Memorial Descritivo de Vertiporto</a>
+                    <a href="analise_meteorologica.html">Análise Meteorológica</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="page-hero" style="background-image: url('img/Meteorologia.png');">
+    <div class="hero-dark-overlay"></div>
+    <div class="page-hero-content" data-aos="fade-up">
+        <p class="hero-eyebrow">Análises — Brasília</p>
+        <h1>Análise Meteorológica</h1>
+        <p class="hero-sub">Condições de vento e visibilidade para operações eVTOL no Distrito Federal</p>
+    </div>
+</header>
+
+<!-- MAIN -->
+<main class="met-main">
+    <div class="met-section">
+
+        <!-- INTRO -->
+        <div class="met-block" data-aos="fade-up">
+            <p style="color:rgba(255,255,255,0.6); line-height:1.8; max-width:780px;">
+                A análise das condições meteorológicas é um fator determinante para a viabilidade operacional de sistemas eVTOL. Os dados apresentados nesta seção foram extraídos de registros históricos do aeródromo de Brasília e caracterizam os padrões de vento e as condições de voo ao longo do ano, subsidiando o dimensionamento do vertiporto e a avaliação da cobertura temporal das operações.
+            </p>
+        </div>
+
+        <hr class="met-divider">
+
+        <!-- 1. ROSAS DOS VENTOS MENSAIS -->
+        <div class="met-block" data-aos="fade-up">
+            <div class="block-num">01</div>
+            <h2 class="block-heading">Rosas dos Ventos Mensais</h2>
+            <p class="block-sub">
+                Distribuição direcional e de intensidade do vento para cada mês do ano. As faixas de velocidade seguem a classificação: 0–6 kt, 6–10 kt, 10–14 kt e 14–20 kt.
+            </p>
+
+            <div class="wind-legend">
+                <div class="wind-legend-item"><div class="wind-legend-swatch" style="background:#c6d9f0;"></div> 0–6 kt</div>
+                <div class="wind-legend-item"><div class="wind-legend-swatch" style="background:#6aaed6;"></div> 6–10 kt</div>
+                <div class="wind-legend-item"><div class="wind-legend-swatch" style="background:#2878b8;"></div> 10–14 kt</div>
+                <div class="wind-legend-item"><div class="wind-legend-swatch" style="background:#0a3d6b;"></div> 14–20 kt</div>
+            </div>
+
+            <div class="rose-grid" id="monthlyRoseGrid"></div>
+        </div>
+
+        <hr class="met-divider">
+
+        <!-- 2. ROSA ANUAL -->
+        <div class="met-block" data-aos="fade-up">
+            <div class="block-num">02</div>
+            <h2 class="block-heading">Rosa dos Ventos Anual</h2>
+            <p class="block-sub">
+                Síntese anual da distribuição direcional do vento, evidenciando a predominância do quadrante leste, com pico de <strong style="color:#fff;">35%</strong> na direção E. Cada anel representa 5% de frequência.
+            </p>
+
+            <div class="wind-legend">
+                <div class="wind-legend-item"><div class="wind-legend-swatch" style="background:#c6d9f0;"></div> 0–6 kt</div>
+                <div class="wind-legend-item"><div class="wind-legend-swatch" style="background:#6aaed6;"></div> 6–10 kt</div>
+                <div class="wind-legend-item"><div class="wind-legend-swatch" style="background:#2878b8;"></div> 10–14 kt</div>
+                <div class="wind-legend-item"><div class="wind-legend-swatch" style="background:#0a3d6b;"></div> 14–20 kt</div>
+            </div>
+
+            <div class="annual-rose-wrap">
+                <canvas id="annualRose" width="460" height="460"></canvas>
+                <p style="font-size:12px; color:rgba(255,255,255,0.3); margin-top:16px;">Escala: cada anel = 5%</p>
+            </div>
+        </div>
+
+        <hr class="met-divider">
+
+        <!-- 3. VMC/IMC POR MÊS -->
+        <div class="met-block" data-aos="fade-up">
+            <div class="block-num">03</div>
+            <h2 class="block-heading">Condições VMC / IMC por Mês</h2>
+            <p class="block-sub">
+                Distribuição mensal das condições de voo Visual (VMC) e por Instrumentos (IMC). O período de seca (junho–agosto) apresenta frequência de IMC inferior a 2%, enquanto meses chuvosos atingem até 12%.
+            </p>
+            <div class="chart-wrap">
+                <p class="chart-title">VMC vs IMC — Distribuição Mensal (%)</p>
+                <canvas id="chartMensal" height="200"></canvas>
+            </div>
+        </div>
+
+        <hr class="met-divider">
+
+        <!-- 4. VMC/IMC POR HORA -->
+        <div class="met-block" data-aos="fade-up">
+            <div class="block-num">04</div>
+            <h2 class="block-heading">Condições VMC / IMC por Hora do Dia</h2>
+            <p class="block-sub">
+                Variação horária das condições de voo ao longo do dia. O período entre 9h e 13h concentra os maiores índices de IMC (até 12,7%), associados à formação de nuvens convectivas no período da manhã em Brasília.
+            </p>
+            <div class="chart-wrap">
+                <p class="chart-title">VMC vs IMC — Distribuição Horária (%)</p>
+                <canvas id="chartHorario" height="200"></canvas>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- CTA -->
+<section class="cta-dark">
+    <div class="cta-dark-bg" style="background-image: url('img/foto_brasilia_3.jpg');"></div>
+    <div class="cta-dark-overlay"></div>
+    <div class="cta-dark-content" data-aos="fade-up">
+        <h2>Condições favoráveis à UAM</h2>
+        <p>Brasília apresenta cobertura VMC superior a 87% ao longo do ano, com pico acima de 99% nos meses secos.</p>
+        <a href="selecao_vertiporto.html" class="btn-hero-primary">Ver Seleção de Vertiporto</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-dark">
+    <div class="footer-dark-inner">
+        <span class="footer-logo">UAM Study</span>
+        <span class="footer-copy">© 2026 Urban Air Mobility Project • Todos os direitos reservados</span>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<script>
+AOS.init({ duration: 900, once: true, offset: 60 });
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+/* ================================================================
+   WIND ROSE ENGINE
+   ================================================================ */
+const COLORS = ['#c6d9f0','#6aaed6','#2878b8','#0a3d6b'];
+const DIRS   = ['N','NE','E','SE','S','SW','W','NW'];
+// each dir: [0-6, 6-10, 10-14, 14-20] in % of total obs
+// Data approximated faithfully from the images
+const MONTHLY = {
+    JAN: [[3,2,1,0],[3,2,1,0],[8,10,8,4],[2,1,0,0],[2,1,0,0],[1,1,0,0],[4,3,2,1],[4,3,1,0]],
+    FEV: [[2,2,1,0],[4,3,2,1],[7,9,7,4],[2,1,0,0],[2,1,0,0],[1,1,0,0],[3,2,1,0],[4,4,2,1]],
+    MAR: [[2,1,1,0],[3,2,1,0],[9,10,7,4],[2,1,0,0],[1,1,0,0],[1,0,0,0],[3,2,1,0],[3,2,1,0]],
+    ABR: [[2,1,0,0],[2,1,1,0],[9,11,8,4],[2,1,0,0],[1,1,0,0],[1,0,0,0],[2,2,1,0],[3,2,1,0]],
+    MAI: [[2,1,0,0],[2,2,1,0],[9,11,8,4],[2,1,0,0],[1,0,0,0],[1,0,0,0],[2,2,1,0],[3,2,1,0]],
+    JUN: [[2,1,0,0],[2,1,1,0],[9,11,9,5],[2,1,0,0],[1,0,0,0],[1,0,0,0],[2,2,1,0],[3,2,1,0]],
+    JUL: [[2,1,0,0],[2,1,1,0],[8,11,9,5],[2,1,0,0],[1,0,0,0],[1,0,0,0],[2,2,1,0],[3,2,1,0]],
+    AGO: [[2,1,0,0],[2,2,1,0],[8,11,9,5],[2,1,0,0],[1,0,0,0],[1,0,0,0],[2,2,1,0],[3,2,1,0]],
+    SET: [[2,1,0,0],[2,2,1,0],[9,11,9,6],[2,1,0,0],[1,0,0,0],[1,0,0,0],[2,2,1,0],[3,2,1,0]],
+    OUT: [[2,1,0,0],[3,2,1,0],[8,10,8,4],[2,1,0,0],[1,1,0,0],[1,0,0,0],[3,2,1,0],[3,2,1,0]],
+    NOV: [[2,2,1,0],[3,3,2,1],[7,9,7,4],[2,1,0,0],[2,1,0,0],[1,1,0,0],[3,2,1,0],[4,3,2,0]],
+    DEZ: [[3,2,1,0],[4,3,2,1],[8,9,7,4],[2,1,0,0],[2,1,0,0],[1,1,0,0],[4,3,2,1],[4,3,2,1]],
+};
+
+// Annual data: [dir][band] - E dominates ~35%
+const ANNUAL = [
+    [2,1,0,0],   // N
+    [3,2,1,0],   // NE
+    [12,13,7,3], // E  → ~35%
+    [3,3,1,0],   // SE
+    [2,2,1,0],   // S
+    [1,1,0,0],   // SW
+    [2,2,1,0],   // W
+    [3,3,1,0],   // NW
+];
+
+function drawRose(canvas, data, maxR) {
+    const size = canvas.width;
+    const cx = size / 2, cy = size / 2;
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0,0,size,size);
+
+    const outerR = size * 0.42;
+    const numRings = 7;
+
+    // Background
+    ctx.fillStyle = '#111111';
+    ctx.fillRect(0,0,size,size);
+
+    // Rings
+    for (let i = 1; i <= numRings; i++) {
+        ctx.beginPath();
+        ctx.arc(cx, cy, (i / numRings) * outerR, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+    }
+
+    // Axes
+    for (let d = 0; d < 8; d++) {
+        const ang = (d / 8) * Math.PI * 2 - Math.PI / 2;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(ang) * outerR, cy + Math.sin(ang) * outerR);
+        ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+    }
+
+    // Direction labels
+    const lbls = ['N','NE','E','SE','S','SW','W','NW'];
+    ctx.font = `bold ${size * 0.055}px Inter, sans-serif`;
+    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (let d = 0; d < 8; d++) {
+        const ang = (d / 8) * Math.PI * 2 - Math.PI / 2;
+        const lx = cx + Math.cos(ang) * (outerR + size * 0.06);
+        const ly = cy + Math.sin(ang) * (outerR + size * 0.06);
+        ctx.fillText(lbls[d], lx, ly);
+    }
+
+    // Petals (stacked bars per direction per speed band)
+    const sliceAngle = (Math.PI * 2) / 8;
+    for (let d = 0; d < 8; d++) {
+        const centerAng = (d / 8) * Math.PI * 2 - Math.PI / 2;
+        const startAng = centerAng - sliceAngle / 2;
+        const endAng   = centerAng + sliceAngle / 2;
+
+        let cumR = 0;
+        for (let b = 0; b < 4; b++) {
+            const val = data[d][b];
+            if (val <= 0) continue;
+            const r = (val / maxR) * outerR;
+            const innerR = cumR;
+            const outerBand = cumR + r;
+
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.arc(cx, cy, outerBand, startAng, endAng);
+            ctx.closePath();
+            ctx.fillStyle = COLORS[b];
+            ctx.fill();
+
+            // punch out inner
+            if (innerR > 0) {
+                ctx.save();
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.arc(cx, cy, innerR - 0.5, startAng, endAng);
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            }
+
+            cumR = outerBand;
+        }
+    }
+
+    // Center dot
+    ctx.beginPath();
+    ctx.arc(cx, cy, 3, 0, Math.PI * 2);
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+}
+
+// Build monthly grid
+const months = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+const grid = document.getElementById('monthlyRoseGrid');
+
+months.forEach(m => {
+    const cell = document.createElement('div');
+    cell.className = 'rose-cell';
+    const lbl = document.createElement('div');
+    lbl.className = 'rose-cell-label';
+    lbl.textContent = m;
+    const canvas = document.createElement('canvas');
+    canvas.width = 200;
+    canvas.height = 200;
+    cell.appendChild(lbl);
+    cell.appendChild(canvas);
+    grid.appendChild(cell);
+
+    // find max value for scale
+    const data = MONTHLY[m];
+    const max = Math.max(...data.map(d => d.reduce((s,v)=>s+v,0)));
+    drawRose(canvas, data, max * 1.1);
+});
+
+// Annual rose
+const annualCanvas = document.getElementById('annualRose');
+annualCanvas.width = 460;
+annualCanvas.height = 460;
+// max sum across dirs (E ≈ 35)
+const annualMax = Math.max(...ANNUAL.map(d => d.reduce((s,v)=>s+v,0)));
+drawRose(annualCanvas, ANNUAL, annualMax * 1.05);
+
+// Add 35% label near E
+(function(){
+    const canvas = annualCanvas;
+    const ctx = canvas.getContext('2d');
+    const cx = canvas.width/2, cy = canvas.height/2;
+    const outerR = canvas.width * 0.42;
+    const ang = 0; // East = 0 rad from center (horizontal right)
+    const lx = cx + Math.cos(ang) * outerR * 0.88;
+    const ly = cy + Math.sin(ang) * outerR * 0.88 - 14;
+    ctx.font = 'bold 13px Inter, sans-serif';
+    ctx.fillStyle = '#fff';
+    ctx.textAlign = 'center';
+    ctx.fillText('35%', lx + 18, ly);
+})();
+
+/* ================================================================
+   CHART.JS — VMC/IMC
+   ================================================================ */
+Chart.defaults.color = 'rgba(255,255,255,0.4)';
+Chart.defaults.borderColor = 'rgba(255,255,255,0.08)';
+
+const monthLabels = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+const vmcMensal  = [88.0,90.9,93.3,93.8,96.7,98.9,99.5,98.7,98.8,95.7,88.3,90.5];
+const imcMensal  = [12.0, 9.1, 6.7, 6.2, 3.3, 1.1, 0.5, 1.3, 1.2, 4.3,11.7, 9.5];
+
+new Chart(document.getElementById('chartMensal'), {
+    type: 'bar',
+    data: {
+        labels: monthLabels,
+        datasets: [
+            {
+                label: 'VMC',
+                data: vmcMensal,
+                backgroundColor: '#2878b8',
+                borderRadius: 3,
+                stack: 'a',
+            },
+            {
+                label: 'IMC',
+                data: imcMensal,
+                backgroundColor: '#e86c3a',
+                borderRadius: 3,
+                stack: 'a',
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            x: { stacked: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { font: { size: 11 } } },
+            y: {
+                stacked: true,
+                min: 0, max: 100,
+                grid: { color: 'rgba(255,255,255,0.05)' },
+                ticks: { callback: v => v + '%', font: { size: 11 } }
+            }
+        },
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: { boxWidth: 12, padding: 20, font: { size: 12 } }
+            },
+            tooltip: {
+                callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.raw.toFixed(1)}%` }
+            }
+        }
+    }
+});
+
+const hourLabels = Array.from({length:24}, (_,i)=>i+'h');
+const vmcHorario = [97.2,96.7,95.8,94.9,94.3,93.9,93.6,92.4,90.9,89.8,87.9,87.3,88.8,92.6,95.5,96.6,97.3,97.2,97.3,97.5,97.0,97.4,97.7,97.4];
+const imcHorario = [ 2.8, 3.3, 4.2, 5.1, 5.7, 6.1, 6.4, 7.6, 9.1,10.2,12.1,12.7,11.2, 7.4, 4.5, 3.4, 2.7, 2.8, 2.7, 2.5, 3.0, 2.6, 2.3, 2.6];
+
+new Chart(document.getElementById('chartHorario'), {
+    type: 'bar',
+    data: {
+        labels: hourLabels,
+        datasets: [
+            {
+                label: 'VMC',
+                data: vmcHorario,
+                backgroundColor: '#2878b8',
+                borderRadius: 2,
+                stack: 'a',
+            },
+            {
+                label: 'IMC',
+                data: imcHorario,
+                backgroundColor: '#e86c3a',
+                borderRadius: 2,
+                stack: 'a',
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            x: { stacked: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { font: { size: 10 } } },
+            y: {
+                stacked: true,
+                min: 0, max: 100,
+                grid: { color: 'rgba(255,255,255,0.05)' },
+                ticks: { callback: v => v + '%', font: { size: 11 } }
+            }
+        },
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: { boxWidth: 12, padding: 20, font: { size: 12 } }
+            },
+            tooltip: {
+                callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.raw.toFixed(1)}%` }
+            }
+        }
+    }
+});
+</script>
+</body>
+</html>
