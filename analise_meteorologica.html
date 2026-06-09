@@ -179,6 +179,63 @@
             margin-bottom: 20px;
         }
 
+        /* ── MAPS GRID ─────────────────────────────────── */
+        .maps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        @media(max-width: 768px) { .maps-grid { grid-template-columns: 1fr; } }
+
+        .map-card {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.07);
+            background: #111;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .map-card:hover {
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+        .map-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            cursor: zoom-in;
+        }
+        .map-card-caption {
+            padding: 12px 16px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.35);
+            letter-spacing: 0.3px;
+            line-height: 1.5;
+        }
+
+        /* ── LIGHTBOX ──────────────────────────────────── */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+        .lightbox-overlay.active {
+            display: flex;
+        }
+        .lightbox-overlay img {
+            max-width: 92vw;
+            max-height: 92vh;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.8);
+        }
+
         /* ── DIVIDER ───────────────────────────────────── */
         .met-divider {
             border: none;
@@ -321,6 +378,36 @@
             </div>
         </div>
 
+        <hr class="met-divider">
+
+        <!-- 5. MAPAS DO SÍTIO -->
+        <div class="met-block" data-aos="fade-up">
+            <div class="block-num">05</div>
+            <h2 class="block-heading">Localização do Sítio — Esplanada dos Ministérios</h2>
+            <p class="block-sub">
+                Visualizações do local de estudo para implantação do vertiporto, na região da Esplanada dos Ministérios em Brasília. As imagens apresentam vistas 3D e aéreas obtidas via Google Earth, ilustrando o contexto urbano, as rotas de aproximação e a geometria do sítio proposto.
+            </p>
+
+            <div class="maps-grid">
+                <div class="map-card" data-aos="fade-up" data-aos-delay="0">
+                    <img src="img/mapa_01.jpg" alt="Vista 3D — Esplanada dos Ministérios (ângulo sul)" />
+                    <div class="map-card-caption">Vista 3D — perspectiva sul da Esplanada dos Ministérios</div>
+                </div>
+                <div class="map-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img/mapa_02.jpg" alt="Vista 3D — Esplanada dos Ministérios (ângulo norte)" />
+                    <div class="map-card-caption">Vista 3D — perspectiva norte com eixo monumental</div>
+                </div>
+                <div class="map-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="img/mapa_03.jpg" alt="Vista aérea 2D — localização do sítio" />
+                    <div class="map-card-caption">Vista aérea 2D — delimitação do sítio e entorno institucional</div>
+                </div>
+                <div class="map-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="img/mapa_04.jpg" alt="Vista aérea vertical — detalhe do vertiporto" />
+                    <div class="map-card-caption">Vista vertical — detalhe da área de pouso e geometria do sítio</div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </main>
 
@@ -343,6 +430,11 @@
     </div>
 </footer>
 
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox">
+    <img id="lightbox-img" src="" alt="" />
+</div>
+
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -353,13 +445,29 @@ AOS.init({ duration: 900, once: true, offset: 60 });
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
 
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+document.querySelectorAll('.map-card img').forEach(img => {
+    img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+    });
+});
+
+lightbox.addEventListener('click', () => lightbox.classList.remove('active'));
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') lightbox.classList.remove('active');
+});
+
 /* ================================================================
    WIND ROSE ENGINE
    ================================================================ */
 const COLORS = ['#c6d9f0','#6aaed6','#2878b8','#0a3d6b'];
 const DIRS   = ['N','NE','E','SE','S','SW','W','NW'];
-// each dir: [0-6, 6-10, 10-14, 14-20] in % of total obs
-// Data approximated faithfully from the images
 const MONTHLY = {
     JAN: [[3,2,1,0],[3,2,1,0],[8,10,8,4],[2,1,0,0],[2,1,0,0],[1,1,0,0],[4,3,2,1],[4,3,1,0]],
     FEV: [[2,2,1,0],[4,3,2,1],[7,9,7,4],[2,1,0,0],[2,1,0,0],[1,1,0,0],[3,2,1,0],[4,4,2,1]],
@@ -375,16 +483,15 @@ const MONTHLY = {
     DEZ: [[3,2,1,0],[4,3,2,1],[8,9,7,4],[2,1,0,0],[2,1,0,0],[1,1,0,0],[4,3,2,1],[4,3,2,1]],
 };
 
-// Annual data: [dir][band] - E dominates ~35%
 const ANNUAL = [
-    [2,1,0,0],   // N
-    [3,2,1,0],   // NE
-    [12,13,7,3], // E  → ~35%
-    [3,3,1,0],   // SE
-    [2,2,1,0],   // S
-    [1,1,0,0],   // SW
-    [2,2,1,0],   // W
-    [3,3,1,0],   // NW
+    [2,1,0,0],
+    [3,2,1,0],
+    [12,13,7,3],
+    [3,3,1,0],
+    [2,2,1,0],
+    [1,1,0,0],
+    [2,2,1,0],
+    [3,3,1,0],
 ];
 
 function drawRose(canvas, data, maxR) {
@@ -396,11 +503,9 @@ function drawRose(canvas, data, maxR) {
     const outerR = size * 0.42;
     const numRings = 7;
 
-    // Background
     ctx.fillStyle = '#111111';
     ctx.fillRect(0,0,size,size);
 
-    // Rings
     for (let i = 1; i <= numRings; i++) {
         ctx.beginPath();
         ctx.arc(cx, cy, (i / numRings) * outerR, 0, Math.PI * 2);
@@ -409,7 +514,6 @@ function drawRose(canvas, data, maxR) {
         ctx.stroke();
     }
 
-    // Axes
     for (let d = 0; d < 8; d++) {
         const ang = (d / 8) * Math.PI * 2 - Math.PI / 2;
         ctx.beginPath();
@@ -420,7 +524,6 @@ function drawRose(canvas, data, maxR) {
         ctx.stroke();
     }
 
-    // Direction labels
     const lbls = ['N','NE','E','SE','S','SW','W','NW'];
     ctx.font = `bold ${size * 0.055}px Inter, sans-serif`;
     ctx.fillStyle = 'rgba(255,255,255,0.3)';
@@ -433,7 +536,6 @@ function drawRose(canvas, data, maxR) {
         ctx.fillText(lbls[d], lx, ly);
     }
 
-    // Petals (stacked bars per direction per speed band)
     const sliceAngle = (Math.PI * 2) / 8;
     for (let d = 0; d < 8; d++) {
         const centerAng = (d / 8) * Math.PI * 2 - Math.PI / 2;
@@ -455,7 +557,6 @@ function drawRose(canvas, data, maxR) {
             ctx.fillStyle = COLORS[b];
             ctx.fill();
 
-            // punch out inner
             if (innerR > 0) {
                 ctx.save();
                 ctx.globalCompositeOperation = 'destination-out';
@@ -471,14 +572,12 @@ function drawRose(canvas, data, maxR) {
         }
     }
 
-    // Center dot
     ctx.beginPath();
     ctx.arc(cx, cy, 3, 0, Math.PI * 2);
     ctx.fillStyle = '#fff';
     ctx.fill();
 }
 
-// Build monthly grid
 const months = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
 const grid = document.getElementById('monthlyRoseGrid');
 
@@ -495,27 +594,23 @@ months.forEach(m => {
     cell.appendChild(canvas);
     grid.appendChild(cell);
 
-    // find max value for scale
     const data = MONTHLY[m];
     const max = Math.max(...data.map(d => d.reduce((s,v)=>s+v,0)));
     drawRose(canvas, data, max * 1.1);
 });
 
-// Annual rose
 const annualCanvas = document.getElementById('annualRose');
 annualCanvas.width = 460;
 annualCanvas.height = 460;
-// max sum across dirs (E ≈ 35)
 const annualMax = Math.max(...ANNUAL.map(d => d.reduce((s,v)=>s+v,0)));
 drawRose(annualCanvas, ANNUAL, annualMax * 1.05);
 
-// Add 35% label near E
 (function(){
     const canvas = annualCanvas;
     const ctx = canvas.getContext('2d');
     const cx = canvas.width/2, cy = canvas.height/2;
     const outerR = canvas.width * 0.42;
-    const ang = 0; // East = 0 rad from center (horizontal right)
+    const ang = 0;
     const lx = cx + Math.cos(ang) * outerR * 0.88;
     const ly = cy + Math.sin(ang) * outerR * 0.88 - 14;
     ctx.font = 'bold 13px Inter, sans-serif';
@@ -539,41 +634,19 @@ new Chart(document.getElementById('chartMensal'), {
     data: {
         labels: monthLabels,
         datasets: [
-            {
-                label: 'VMC',
-                data: vmcMensal,
-                backgroundColor: '#2878b8',
-                borderRadius: 3,
-                stack: 'a',
-            },
-            {
-                label: 'IMC',
-                data: imcMensal,
-                backgroundColor: '#e86c3a',
-                borderRadius: 3,
-                stack: 'a',
-            }
+            { label: 'VMC', data: vmcMensal, backgroundColor: '#2878b8', borderRadius: 3, stack: 'a' },
+            { label: 'IMC', data: imcMensal, backgroundColor: '#e86c3a', borderRadius: 3, stack: 'a' }
         ]
     },
     options: {
         responsive: true,
         scales: {
             x: { stacked: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { font: { size: 11 } } },
-            y: {
-                stacked: true,
-                min: 0, max: 100,
-                grid: { color: 'rgba(255,255,255,0.05)' },
-                ticks: { callback: v => v + '%', font: { size: 11 } }
-            }
+            y: { stacked: true, min: 0, max: 100, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { callback: v => v + '%', font: { size: 11 } } }
         },
         plugins: {
-            legend: {
-                position: 'bottom',
-                labels: { boxWidth: 12, padding: 20, font: { size: 12 } }
-            },
-            tooltip: {
-                callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.raw.toFixed(1)}%` }
-            }
+            legend: { position: 'bottom', labels: { boxWidth: 12, padding: 20, font: { size: 12 } } },
+            tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.raw.toFixed(1)}%` } }
         }
     }
 });
@@ -587,41 +660,19 @@ new Chart(document.getElementById('chartHorario'), {
     data: {
         labels: hourLabels,
         datasets: [
-            {
-                label: 'VMC',
-                data: vmcHorario,
-                backgroundColor: '#2878b8',
-                borderRadius: 2,
-                stack: 'a',
-            },
-            {
-                label: 'IMC',
-                data: imcHorario,
-                backgroundColor: '#e86c3a',
-                borderRadius: 2,
-                stack: 'a',
-            }
+            { label: 'VMC', data: vmcHorario, backgroundColor: '#2878b8', borderRadius: 2, stack: 'a' },
+            { label: 'IMC', data: imcHorario, backgroundColor: '#e86c3a', borderRadius: 2, stack: 'a' }
         ]
     },
     options: {
         responsive: true,
         scales: {
             x: { stacked: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { font: { size: 10 } } },
-            y: {
-                stacked: true,
-                min: 0, max: 100,
-                grid: { color: 'rgba(255,255,255,0.05)' },
-                ticks: { callback: v => v + '%', font: { size: 11 } }
-            }
+            y: { stacked: true, min: 0, max: 100, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { callback: v => v + '%', font: { size: 11 } } }
         },
         plugins: {
-            legend: {
-                position: 'bottom',
-                labels: { boxWidth: 12, padding: 20, font: { size: 12 } }
-            },
-            tooltip: {
-                callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.raw.toFixed(1)}%` }
-            }
+            legend: { position: 'bottom', labels: { boxWidth: 12, padding: 20, font: { size: 12 } } },
+            tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.raw.toFixed(1)}%` } }
         }
     }
 });
