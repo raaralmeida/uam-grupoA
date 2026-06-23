@@ -673,3 +673,219 @@ body {
     .footer-dark-inner { padding: 0 20px; flex-direction: column; text-align: center; }
     .what-we-do, .cities-section, .team-section { padding: 5rem 0; }
 }
+
+/* ================================================================
+   INDEX — STORYTELLING SECTIONS
+   ================================================================ */
+
+/* Text-only section */
+.story-text-section {
+    padding: 120px 24px;
+    text-align: center;
+}
+.story-inner {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Split sections */
+.story-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 560px;
+}
+.story-split-img {
+    overflow: hidden;
+}
+.story-split-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.story-split-text {
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Full-background section */
+.story-fullbg {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.story-fullbg-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+}
+.story-fullbg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+.story-fullbg-content {
+    position: relative;
+    z-index: 1;
+    padding: 80px 40px;
+    max-width: 720px;
+}
+
+/* Typography */
+.story-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    display: block;
+    margin-bottom: 16px;
+}
+.story-h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+.story-p {
+    color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+    max-width: 520px;
+    margin: 0;
+}
+.story-link {
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 2px;
+    display: inline-block;
+    margin-top: 32px;
+    transition: border-color 0.3s ease;
+}
+.story-link:hover {
+    border-bottom-color: #fff;
+    color: #fff;
+}
+
+/* Inline stats */
+.story-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 32px;
+}
+.story-stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+}
+.story-stat-label {
+    display: block;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Boxed stats */
+.story-stat-boxes {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+}
+.story-stat-box {
+    background: rgba(255,255,255,0.06);
+    padding: 20px 16px;
+    flex: 1;
+}
+.story-stat-box .story-stat-value { font-size: 1.4rem; }
+.story-stat-box .story-stat-label { margin-top: 4px; }
+
+/* Button pair */
+.story-btn-group {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    justify-content: center;
+}
+.story-btn-group .story-link { margin-top: 0; }
+
+/* Ranking cards */
+.rank-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+}
+.rank-card {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    overflow: hidden;
+}
+.rank-card-img {
+    height: 400px;
+    overflow: hidden;
+}
+.rank-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.rank-card:hover .rank-card-img img { transform: scale(1.03); }
+.rank-card-caption {
+    background: #0a0a0a;
+    padding: 24px;
+}
+.rank-card--highlight { border-top: 2px solid #fff; }
+.rank-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    display: block;
+    margin-bottom: 8px;
+}
+.rank-card-caption h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 8px 0;
+}
+.rank-card-caption p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .story-split                              { grid-template-columns: 1fr; }
+    .story-split-img                          { height: 300px; }
+    .story-split-img img                      { height: 300px; }
+    .story-split--text-first .story-split-img { order: -1; }
+    .story-split-text                         { padding: 40px; }
+    .story-stats                              { gap: 20px; flex-wrap: wrap; }
+    .story-stat-boxes                         { flex-direction: column; }
+    .rank-grid                                { grid-template-columns: 1fr; }
+    .rank-card-img                            { height: 260px; }
+}
+
+.rank-card-img {
+    height: 280px;
+}
