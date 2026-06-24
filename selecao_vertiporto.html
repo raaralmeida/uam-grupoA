@@ -6,21 +6,11 @@
     <title>Seleção de Vertiporto — UAM Study</title>
 
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
-    <!-- Shared styles -->
     <link href="css/styles.css" rel="stylesheet" />
-
-    <!-- Page-specific styles -->
     <link href="css/selecao_vertiporto.css" rel="stylesheet" />
-
-    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -32,7 +22,6 @@
         <a href="index.html" class="main-navbar-logo">UAM Study</a>
         <div class="main-navbar-menu">
             <a href="index.html" class="main-nav-link">Home</a>
-
             <div class="dropdown">
                 <span class="main-nav-link">Revisão ▾</span>
                 <div class="submenu">
@@ -40,7 +29,6 @@
                     <a href="exercicio.html">Exercício Técnico Estruturado</a>
                 </div>
             </div>
-
             <div class="dropdown">
                 <span class="main-nav-link active">Análises ▾</span>
                 <div class="submenu">
@@ -50,7 +38,6 @@
                     <a href="mapas_qgis.html">Mapas QGIS</a>
                 </div>
             </div>
-
             <div class="dropdown">
                 <span class="main-nav-link">Demanda de UAM ▾</span>
                 <div class="submenu">
@@ -98,9 +85,7 @@
                 <p><strong>Ceilândia e Sobradinho</strong> foram escolhidos considerando <strong>localizações opostas</strong> entre si, maior <strong>volume populacional e potencial de ganho de tempo</strong> para deslocamento ao aeroporto ou Plano Piloto.</p>
 
                 <div class="table-wrap"><table class="data-table">
-                    <thead>
-                        <tr><th>Plano Piloto</th><th>RA</th></tr>
-                    </thead>
+                    <thead><tr><th>Plano Piloto</th><th>RA</th></tr></thead>
                     <tbody>
                         <tr><td>Rodoviária</td><td>Sobradinho</td></tr>
                         <tr><td>Complexo 21</td><td>Ceilândia</td></tr>
@@ -133,15 +118,14 @@
                 <div class="ex-num">03</div>
                 <h2 class="ex-heading">Definição dos Critérios</h2>
 
-                <p>Foram selecionados 3 critérios principais para seleção do sítio: <strong>Conectividade, Tempo de Deslocamento e Restrições</strong>.</p>
-                <p>Para definir os 3 critérios principais foi realizado um <strong>brainstorm</strong> com o grupo elencando critérios possíveis, seguido de uma <strong>votação</strong>. Os 3 critérios selecionados foram os que apresentaram maior quantidade de votos.</p>
+                <p>Foram selecionados <strong>4 critérios principais</strong> para seleção do sítio: <strong>Conectividade, Tempo de Deslocamento, Restrições e Renda</strong>.</p>
+                <p>Para definir os 4 critérios principais foi realizado um <strong>brainstorm</strong> com o grupo elencando critérios possíveis, seguido de uma <strong>votação</strong>. Os 4 critérios selecionados foram os que apresentaram maior quantidade de votos.</p>
 
                 <div class="table-wrap"><table class="data-table">
-                    <thead>
-                        <tr><th>Critério</th><th>Votos</th></tr>
-                    </thead>
+                    <thead><tr><th>Critério</th><th>Votos</th></tr></thead>
                     <tbody>
                         <tr class="row-winner"><td>Conectividade</td><td>5</td></tr>
+                        <tr class="row-winner"><td>Renda</td><td>5</td></tr>
                         <tr class="row-winner"><td>Tempo de Deslocamento</td><td>5</td></tr>
                         <tr class="row-winner"><td>Restrições</td><td>3</td></tr>
                         <tr><td>População</td><td>2</td></tr>
@@ -153,9 +137,7 @@
                 <p>A fim de medir cada critério por alternativa, optou-se por utilizar <strong>métodos objetivos</strong> para quantificar tais atributos, tornando o modelo mais <strong>consistente e robusto</strong>.</p>
 
                 <div class="table-wrap"><table class="data-table">
-                    <thead>
-                        <tr><th>Critério</th><th>Definição</th><th>Método de cálculo</th><th>Interpretação</th></tr>
-                    </thead>
+                    <thead><tr><th>Critério</th><th>Definição</th><th>Método de cálculo</th><th>Interpretação</th></tr></thead>
                     <tbody>
                         <tr>
                             <td>Conectividade</td>
@@ -174,6 +156,12 @@
                             <td>Limitações para operação devido a restrições legais, operacionais e/ou ambientais.</td>
                             <td>Quantidade de restrições em relação ao Espaço Aéreo, à municipalidade e ao meio ambiente. Cada restrição equivale a 1 ponto.</td>
                             <td>Quanto menor, melhor.</td>
+                        </tr>
+                        <tr>
+                            <td>Renda</td>
+                            <td>Capacidade de renda da localidade.</td>
+                            <td>Renda per capita da localidade conforme IPEDF. Dados de renda per capita em reais para o Plano Piloto, Sobradinho e Ceilândia.</td>
+                            <td>Quanto maior, melhor.</td>
                         </tr>
                     </tbody>
                 </table></div>
@@ -237,14 +225,25 @@
                         <p>Restrições Ambientais → APA Planalto Central</p>
                         <div class="single-img"><img src="img/APA PLANALTO CENTRAL.png" alt="APA Planalto Central"></div>
 
+                        <h3 class="ex-subheading">Renda</h3>
+                        <div class="table-wrap"><table class="data-table">
+                            <thead><tr><th>Alternativa</th><th>Detalhamento</th><th>Cálculo</th></tr></thead>
+                            <tbody>
+                                <tr><td>Rodoviária</td><td>Plano Piloto</td><td><strong>R$ 10.407,82</strong></td></tr>
+                                <tr><td>Complexo 21</td><td>Plano Piloto</td><td><strong>R$ 10.407,82</strong></td></tr>
+                                <tr><td>Sobradinho</td><td>Município de Sobradinho</td><td><strong>R$ 4.400,24</strong></td></tr>
+                                <tr><td>Ceilândia</td><td>Município de Ceilândia</td><td><strong>R$ 1.674,15</strong></td></tr>
+                            </tbody>
+                        </table></div>
+
                         <h3 class="ex-subheading">Quadro Resumo</h3>
                         <div class="table-wrap"><table class="data-table">
-                            <thead><tr><th>Alternativa</th><th>Conectividade</th><th>Tempo</th><th>Restrições</th></tr></thead>
+                            <thead><tr><th>Alternativa</th><th>Conectividade</th><th>Tempo</th><th>Restrições</th><th>Renda</th></tr></thead>
                             <tbody>
-                                <tr><td>Rodoviária</td><td>8</td><td>33,5</td><td>2</td></tr>
-                                <tr><td>Complexo 21</td><td>4</td><td>37</td><td>2</td></tr>
-                                <tr><td>Sobradinho</td><td>6</td><td>71,5</td><td>0</td></tr>
-                                <tr><td>Ceilândia</td><td>5</td><td>61</td><td>1</td></tr>
+                                <tr><td>Rodoviária</td><td>8</td><td>33,5</td><td>2</td><td>R$ 10.407,82</td></tr>
+                                <tr><td>Complexo 21</td><td>4</td><td>37</td><td>2</td><td>R$ 10.407,82</td></tr>
+                                <tr><td>Sobradinho</td><td>6</td><td>71,5</td><td>0</td><td>R$ 4.400,24</td></tr>
+                                <tr><td>Ceilândia</td><td>5</td><td>61</td><td>1</td><td>R$ 1.674,15</td></tr>
                             </tbody>
                         </table></div>
                     </div>
@@ -254,14 +253,14 @@
                 <div class="calc-card" data-aos="fade-up">
                     <div class="calc-card-header">2. Normalização</div>
                     <div class="calc-card-body">
-                        <p>Conectividade = valor / máximo &nbsp;|&nbsp; Tempo = valor / máximo &nbsp;|&nbsp; Restrições = 1 / (1 + restrições)</p>
+                        <p>Conectividade = valor / máximo &nbsp;|&nbsp; Tempo = valor / máximo &nbsp;|&nbsp; Restrições = 1 / (1 + restrições) &nbsp;|&nbsp; Renda = valor / máximo</p>
                         <div class="table-wrap"><table class="data-table">
-                            <thead><tr><th>Alt</th><th>Conectividade</th><th>Tempo</th><th>Restrições</th></tr></thead>
+                            <thead><tr><th>Alt</th><th>Conectividade</th><th>Tempo</th><th>Restrições</th><th>Renda</th></tr></thead>
                             <tbody>
-                                <tr><td>A — Rodoviária</td><td>1,000</td><td>0,469</td><td>0,333</td></tr>
-                                <tr><td>B — Complexo 21</td><td>0,500</td><td>0,517</td><td>0,333</td></tr>
-                                <tr><td>C — Sobradinho</td><td>0,750</td><td>1,000</td><td>1,000</td></tr>
-                                <tr><td>D — Ceilândia</td><td>0,625</td><td>0,853</td><td>0,500</td></tr>
+                                <tr><td>A — Rodoviária</td><td>1,000</td><td>0,469</td><td>0,333</td><td>1,000</td></tr>
+                                <tr><td>B — Complexo 21</td><td>0,500</td><td>0,517</td><td>0,333</td><td>1,000</td></tr>
+                                <tr><td>C — Sobradinho</td><td>0,750</td><td>1,000</td><td>1,000</td><td>0,423</td></tr>
+                                <tr><td>D — Ceilândia</td><td>0,625</td><td>0,853</td><td>0,500</td><td>0,161</td></tr>
                             </tbody>
                         </table></div>
                     </div>
@@ -272,23 +271,25 @@
                     <div class="calc-card-header">3. Matriz AHP</div>
                     <div class="calc-card-body">
                         <div class="table-wrap"><table class="data-table">
-                            <thead><tr><th></th><th>Conectividade</th><th>Tempo</th><th>Restrições</th></tr></thead>
+                            <thead><tr><th></th><th>Conectividade</th><th>Tempo</th><th>Restrições</th><th>Renda</th></tr></thead>
                             <tbody>
-                                <tr><td>Conectividade</td><td>1</td><td>0,333</td><td>5</td></tr>
-                                <tr><td>Tempo</td><td>3</td><td>1</td><td>7</td></tr>
-                                <tr><td>Restrições</td><td>0,2</td><td>0,143</td><td>1</td></tr>
+                                <tr><td>Conectividade</td><td>1</td><td>0,333</td><td>5</td><td>0,111</td></tr>
+                                <tr><td>Tempo</td><td>3</td><td>1</td><td>7</td><td>0,333</td></tr>
+                                <tr><td>Restrições</td><td>0,2</td><td>0,143</td><td>1</td><td>0,111</td></tr>
+                                <tr><td>Renda</td><td>9</td><td>3</td><td>9</td><td>1</td></tr>
                             </tbody>
                         </table></div>
                         <h3 class="ex-subheading">Pesos Calculados</h3>
                         <div class="table-wrap"><table class="data-table">
                             <thead><tr><th>Critério</th><th>Peso</th></tr></thead>
                             <tbody>
-                                <tr><td>Conectividade</td><td>0,283</td></tr>
-                                <tr><td>Tempo</td><td>0,643</td></tr>
-                                <tr><td>Restrições</td><td>0,074</td></tr>
+                                <tr><td>Conectividade</td><td>0,109</td></tr>
+                                <tr><td>Tempo</td><td>0,250</td></tr>
+                                <tr><td>Restrições</td><td>0,034</td></tr>
+                                <tr><td>Renda</td><td>0,607</td></tr>
                             </tbody>
                         </table></div>
-                        <p><strong>Consistência:</strong> CR = 0,056 (Aceitável)</p>
+                        <p><strong>Consistência:</strong> CR = 0,097 (Aceitável)</p>
                     </div>
                 </div>
 
@@ -296,14 +297,14 @@
                 <div class="calc-card" data-aos="fade-up">
                     <div class="calc-card-header">4. Cálculo do Score</div>
                     <div class="calc-card-body">
-                        <p>Score = (C × 0,283) + (T × 0,643) + (R × 0,074)</p>
+                        <p>Score = (C × 0,109) + (T × 0,250) + (R × 0,034) + (Re × 0,607)</p>
                         <div class="table-wrap"><table class="data-table">
                             <thead><tr><th>Alt</th><th>Cálculo</th><th>Score</th></tr></thead>
                             <tbody>
-                                <tr><td>A — Rodoviária</td><td>(1×0,283)+(0,469×0,643)+(0,333×0,074)</td><td>0,609</td></tr>
-                                <tr><td>B — Complexo 21</td><td>(0,5×0,283)+(0,517×0,643)+(0,333×0,074)</td><td>0,498</td></tr>
-                                <tr class="row-winner"><td>C — Sobradinho</td><td>(0,75×0,283)+(1×0,643)+(1×0,074)</td><td><strong>0,929</strong></td></tr>
-                                <tr class="row-winner"><td>D — Ceilândia</td><td>(0,625×0,283)+(0,853×0,643)+(0,5×0,074)</td><td><strong>0,762</strong></td></tr>
+                                <tr class="row-winner"><td>A — Rodoviária</td><td>(1×0,109)+(0,469×0,250)+(0,333×0,034)+(1×0,607)</td><td><strong>0,844</strong></td></tr>
+                                <tr class="row-winner"><td>B — Complexo 21</td><td>(0,5×0,109)+(0,517×0,250)+(0,333×0,034)+(1×0,607)</td><td><strong>0,802</strong></td></tr>
+                                <tr><td>C — Sobradinho</td><td>(0,75×0,109)+(1×0,250)+(1×0,034)+(0,423×0,607)</td><td>0,623</td></tr>
+                                <tr><td>D — Ceilândia</td><td>(0,625×0,109)+(0,853×0,250)+(0,5×0,034)+(0,161×0,607)</td><td>0,396</td></tr>
                             </tbody>
                         </table></div>
                     </div>
@@ -316,10 +317,10 @@
                         <div class="table-wrap"><table class="data-table">
                             <thead><tr><th>Posição</th><th>Alternativa</th><th>Score</th></tr></thead>
                             <tbody>
-                                <tr class="row-winner"><td>1º</td><td>C — Sobradinho</td><td><strong>0,929</strong></td></tr>
-                                <tr class="row-winner"><td>2º</td><td>D — Ceilândia</td><td><strong>0,762</strong></td></tr>
-                                <tr><td>3º</td><td>A — Rodoviária</td><td>0,609</td></tr>
-                                <tr><td>4º</td><td>B — Complexo 21</td><td>0,498</td></tr>
+                                <tr class="row-winner"><td>1º</td><td>A — Rodoviária</td><td><strong>0,844</strong></td></tr>
+                                <tr class="row-winner"><td>2º</td><td>B — Complexo 21</td><td><strong>0,802</strong></td></tr>
+                                <tr><td>3º</td><td>C — Sobradinho</td><td>0,623</td></tr>
+                                <tr><td>4º</td><td>D — Ceilândia</td><td>0,396</td></tr>
                             </tbody>
                         </table></div>
                     </div>
@@ -331,25 +332,25 @@
                     <div class="calc-card-body">
                         <h3 class="ex-subheading">Sensibilidade Marginal</h3>
                         <div class="table-wrap"><table class="data-table">
-                            <thead><tr><th>Alt</th><th>dScore/dC</th><th>dScore/dT</th><th>dScore/dR</th></tr></thead>
+                            <thead><tr><th>Alt</th><th>dScore/dC</th><th>dScore/dT</th><th>dScore/dR</th><th>dScore/dRe</th></tr></thead>
                             <tbody>
-                                <tr><td>A</td><td>1,000</td><td>0,469</td><td>0,333</td></tr>
-                                <tr><td>B</td><td>0,500</td><td>0,517</td><td>0,333</td></tr>
-                                <tr class="row-winner"><td>C</td><td>0,750</td><td>1,000</td><td>1,000</td></tr>
-                                <tr><td>D</td><td>0,625</td><td>0,853</td><td>0,500</td></tr>
+                                <tr><td>A</td><td>1,000</td><td>0,469</td><td>0,333</td><td>1,000</td></tr>
+                                <tr><td>B</td><td>0,500</td><td>0,517</td><td>0,333</td><td>1,000</td></tr>
+                                <tr><td>C</td><td>0,750</td><td>1,000</td><td>1,000</td><td>0,423</td></tr>
+                                <tr><td>D</td><td>0,625</td><td>0,853</td><td>0,500</td><td>0,161</td></tr>
                             </tbody>
                         </table></div>
-                        <h3 class="ex-subheading">Impacto de +1% no Peso do Tempo</h3>
+                        <h3 class="ex-subheading">Impacto de +1% no Peso da Renda</h3>
                         <div class="table-wrap"><table class="data-table">
                             <thead><tr><th>Alt</th><th>ΔScore</th></tr></thead>
                             <tbody>
-                                <tr><td>A</td><td>+0,0047</td></tr>
-                                <tr><td>B</td><td>+0,0052</td></tr>
-                                <tr class="row-winner"><td>C</td><td>+0,0100</td></tr>
-                                <tr><td>D</td><td>+0,0085</td></tr>
+                                <tr class="row-winner"><td>A</td><td>+0,0100</td></tr>
+                                <tr class="row-winner"><td>B</td><td>+0,0100</td></tr>
+                                <tr><td>C</td><td>+0,0042</td></tr>
+                                <tr><td>D</td><td>+0,0016</td></tr>
                             </tbody>
                         </table></div>
-                        <p><strong>Interpretação:</strong> A alternativa C é a mais sensível ao critério tempo, o que explica sua robustez no ranking.</p>
+                        <p><strong>Interpretação:</strong> As alternativas A e B são as mais sensíveis ao critério Renda, o que explica sua robustez no ranking com a inclusão deste critério.</p>
                     </div>
                 </div>
 
@@ -357,8 +358,8 @@
                 <div class="calc-card" data-aos="fade-up">
                     <div class="calc-card-header">7. Conclusão</div>
                     <div class="calc-card-body">
-                        <p>A alternativa C (Sobradinho) apresenta desempenho superior em todos os cenários analisados, com alta robustez devido à dominância nos critérios de tempo e restrições.</p>
-                        <p>O trade-off principal do modelo ocorre entre as alternativas A (conectividade) e D (tempo), evidenciando o impacto estratégico da definição de pesos.</p>
+                        <p>Com a inclusão do critério Renda (peso 0,607), as alternativas do Plano Piloto (Rodoviária e Complexo 21) passam a liderar o ranking, dada a maior renda per capita da região em relação às RAs.</p>
+                        <p>O trade-off principal do modelo ocorre entre as alternativas C (tempo e restrições) e A/B (renda e conectividade), evidenciando o impacto estratégico da inclusão do critério socioeconômico na definição de pesos.</p>
                     </div>
                 </div>
 
@@ -374,16 +375,20 @@
                     <div class="calc-card-header">Ajuste de Pesos</div>
                     <div class="calc-card-body">
                         <div class="slider-group">
-                            <label>Conectividade <span class="slider-val" id="wc">0,28</span></label>
-                            <input type="range" min="0" max="1" step="0.01" value="0.28" id="wC">
+                            <label>Conectividade <span class="slider-val" id="wc">0,11</span></label>
+                            <input type="range" min="0" max="1" step="0.01" value="0.11" id="wC">
                         </div>
                         <div class="slider-group">
-                            <label>Tempo <span class="slider-val" id="wt">0,64</span></label>
-                            <input type="range" min="0" max="1" step="0.01" value="0.64" id="wT">
+                            <label>Tempo <span class="slider-val" id="wt">0,25</span></label>
+                            <input type="range" min="0" max="1" step="0.01" value="0.25" id="wT">
                         </div>
                         <div class="slider-group">
-                            <label>Restrições <span class="slider-val" id="wr">0,08</span></label>
-                            <input type="range" min="0" max="1" step="0.01" value="0.08" id="wR">
+                            <label>Restrições <span class="slider-val" id="wr">0,03</span></label>
+                            <input type="range" min="0" max="1" step="0.01" value="0.03" id="wR">
+                        </div>
+                        <div class="slider-group">
+                            <label>Renda <span class="slider-val" id="wre">0,61</span></label>
+                            <input type="range" min="0" max="1" step="0.01" value="0.61" id="wRe">
                         </div>
                         <p class="slider-sum"><strong>Soma dos pesos:</strong> <span id="sum">1,00</span></p>
                     </div>
@@ -487,28 +492,30 @@
         nav.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // AHP Interativo
+    // AHP Interativo — 4 critérios com Renda
     const ahpData = {
-        'A — Rodoviária':  { c: 1.000, t: 0.469, r: 0.333 },
-        'B — Complexo 21': { c: 0.500, t: 0.517, r: 0.333 },
-        'C — Sobradinho':  { c: 0.750, t: 1.000, r: 1.000 },
-        'D — Ceilândia':   { c: 0.625, t: 0.853, r: 0.500 }
+        'A — Rodoviária':  { c: 1.000, t: 0.469, r: 0.333, re: 1.000 },
+        'B — Complexo 21': { c: 0.500, t: 0.517, r: 0.333, re: 1.000 },
+        'C — Sobradinho':  { c: 0.750, t: 1.000, r: 1.000, re: 0.423 },
+        'D — Ceilândia':   { c: 0.625, t: 0.853, r: 0.500, re: 0.161 }
     };
 
     function calcular() {
-        const wC = parseFloat(document.getElementById('wC').value);
-        const wT = parseFloat(document.getElementById('wT').value);
-        const wR = parseFloat(document.getElementById('wR').value);
-        const soma = wC + wT + wR;
+        const wC  = parseFloat(document.getElementById('wC').value);
+        const wT  = parseFloat(document.getElementById('wT').value);
+        const wR  = parseFloat(document.getElementById('wR').value);
+        const wRe = parseFloat(document.getElementById('wRe').value);
+        const soma = wC + wT + wR + wRe;
 
-        document.getElementById('wc').textContent = wC.toFixed(2).replace('.', ',');
-        document.getElementById('wt').textContent = wT.toFixed(2).replace('.', ',');
-        document.getElementById('wr').textContent = wR.toFixed(2).replace('.', ',');
-        document.getElementById('sum').textContent = soma.toFixed(2).replace('.', ',');
+        document.getElementById('wc').textContent  = wC.toFixed(2).replace('.', ',');
+        document.getElementById('wt').textContent  = wT.toFixed(2).replace('.', ',');
+        document.getElementById('wr').textContent  = wR.toFixed(2).replace('.', ',');
+        document.getElementById('wre').textContent = wRe.toFixed(2).replace('.', ',');
+        document.getElementById('sum').textContent  = soma.toFixed(2).replace('.', ',');
 
         const resultados = Object.entries(ahpData).map(([alt, v]) => ({
             alt,
-            score: v.c * wC + v.t * wT + v.r * wR
+            score: v.c * wC + v.t * wT + v.r * wR + v.re * wRe
         })).sort((a, b) => b.score - a.score);
 
         const tabela = document.getElementById('tabela');
@@ -519,7 +526,7 @@
         });
     }
 
-    document.querySelectorAll('#wC, #wT, #wR').forEach(el => {
+    document.querySelectorAll('#wC, #wT, #wR, #wRe').forEach(el => {
         el.addEventListener('input', calcular);
     });
 
@@ -528,9 +535,9 @@
 
 <script>
     // Lightbox
-    const overlay    = document.getElementById('lightbox');
-    const lbImg      = document.getElementById('lightboxImg');
-    const lbClose    = document.getElementById('lightboxClose');
+    const overlay = document.getElementById('lightbox');
+    const lbImg   = document.getElementById('lightboxImg');
+    const lbClose = document.getElementById('lightboxClose');
 
     document.querySelectorAll('.img-grid figure img, .img-pair figure img, .single-img img').forEach(img => {
         img.addEventListener('click', () => {
