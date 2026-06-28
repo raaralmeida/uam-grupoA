@@ -145,6 +145,571 @@
 
         <hr class="met-divider">
 
+        <!--
+  ================================================================
+  BLOCO: Conexão Rosa dos Ventos ↔ Superfície de Aproximação OLS
+  
+  ONDE INSERIR: analise_meteorologica.html
+  Coloque este bloco APÓS a seção 02 (Rosa Anual) e ANTES da 
+  seção 03 (VMC/IMC por Mês), substituindo ou adicionando após
+  o <hr class="met-divider"> que vem depois do bloco da rosa anual.
+  ================================================================
+-->
+
+<hr class="met-divider">
+
+<!-- BLOCO 2.5 — CONEXÃO VENTO + OLS -->
+<div class="met-block" data-aos="fade-up">
+    <div class="block-num">02.5</div>
+    <h2 class="block-heading">Direção Preferencial de Operação e Superfície OLS</h2>
+    <p class="block-sub">
+        A predominância de ventos do quadrante <strong style="color:#0a0a0a;">Leste (35%)</strong> define 
+        a direção preferencial de aproximação e decolagem do vertiporto. Esta orientação foi 
+        adotada no dimensionamento da Superfície Livre de Obstáculos (OLS/EASA), garantindo 
+        que aeronaves operem a favor do vento dominante — reduzindo distância de pouso, 
+        consumo de energia e risco operacional.
+    </p>
+
+    <!-- Grid principal: rosa + diagrama OLS -->
+    <div class="ols-wind-grid">
+
+        <!-- Painel esquerdo: Rosa com direção destacada -->
+        <div class="ols-panel">
+            <div class="ols-panel-label">Rosa dos Ventos Anual — Direção Predominante</div>
+            <div class="ols-rose-wrap">
+                <canvas id="rosaOLS" width="360" height="360"></canvas>
+            </div>
+            <div class="ols-rose-legend">
+                <div class="ols-leg-item">
+                    <div class="ols-leg-swatch" style="background:#c6d9f0;"></div>0–6 kt
+                </div>
+                <div class="ols-leg-item">
+                    <div class="ols-leg-swatch" style="background:#6aaed6;"></div>6–10 kt
+                </div>
+                <div class="ols-leg-item">
+                    <div class="ols-leg-swatch" style="background:#2878b8;"></div>10–14 kt
+                </div>
+                <div class="ols-leg-item">
+                    <div class="ols-leg-swatch" style="background:#0a3d6b;"></div>14–20 kt
+                </div>
+                <div class="ols-leg-item">
+                    <div class="ols-leg-swatch" style="background:#e84545; border-radius:50%;"></div>Dir. OLS
+                </div>
+            </div>
+        </div>
+
+        <!-- Painel direito: Diagrama OLS em planta -->
+        <div class="ols-panel">
+            <div class="ols-panel-label">Superfície de Proteção OLS — Vista em Planta</div>
+            <div class="ols-diag-wrap">
+                <canvas id="diagOLS" width="420" height="360"></canvas>
+            </div>
+            <div class="ols-diag-legend">
+                <div class="ols-leg-item"><div class="ols-leg-swatch" style="background:#1d4ed8;"></div>TLOF (15,24 m)</div>
+                <div class="ols-leg-item"><div class="ols-leg-swatch" style="background:#60a5fa;"></div>FATO (30,48 m)</div>
+                <div class="ols-leg-item"><div class="ols-leg-swatch" style="background:#bfdbfe;"></div>Área de seg. (38,10 m)</div>
+                <div class="ols-leg-item"><div class="ols-leg-swatch" style="background:rgba(251,146,60,0.35); border:1.5px solid #f97316;"></div>Cone OLS (972 m)</div>
+                <div class="ols-leg-item"><div class="ols-leg-swatch" style="background:transparent; border:2px dashed #e84545;"></div>Vento predominante E</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabela de conclusão -->
+    <div class="ols-conclusion">
+        <div class="ols-conclusion-title">Síntese operacional</div>
+        <div class="ols-conclusion-grid">
+            <div class="ols-conc-item">
+                <div class="ols-conc-label">Direção predominante do vento</div>
+                <div class="ols-conc-val">Leste (E) — 35%</div>
+            </div>
+            <div class="ols-conc-item">
+                <div class="ols-conc-label">Orientação da OLS adotada</div>
+                <div class="ols-conc-val">Eixo E–W (aproximação do Leste)</div>
+            </div>
+            <div class="ols-conc-item">
+                <div class="ols-conc-label">Extensão da superfície OLS</div>
+                <div class="ols-conc-val">972 m · gradiente 12,5%</div>
+            </div>
+            <div class="ols-conc-item">
+                <div class="ols-conc-label">Altura final OLS</div>
+                <div class="ols-conc-val">152,0 m (EASA)</div>
+            </div>
+            <div class="ols-conc-item">
+                <div class="ols-conc-label">Disponibilidade VMC no eixo</div>
+                <div class="ols-conc-val">&gt; 93% anual</div>
+            </div>
+            <div class="ols-conc-item ols-conc-item--ok">
+                <div class="ols-conc-label">Compatibilidade vento × OLS</div>
+                <div class="ols-conc-val">✓ Alinhados</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     CSS DO BLOCO — adicione em css/analise_meteorologica.css
+     ============================================================ -->
+<style>
+/* Grid rosa + diagrama */
+.ols-wind-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #e2e8f0;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.ols-panel {
+    background: #ffffff;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ols-panel-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    text-align: center;
+    width: 100%;
+}
+
+.ols-rose-wrap,
+.ols-diag-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.ols-rose-wrap canvas,
+.ols-diag-wrap canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+.ols-rose-legend,
+.ols-diag-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    justify-content: center;
+}
+
+.ols-leg-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.ols-leg-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+/* Conclusão */
+.ols-conclusion {
+    background: #0a0a0a;
+    border-radius: 8px;
+    padding: 1.75rem 2rem;
+    margin-top: 0;
+}
+
+.ols-conclusion-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.25rem;
+}
+
+.ols-conclusion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.ols-conc-item {
+    background: rgba(255,255,255,0.04);
+    padding: 1rem 1.25rem;
+}
+
+.ols-conc-item--ok {
+    background: rgba(255,255,255,0.08);
+}
+
+.ols-conc-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.ols-conc-val {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+.ols-conc-item--ok .ols-conc-val {
+    color: #86efac;
+}
+
+@media (max-width: 768px) {
+    .ols-wind-grid { grid-template-columns: 1fr; }
+    .ols-conclusion-grid { grid-template-columns: repeat(2, 1fr); }
+    .ols-conclusion { padding: 1.25rem; }
+}
+</style>
+
+<!-- ============================================================
+     SCRIPTS DO BLOCO
+     Adicione DENTRO do <script> existente na página,
+     APÓS o código da rosa anual já existente.
+     ============================================================ -->
+<script>
+/* ── Rosa OLS (cópia da anual com seta de direção E destacada) ── */
+(function() {
+    const COLORS_OLS = ['#c6d9f0','#6aaed6','#2878b8','#0a3d6b'];
+    const ANNUAL_DATA = [
+        [2,1,0,0],[3,2,1,0],[12,13,7,3],[3,3,1,0],
+        [2,2,1,0],[1,1,0,0],[2,2,1,0],[3,3,1,0],
+    ];
+
+    const canvas = document.getElementById('rosaOLS');
+    if (!canvas) return;
+    const size = canvas.width;
+    const cx = size / 2, cy = size / 2;
+    const ctx = canvas.getContext('2d');
+    const outerR = size * 0.38;
+
+    ctx.fillStyle = '#f8fafc';
+    ctx.fillRect(0, 0, size, size);
+
+    const numRings = 7;
+    for (let i = 1; i <= numRings; i++) {
+        ctx.beginPath();
+        ctx.arc(cx, cy, (i / numRings) * outerR, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(0,0,0,0.08)';
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+    }
+
+    for (let d = 0; d < 8; d++) {
+        const ang = (d / 8) * Math.PI * 2 - Math.PI / 2;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(ang) * outerR, cy + Math.sin(ang) * outerR);
+        ctx.strokeStyle = 'rgba(0,0,0,0.08)';
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+    }
+
+    const lbls = ['N','NE','E','SE','S','SW','W','NW'];
+    const annualMax = Math.max(...ANNUAL_DATA.map(d => d.reduce((s,v)=>s+v,0)));
+    const sliceAngle = (Math.PI * 2) / 8;
+
+    for (let d = 0; d < 8; d++) {
+        const centerAng = (d / 8) * Math.PI * 2 - Math.PI / 2;
+        const startAng = centerAng - sliceAngle / 2;
+        const endAng   = centerAng + sliceAngle / 2;
+        let cumR = 0;
+        for (let b = 0; b < 4; b++) {
+            const val = ANNUAL_DATA[d][b];
+            if (val <= 0) continue;
+            const r = (val / (annualMax * 1.05)) * outerR;
+            const innerR = cumR;
+            const outerBand = cumR + r;
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.arc(cx, cy, outerBand, startAng, endAng);
+            ctx.closePath();
+            ctx.fillStyle = COLORS_OLS[b];
+            ctx.fill();
+            if (innerR > 0) {
+                ctx.save();
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.arc(cx, cy, innerR - 0.5, startAng, endAng);
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            }
+            cumR = outerBand;
+        }
+    }
+
+    // Labels direções
+    ctx.font = `bold ${size * 0.052}px Inter, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (let d = 0; d < 8; d++) {
+        const ang = (d / 8) * Math.PI * 2 - Math.PI / 2;
+        const lx = cx + Math.cos(ang) * (outerR + size * 0.065);
+        const ly = cy + Math.sin(ang) * (outerR + size * 0.065);
+        // Destaca E (índice 2) em vermelho
+        ctx.fillStyle = d === 2 ? '#e84545' : 'rgba(0,0,0,0.4)';
+        ctx.font = d === 2
+            ? `bold ${size * 0.065}px Inter, sans-serif`
+            : `bold ${size * 0.052}px Inter, sans-serif`;
+        ctx.fillText(lbls[d], lx, ly);
+    }
+
+    // Seta indicando direção E (aproximação vindo do Leste → indo para Oeste)
+    // A aproximação VAI para o Leste (aeronave pousa vindo do E)
+    const arrowAng = Math.PI / 2 * 0; // 0° = Leste no sistema canvas
+    const arrowStart = outerR * 1.35;
+    const arrowEnd   = outerR * 0.55;
+    const ax1 = cx + Math.cos(arrowAng) * arrowStart;
+    const ay1 = cy + Math.sin(arrowAng) * arrowStart;
+    const ax2 = cx + Math.cos(arrowAng) * arrowEnd;
+    const ay2 = cy + Math.sin(arrowAng) * arrowEnd;
+
+    ctx.save();
+    ctx.strokeStyle = '#e84545';
+    ctx.fillStyle = '#e84545';
+    ctx.lineWidth = 2.5;
+    ctx.setLineDash([6, 3]);
+    ctx.beginPath();
+    ctx.moveTo(ax1, ay1);
+    ctx.lineTo(ax2 + 12, ay2);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Ponta da seta
+    ctx.beginPath();
+    const headLen = 12;
+    const headAng = Math.PI / 7;
+    const ang2 = Math.atan2(ay2 - ay1, ax2 - ax1);
+    ctx.moveTo(ax2, ay2);
+    ctx.lineTo(ax2 - headLen * Math.cos(ang2 - headAng), ay2 - headLen * Math.sin(ang2 - headAng));
+    ctx.lineTo(ax2 - headLen * Math.cos(ang2 + headAng), ay2 - headLen * Math.sin(ang2 + headAng));
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+
+    // Label "35%" sobre a pétala E
+    ctx.font = `bold ${size * 0.065}px Inter, sans-serif`;
+    ctx.fillStyle = '#0a0a0a';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    const labelAng = 0; // Leste
+    const labelR = outerR * 0.82;
+    ctx.fillText('35%', cx + Math.cos(labelAng) * labelR - 2, cy + Math.sin(labelAng) * labelR - 14);
+
+    // Ponto central
+    ctx.beginPath();
+    ctx.arc(cx, cy, 3, 0, Math.PI * 2);
+    ctx.fillStyle = '#0a0a0a';
+    ctx.fill();
+})();
+
+
+/* ── Diagrama OLS em planta ── */
+(function() {
+    const canvas = document.getElementById('diagOLS');
+    if (!canvas) return;
+    const W = canvas.width;
+    const H = canvas.height;
+    const ctx = canvas.getContext('2d');
+
+    ctx.fillStyle = '#f8fafc';
+    ctx.fillRect(0, 0, W, H);
+
+    // Escala: cone OLS = 972m, representado em pixels
+    // Centro do vertiporto ligeiramente à direita do centro
+    const cx = W * 0.38;
+    const cy = H * 0.5;
+
+    // Escala: 972m → W * 0.52 px (deixa margem)
+    const scale = (W * 0.52) / 972;
+
+    const tlof_r   = 15.24 / 2 * scale;   // raio TLOF
+    const fato_r   = 30.48 / 2 * scale;   // raio FATO
+    const seg_r    = 38.10 / 2 * scale;   // raio área segurança
+    const ols_len  = 972   * scale;        // comprimento OLS
+    const ols_w0   = 76.20 / 2 * scale;   // meia-largura TO em h2
+    const ols_wf   = 152   * scale;        // meia-largura no topo (aprox)
+
+    // Cone OLS (trapézio apontando para o Leste = direita)
+    ctx.beginPath();
+    ctx.moveTo(cx + seg_r, cy - ols_w0);
+    ctx.lineTo(cx + seg_r + ols_len, cy - Math.min(ols_wf, H * 0.42));
+    ctx.lineTo(cx + seg_r + ols_len, cy + Math.min(ols_wf, H * 0.42));
+    ctx.lineTo(cx + seg_r, cy + ols_w0);
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(251, 146, 60, 0.18)';
+    ctx.fill();
+    ctx.strokeStyle = '#f97316';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([6, 3]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Seta de vento predominante (vindo da direita = Leste)
+    const arrowY = cy - seg_r - 28;
+    const arrowX1 = cx + seg_r + ols_len * 0.75;
+    const arrowX2 = cx + seg_r + ols_len * 0.25;
+    ctx.save();
+    ctx.strokeStyle = '#e84545';
+    ctx.fillStyle = '#e84545';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([5, 3]);
+    ctx.beginPath();
+    ctx.moveTo(arrowX1, arrowY);
+    ctx.lineTo(arrowX2 + 10, arrowY);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    // Ponta
+    ctx.beginPath();
+    ctx.moveTo(arrowX2, arrowY);
+    ctx.lineTo(arrowX2 + 10, arrowY - 5);
+    ctx.lineTo(arrowX2 + 10, arrowY + 5);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+
+    // Label do vento
+    ctx.font = '10px Inter, sans-serif';
+    ctx.fillStyle = '#e84545';
+    ctx.textAlign = 'center';
+    ctx.fillText('Vento predominante E (35%)', cx + seg_r + ols_len * 0.5, arrowY - 10);
+
+    // Área de segurança
+    ctx.beginPath();
+    ctx.arc(cx, cy, seg_r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(191, 219, 254, 0.5)';
+    ctx.fill();
+    ctx.strokeStyle = '#93c5fd';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // FATO
+    ctx.beginPath();
+    ctx.arc(cx, cy, fato_r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(96, 165, 250, 0.5)';
+    ctx.fill();
+    ctx.strokeStyle = '#3b82f6';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // TLOF
+    ctx.beginPath();
+    ctx.arc(cx, cy, tlof_r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(29, 78, 216, 0.7)';
+    ctx.fill();
+    ctx.strokeStyle = '#1d4ed8';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Eixo da taxiway (horizontal, saindo à direita)
+    ctx.save();
+    ctx.strokeStyle = '#64748b';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(cx - seg_r - 20, cy);
+    ctx.lineTo(cx + seg_r + ols_len + 15, cy);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.restore();
+
+    // Labels dimensões
+    ctx.font = 'bold 9px Inter, sans-serif';
+    ctx.fillStyle = '#475569';
+    ctx.textAlign = 'center';
+
+    // TLOF label
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 8px Inter, sans-serif';
+    ctx.fillText('TLOF', cx, cy + 3);
+
+    // FATO label
+    ctx.fillStyle = '#1d4ed8';
+    ctx.font = 'bold 9px Inter, sans-serif';
+    ctx.fillText('FATO', cx, cy - fato_r - 5);
+
+    // OLS label
+    ctx.fillStyle = '#ea580c';
+    ctx.font = 'bold 9px Inter, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('OLS — 972 m · 12,5%', cx + seg_r + ols_len * 0.38, cy + Math.min(ols_wf, H * 0.42) + 14);
+
+    // Cota OLS
+    const cotaX = cx + seg_r + ols_len;
+    ctx.strokeStyle = '#94a3b8';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(cotaX + 8, cy - Math.min(ols_wf, H * 0.42));
+    ctx.lineTo(cotaX + 8, cy + Math.min(ols_wf, H * 0.42));
+    ctx.stroke();
+    ctx.font = '9px Inter, sans-serif';
+    ctx.fillStyle = '#64748b';
+    ctx.textAlign = 'left';
+    ctx.fillText('h=152m', cotaX + 12, cy);
+
+    // Norte
+    ctx.save();
+    ctx.font = 'bold 11px Inter, sans-serif';
+    ctx.fillStyle = '#0a0a0a';
+    ctx.textAlign = 'center';
+    ctx.fillText('N', W * 0.06, H * 0.12);
+    ctx.strokeStyle = '#0a0a0a';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(W * 0.06, H * 0.15);
+    ctx.lineTo(W * 0.06, H * 0.26);
+    ctx.stroke();
+    // Seta Norte
+    ctx.beginPath();
+    ctx.moveTo(W * 0.06, H * 0.15);
+    ctx.lineTo(W * 0.06 - 4, H * 0.2);
+    ctx.lineTo(W * 0.06 + 4, H * 0.2);
+    ctx.closePath();
+    ctx.fillStyle = '#0a0a0a';
+    ctx.fill();
+    ctx.restore();
+
+    // Escala gráfica
+    const scaleBarLen = 100 * scale; // 100m
+    const scaleY = H * 0.92;
+    const scaleX = cx - scaleBarLen / 2;
+    ctx.strokeStyle = '#475569';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(scaleX, scaleY);
+    ctx.lineTo(scaleX + scaleBarLen, scaleY);
+    ctx.moveTo(scaleX, scaleY - 4);
+    ctx.lineTo(scaleX, scaleY + 4);
+    ctx.moveTo(scaleX + scaleBarLen, scaleY - 4);
+    ctx.lineTo(scaleX + scaleBarLen, scaleY + 4);
+    ctx.stroke();
+    ctx.font = '9px Inter, sans-serif';
+    ctx.fillStyle = '#64748b';
+    ctx.textAlign = 'center';
+    ctx.fillText('100 m', scaleX + scaleBarLen / 2, scaleY + 13);
+})();
+</script>
+
         <!-- 5. MAPAS DO SÍTIO -->
         <div class="met-block" data-aos="fade-up">
             <div class="block-num">05</div>

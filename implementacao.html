@@ -7,7 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/styles.css"/>
-  <link rel="stylesheet" href="css/projeto_vertiporto.css"/>
+  <link rel="stylesheet" href="css/implementacao.css"/>
 </head>
 <body>
 
@@ -82,6 +82,7 @@
       <a href="#demanda" class="pv-anchor">Demanda</a>
       <a href="#projeto" class="pv-anchor">Projeto</a>
       <a href="#infraestrutura" class="pv-anchor">Infraestrutura</a>
+      <a href="#pavimento" class="pv-anchor">Pavimento</a>
       <a href="#proximos-passos" class="pv-anchor">Próximos passos</a>
     </nav>
   </div>
@@ -366,7 +367,224 @@
     </div>
   </section>
 
-  <!-- 05 INFRAESTRUTURA -->
+  <!-- 05 PAVIMENTAÇÃO DO TLOF -->
+  <section class="pv-section" id="pavimento">
+    <div class="pv-container">
+      <span class="pv-sec-eyebrow">Dimensionamento Estrutural · TLOF · ALIA A250</span>
+      <div class="pv-sec-header">
+        <span class="pv-sec-num">05</span>
+        <h2 class="pv-sec-title">Pavimento do TLOF</h2>
+      </div>
+      <p class="pv-sec-desc">
+        Não existem até o momento normas específicas da FAA, EASA, ICAO ou ANAC para
+        projeto de pavimentos em vertiportos eVTOL. Este estudo adota métodos simplificados
+        de engenharia e <em>benchmarks</em> disponíveis na literatura, calibrados para a
+        aeronave crítica <strong>ALIA A250</strong> (MTOW = 2.720 kg), na ausência de dados
+        oficiais publicados por OEMs ou operadores.
+      </p>
+
+      <!-- Alerta de contexto regulatório -->
+      <div class="pv-alert">
+        <div class="pv-alert-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="pv-alert-text">
+          <strong>Lacuna normativa:</strong> FAA, EASA e ICAO têm estudos em curso para recomendações específicas para vertiportos. A ferramenta FAARFIELD 2.1 (FAA) não é diretamente aplicável ao contexto eVTOL por ausência de parâmetros de entrada específicos — espera-se adaptação futura ou desenvolvimento de ferramentas dedicadas.
+        </div>
+      </div>
+
+      <!-- 3 passos de cálculo -->
+      <h3 class="pv-subsec-title">Metodologia de Cálculo — 3 Passos</h3>
+
+      <div class="pv-pav-steps">
+
+        <div class="pv-pav-step">
+          <div class="pv-pav-step-num">1</div>
+          <div class="pv-pav-step-body">
+            <div class="pv-pav-step-title">Carga das Rodas</div>
+            <p class="pv-pav-step-desc">
+              Relação estática básica: <strong>W(roda) = W(aeronave) / f · N</strong><br/>
+              Com 2 rodas suportando 90% da carga e fator dinâmico f = 1,1 (táxi):
+            </p>
+            <div class="pv-pav-calc-grid">
+              <div class="pv-pav-calc">
+                <div class="pv-pav-calc-val">2.720 kg</div>
+                <div class="pv-pav-calc-key">MTOW ALIA A250</div>
+              </div>
+              <div class="pv-pav-calc">
+                <div class="pv-pav-calc-val">~13 kN</div>
+                <div class="pv-pav-calc-key">W(roda) em táxi<br/>(f = 1,1)</div>
+              </div>
+              <div class="pv-pav-calc pv-pav-calc--hl">
+                <div class="pv-pav-calc-val">18–20 kN</div>
+                <div class="pv-pav-calc-key">W(roda) dinâmico<br/>pouso normal</div>
+              </div>
+              <div class="pv-pav-calc pv-pav-calc--hl">
+                <div class="pv-pav-calc-val">~45 kN</div>
+                <div class="pv-pav-calc-key">Carga dinâmica total<br/>FAA EB-105A (1,5 × GW)</div>
+              </div>
+            </div>
+            <p class="pv-pav-note">
+              A FAA EB-105A define carga dinâmica de pouso normal para eVTOL = <strong>1,5 × GW</strong> (peso bruto).
+            </p>
+          </div>
+        </div>
+
+        <div class="pv-pav-step">
+          <div class="pv-pav-step-num">2</div>
+          <div class="pv-pav-step-body">
+            <div class="pv-pav-step-title">Pressão de Contato no Pneu</div>
+            <p class="pv-pav-step-desc">
+              <strong>p = W(roda) / A</strong> — a pressão do pneu é aproximadamente igual à pressão recebida pelo pavimento. Nota: a pressão pode ser mais determinante que o peso bruto.
+            </p>
+            <div class="pv-pav-calc-grid">
+              <div class="pv-pav-calc">
+                <div class="pv-pav-calc-val">50–100 psi</div>
+                <div class="pv-pav-calc-key">Aviação geral (GA)</div>
+              </div>
+              <div class="pv-pav-calc">
+                <div class="pv-pav-calc-val">180–220 psi</div>
+                <div class="pv-pav-calc-key">Aviação comercial (CA)</div>
+              </div>
+              <div class="pv-pav-calc pv-pav-calc--hl">
+                <div class="pv-pav-calc-val">80–120 psi</div>
+                <div class="pv-pav-calc-key">eVTOL<br/>(premissa de engenharia)</div>
+              </div>
+              <div class="pv-pav-calc pv-pav-calc--hl">
+                <div class="pv-pav-calc-val">~100 psi</div>
+                <div class="pv-pav-calc-key">ALIA A250<br/>~689 kPa · A = 203 cm²</div>
+              </div>
+            </div>
+            <p class="pv-pav-note">
+              Área de contato do pneu ALIA A250: <strong>14 × 14,5 cm = 203 cm²</strong>. Dados de OEMs não disponíveis publicamente — faixas são premissas atuais do setor.
+            </p>
+          </div>
+        </div>
+
+        <div class="pv-pav-step">
+          <div class="pv-pav-step-num">3</div>
+          <div class="pv-pav-step-body">
+            <div class="pv-pav-step-title">Espessura Necessária do Pavimento</div>
+            <p class="pv-pav-step-desc">
+              O método FAA (FAARFIELD) correlaciona carga da roda, pressão dos pneus, operações anuais e CBR do subleito à espessura de concreto. Para eVTOL: <strong>8–12 ops/dia × 250 dias = ~3.000 ops/ano</strong>.
+            </p>
+            <div class="pv-pav-fatores">
+              <div class="pv-pav-fator">
+                <div class="pv-pav-fator-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div>
+                  <strong>Cargas repetidas</strong>
+                  <span>Pousos verticais concentrados na área de toque, alta frequência</span>
+                </div>
+              </div>
+              <div class="pv-pav-fator">
+                <div class="pv-pav-fator-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <div>
+                  <strong>Downwash / outwash dos rotores</strong>
+                  <span>Erosão do pavimento e camadas protetoras</span>
+                </div>
+              </div>
+              <div class="pv-pav-fator">
+                <div class="pv-pav-fator-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                  <strong>Efeitos térmicos</strong>
+                  <span>Exaustão, risco de fogo em baterias afetam o pavimento</span>
+                </div>
+              </div>
+              <div class="pv-pav-fator">
+                <div class="pv-pav-fator-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div>
+                  <strong>Cargas concentradas</strong>
+                  <span>Dimensões reduzidas do trem de pouso, pressões localizadas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tabela de benchmarks -->
+      <h3 class="pv-subsec-title">Benchmarks de Espessura de Concreto</h3>
+      <div class="pv-table-wrap">
+        <div class="pv-table-title">Referências de espessura por classe de aeronave · Superfície rígida (concreto)</div>
+        <table class="pv-table">
+          <thead>
+            <tr><th>Classe de aeronave</th><th>GW (peso bruto)</th><th>Espessura de concreto</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Helicóptero / GA pequena</td><td>&lt; 5.700 kg</td><td>10–15 cm</td></tr>
+            <tr><td>Helicóptero / GA média</td><td>5.700–13.500 kg</td><td>15–20 cm</td></tr>
+            <tr><td>Jato executivo</td><td>—</td><td>20–40 cm</td></tr>
+            <tr><td>Comercial narrowbody</td><td>—</td><td>40–80 cm</td></tr>
+            <tr><td>Comercial widebody</td><td>—</td><td>&gt; 100 cm</td></tr>
+            <tr class="pv-tr-hl">
+              <td><strong>ALIA A250 · eVTOL (operação inicial)</strong></td>
+              <td><strong>2.720 kg</strong></td>
+              <td><strong>15–20 cm</strong></td>
+            </tr>
+            <tr class="pv-tr-hl">
+              <td><strong>ALIA A250 · eVTOL (operação comercial)</strong></td>
+              <td><strong>2.720 kg</strong></td>
+              <td><strong>20–25 cm</strong></td>
+            </tr>
+            <tr class="pv-tr-hl">
+              <td><strong>ALIA A250 · eVTOL (alto tráfego)</strong></td>
+              <td><strong>2.720 kg</strong></td>
+              <td><strong>20–35 cm</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Estrutura do pavimento -->
+      <h3 class="pv-subsec-title">Estrutura Típica do Pavimento — TLOF</h3>
+      <div class="pv-pav-estrutura">
+        <div class="pv-pav-camada pv-pav-camada--top">
+          <div class="pv-pav-camada-nome">Superfície de concreto (rígida)</div>
+          <div class="pv-pav-camada-esp">20–25 cm · operação comercial</div>
+        </div>
+        <div class="pv-pav-seta">↓</div>
+        <div class="pv-pav-camada">
+          <div class="pv-pav-camada-nome">Camada de base</div>
+          <div class="pv-pav-camada-esp">Brita graduada / solo-cimento</div>
+        </div>
+        <div class="pv-pav-seta">↓</div>
+        <div class="pv-pav-camada">
+          <div class="pv-pav-camada-nome">Camada de sub-base</div>
+          <div class="pv-pav-camada-esp">Solo estabilizado</div>
+        </div>
+        <div class="pv-pav-seta">↓</div>
+        <div class="pv-pav-camada pv-pav-camada--bottom">
+          <div class="pv-pav-camada-nome">Solo compactado (subleito)</div>
+          <div class="pv-pav-camada-esp">CBR medido em campo · parâmetro determinante</div>
+        </div>
+      </div>
+
+      <!-- Referências -->
+      <div class="pv-pav-refs">
+        <div class="pv-pav-refs-title">Referências normativas utilizadas</div>
+        <ul class="pv-pav-refs-list">
+          <li>FAA EB-105A — Vertiport Design, Supplemental Guide to AC 150/5390-2D (2024)</li>
+          <li>FAA AC 150/5320-6G — Airport Pavement Design and Evaluation (2021)</li>
+          <li>EASA Prototype Technical Design Specifications for Vertiports (2022)</li>
+          <li>ICAO Aerodrome Design Manual: Pavements, Doc 9157 — Parte 3 (2022)</li>
+          <li>FAA FAARFIELD 2.1 — Rigid and Flexible Iterative Elastic Layered Design</li>
+          <li>ANAC — Manual de Cálculo de PCN de Pavimentos Aeroportuários (COMFAA 3.0)</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 06 INFRAESTRUTURA -->
   <section class="pv-section" id="infraestrutura">
     <div class="pv-container">
       <span class="pv-sec-eyebrow">Terminal e Hangar</span>
@@ -518,7 +736,7 @@
     </div>
   </section>
 
-  <!-- 06 PRÓXIMOS PASSOS -->
+  <!-- 07 PRÓXIMOS PASSOS -->
   <section class="pv-section pv-section-alt" id="proximos-passos">
     <div class="pv-container">
       <span class="pv-sec-eyebrow">Roadmap de Implementação</span>
