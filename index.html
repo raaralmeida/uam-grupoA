@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="css/index.css" rel="stylesheet" />
 
     <style>
@@ -99,6 +98,14 @@
             .index-autoria-inner { grid-template-columns: 1fr; }
             .index-autoria-meta { text-align: left; }
             .index-autoria { padding: 40px 20px; }
+        }
+
+        /* Corrige gap entre linhas do bloco quad-b do Ato IV */
+        #quad-b-ato4 {
+            grid-template-rows: 1fr 1fr;
+        }
+        #quad-b-ato4 .story-quad-b-img-2 img {
+            object-fit: cover !important;
         }
     </style>
 </head>
@@ -271,20 +278,20 @@
     <div class="story-inner" data-aos="fade-up">
         <span class="story-label">Ato IV — O Projeto</span>
         <h2 class="story-h2">Da demanda ao anteprojeto</h2>
-        <p class="story-p" style="margin: 0 auto;">Com cidade e site definidos, o projeto se aprofundou em três frentes simultâneas: quantificar a demanda real que o vertiporto precisará absorver, validar as condições meteorológicas para operação segura e dimensionar toda a infraestrutura física — do lado ar ao terminal de passageiros.</p>
+        <p class="story-p" style="margin: 0 auto;">Com cidade e site definidos, o projeto se aprofundou em três frentes simultâneas: quantificar a demanda real que o vertiporto precisará absorver, validar as condições meteorológicas para operação segura e dimensionar toda a infraestrutura física — do lado ar ao terminal de passageiros. A análise de demanda utilizou dados de movimentos de helicópteros em SBBR no período de 01/01/2016 a 31/12/2025, com base METAR de SBBR.</p>
     </div>
 </section>
 
 <!-- BLOCO — Memorial + Meteorologia -->
-<div class="story-quad-b">
+<div class="story-quad-b" id="quad-b-ato4">
     <div class="story-quad-b-text-1" data-aos="fade-right">
         <span class="story-label">Memorial Descritivo · Análise de Demanda</span>
         <h2 class="story-h2">Dimensionado pela aeronave mais exigente</h2>
-        <p class="story-p">Com Brasília e a Rodoviária do PP definidas, duas perguntas precisavam de resposta: qual aeronave dimensiona a infraestrutura e quanta demanda o vertiporto precisará absorver? A análise de 87 meses de operações de helicópteros em SBBR (2019–2026) e o estudo comparativo de seis aeronaves eVTOL convergiram para um mesmo ponto — a BETA ALIA VTOL como aeronave crítica e 6 passageiros/hora como demanda de pico.</p>
+        <p class="story-p">Com Brasília e a Rodoviária do PP definidas, duas perguntas precisavam de resposta: qual aeronave dimensiona a infraestrutura e quanta demanda o vertiporto precisará absorver? A análise de 87 meses de operações de helicópteros em SBBR (2019–2026) e o estudo comparativo de seis aeronaves eVTOL convergiram para um mesmo ponto — a BETA ALIA VTOL como aeronave crítica e 574 movimentos/mês como demanda estimada pelo Modelo 4 de regressão.</p>
         <div class="story-stat-boxes">
             <div class="story-stat-box"><span class="story-stat-value">15,24m</span><span class="story-stat-label">TLOF</span></div>
             <div class="story-stat-box"><span class="story-stat-value">30,48m</span><span class="story-stat-label">FATO</span></div>
-            <div class="story-stat-box"><span class="story-stat-value">6 pax/h</span><span class="story-stat-label">Demanda pico</span></div>
+            <div class="story-stat-box"><span class="story-stat-value">574</span><span class="story-stat-label">Demanda mensal</span></div>
         </div>
         <div class="story-btn-group" style="margin-top: 32px; justify-content: flex-start;">
             <a href="memorial_vertiporto.html" class="story-link">Ver Memorial →</a>
@@ -324,7 +331,7 @@
     <div class="story-quad-b-text-1" data-aos="fade-right">
         <span class="story-label">Anteprojeto · Estudo Preliminar Rev. 0</span>
         <h2 class="story-h2">O primeiro vertiporto de Brasília</h2>
-        <p class="story-p">O vertiporto da Rodoviária do Plano Piloto foi dimensionado do lado ar ao lado terra — da superfície de proteção OLS ao terminal de passageiros, do hangar ao pavimento do TLOF — tudo calibrado para a aeronave crítica ALIA A250 e alinhado às normas EASA, FAA e ICAO, com roadmap de 4 fases até a operação comercial.</p>
+        <p class="story-p">O vertiporto da Rodoviária do Plano Piloto foi dimensionado do lado ar ao lado terra — da superfície de proteção OLS ao terminal de passageiros, do hangar ao pavimento do TLOF — tudo calibrado para a aeronave crítica BETA ALIA VTOL e alinhado às normas EASA, FAA e ICAO, com roadmap de 4 fases até a operação comercial.</p>
         <div class="story-stats">
             <div><span class="story-stat-value">216 m²</span><span class="story-stat-label">Terminal TPS</span></div>
             <div><span class="story-stat-value">529 m²</span><span class="story-stat-label">Hangar</span></div>
