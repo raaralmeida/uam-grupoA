@@ -12,6 +12,95 @@
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="css/index.css" rel="stylesheet" />
+
+    <style>
+        /* Destaque Brasília no ranking */
+        .rank-card--highlight {
+            border-top: 3px solid #ffffff;
+            position: relative;
+        }
+        .rank-card--highlight .rank-card-caption {
+            background: #1a1a1a;
+        }
+        .rank-card--highlight .rank-label {
+            color: #ffffff;
+        }
+        .rank-card--highlight h3 {
+            color: #ffffff;
+        }
+
+        /* Stat no bloco caracterização */
+        .char-stat {
+            display: flex;
+            gap: 32px;
+            margin-top: 28px;
+        }
+        .char-stat-item span:first-child {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+        }
+        .char-stat-item span:last-child {
+            display: block;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            margin-top: 4px;
+        }
+
+        /* Bloco de autoria */
+        .index-autoria {
+            background: #050505;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 60px 40px;
+        }
+        .index-autoria-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: center;
+        }
+        .index-autoria-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            margin-bottom: 16px;
+        }
+        .index-autoria-nomes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 24px;
+        }
+        .index-autoria-nome {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+        }
+        .index-autoria-meta {
+            text-align: right;
+        }
+        .index-autoria-meta-item {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.3);
+            line-height: 1.8;
+        }
+        .index-autoria-meta-item strong {
+            color: rgba(255,255,255,0.55);
+        }
+        @media (max-width: 768px) {
+            .index-autoria-inner { grid-template-columns: 1fr; }
+            .index-autoria-meta { text-align: left; }
+            .index-autoria { padding: 40px 20px; }
+        }
+    </style>
 </head>
 
 <body>
@@ -46,7 +135,7 @@
           <a href="analise_meteorologica.html">Análise Meteorológica</a>
         </div>
       </div>
-      <a href="implementacao.html" class="main-nav-link active">Implementação</a>
+      <a href="implementacao.html" class="main-nav-link">Implementação</a>
     </div>
   </div>
 </nav>
@@ -65,171 +154,186 @@
     </div>
     <div class="hero-dark-overlay"></div>
     <div class="hero-dark-content" data-aos="fade-up">
-        <p class="hero-eyebrow">Urban Air Mobility — Brasil</p>
-        <h1>Onde e como implementar<br>o UAM de forma eficiente?</h1>
-        <p class="hero-sub">Uma estratégia inteligente para planejar a integração do UAM e definir localizações estratégicas.</p>
+        <p class="hero-eyebrow">Urban Air Mobility — Brasil · IT-214 · ITA · 2026</p>
+        <h1>Do ranking nacional ao<br>primeiro vertiporto de Brasília</h1>
+        <p class="hero-sub">Seleção de cidade, análise de demanda, escolha do site por AHP, condições meteorológicas e anteprojeto completo — um estudo de viabilidade e implantação de UAM de ponta a ponta.</p>
         <div class="hero-actions">
             <a href="selecao_cidade.html" class="btn-hero-primary">Seleção da Cidade</a>
-            <a href="caracterizacao_brasilia.html" class="btn-hero-outline">Sobre Brasília</a>
+            <a href="implementacao.html" class="btn-hero-outline">Ver Anteprojeto</a>
         </div>
     </div>
 </header>
 
-<!-- RANKING NACIONAL -->
+<!-- ATO 1 — O CONTEXTO -->
 <section style="background: #111111; padding: 100px 0;">
     <div class="container">
         <div style="text-align: center;" data-aos="fade-up">
-            <span class="story-label" style="display: block;">Ranking Nacional</span>
-            <h2 class="story-h2">As cidades com maior potencial para UAM</h2>
-            <p class="story-p" style="margin: 0 auto; max-width: 600px;">A partir da distribuição espacial de 800 mil operações de drones registradas no SARPAS, identificamos um ranking nacional de potencial UAM.</p>
+            <span class="story-label" style="display: block;">Ato I — O Contexto</span>
+            <h2 class="story-h2">Onde o UAM tem maior potencial no Brasil?</h2>
+            <p class="story-p" style="margin: 0 auto; max-width: 620px;">A partir de 800 mil operações de drones registradas no SARPAS (2016–2022), mapeamos o potencial de cada metrópole brasileira. Três cidades se destacaram — e uma foi escolhida.</p>
         </div>
-
         <div class="rank-grid">
             <a href="selecao_cidade.html" class="rank-card" data-aos="fade-up">
-                <div class="rank-card-img">
-                    <img src="assets/img/sp.jpg" alt="São Paulo">
-                </div>
+                <div class="rank-card-img"><img src="assets/img/sp.jpg" alt="São Paulo"></div>
                 <div class="rank-card-caption">
                     <span class="rank-label">01</span>
                     <h3>São Paulo — SP</h3>
                     <p>Maior região metropolitana, elevado volume de operações e alta densidade de demanda.</p>
                 </div>
             </a>
-
             <a href="selecao_cidade.html" class="rank-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="rank-card-img">
-                    <img src="assets/img/rj.jpg" alt="Rio de Janeiro">
-                </div>
+                <div class="rank-card-img"><img src="assets/img/rj.jpg" alt="Rio de Janeiro"></div>
                 <div class="rank-card-caption">
                     <span class="rank-label">02</span>
                     <h3>Rio de Janeiro — RJ</h3>
                     <p>Forte demanda turística e urbana, com desafios operacionais únicos de espaço aéreo.</p>
                 </div>
             </a>
-
-            <a href="selecao_cidade.html" class="rank-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="rank-card-img">
-                    <img src="assets/img/brasilia.jpg" alt="Brasília" style="object-position: center 40%;">
-                </div>
+            <a href="implementacao.html" class="rank-card rank-card--highlight" data-aos="fade-up" data-aos-delay="200">
+                <div class="rank-card-img"><img src="assets/img/brasilia.jpg" alt="Brasília" style="object-position: center 40%;"></div>
                 <div class="rank-card-caption">
-                    <span class="rank-label">03 — Escolhida</span>
+                    <span class="rank-label">03 — Escolhida ✓</span>
                     <h3>Brasília — DF</h3>
-                    <p>Alta concentração per capita e planejamento urbano favorável à implantação do UAM.</p>
+                    <p>Menor saturação aérea, maior PIB per capita entre as capitais e planejamento urbano favorável ao UAM.</p>
                 </div>
             </a>
         </div>
     </div>
 </section>
 
-<!-- SECTION 1: O PROBLEMA -->
+<!-- ATO 2 — A ESCOLHA -->
 <section class="story-text-section" style="background: #0a0a0a;">
     <div class="story-inner" data-aos="fade-up">
-        <span class="story-label">O Desafio</span>
-        <h2 class="story-h2">A mobilidade urbana precisa evoluir</h2>
-        <p class="story-p" style="margin: 0 auto;">Congestionamentos, fluxos concentrados e longos tempos de deslocamento exigem uma nova solução. O UAM surge como alternativa estratégica para cidades como Brasília.</p>
+        <span class="story-label">Ato II — A Escolha</span>
+        <h2 class="story-h2">Por que Brasília?</h2>
+        <p class="story-p" style="margin: 0 auto;">Brasília não foi escolhida por acaso. Três fatores convergiram: o perfil socioeconômico mais favorável entre as capitais brasileiras, um espaço aéreo menos saturado que São Paulo e Rio, e um corredor estratégico de altíssima demanda latente — a rota Rodoviária → Aeroporto, que hoje consome 40 a 60 minutos de carro e pode ser percorrida em minutos por eVTOL.</p>
     </div>
 </section>
 
-<!-- SECTIONS 2+3: BLOCO 2x2 -->
+<!-- BLOCO — Brasília + SARPAS -->
 <div class="story-quad">
     <div class="story-quad-img-1" data-aos="fade-right">
         <img src="assets/img/brasilia.jpg" alt="Brasília">
     </div>
     <div class="story-quad-text-1" data-aos="fade-left">
-        <span class="story-label">A Cidade Escolhida</span>
-        <h2 class="story-h2">Brasília: planejamento urbano favorável ao UAM</h2>
-        <p class="story-p">Alta concentração per capita, espaço aéreo organizado e infraestrutura moderna colocam Brasília como #3 no ranking nacional de potencial UAM.</p>
-        <a href="caracterizacao_brasilia.html" class="story-link">Ver Caracterização →</a>
+        <span class="story-label">Caracterização de Brasília</span>
+        <h2 class="story-h2">A capital federal como laboratório do UAM</h2>
+        <p class="story-p">Brasília concentra o maior PIB per capita entre as capitais brasileiras, com uma população executiva e governamental que já utiliza serviços premium de mobilidade. O planejamento urbano modernista, com grandes eixos viários e áreas verdes, favorece a integração do UAM ao sistema de transportes existente.</p>
+        <div class="char-stat">
+            <div class="char-stat-item">
+                <span>#1</span>
+                <span>PIB per capita<br>entre capitais</span>
+            </div>
+            <div class="char-stat-item">
+                <span>3,1 M</span>
+                <span>Habitantes<br>no DF</span>
+            </div>
+            <div class="char-stat-item">
+                <span>40–60 min</span>
+                <span>Rodoviária →<br>Aeroporto de carro</span>
+            </div>
+        </div>
+        <a href="caracterizacao_brasilia.html" class="story-link" style="margin-top: 28px;">Ver Caracterização de Brasília →</a>
     </div>
-
     <div class="story-quad-text-2" data-aos="fade-right">
-        <span class="story-label">Seleção da Cidade</span>
+        <span class="story-label">Seleção da Cidade · SARPAS</span>
         <h2 class="story-h2">800 mil operações. Um mapa. Uma escolha.</h2>
-        <p class="story-p">Dados históricos de solicitações de voo de drones no sistema SARPAS (2016–2022) foram processados no QGIS para identificar as cidades brasileiras com maior potencial para UAM.</p>
+        <p class="story-p">Dados históricos do sistema SARPAS (2016–2022) processados no QGIS revelaram a distribuição espacial da demanda por UAM no Brasil. Brasília emergiu como o mercado mais promissor em termos de crescimento e menor saturação aérea — combinação rara que reduz barreiras regulatórias e operacionais para uma primeira implementação.</p>
         <div class="story-stats">
-            <div>
-                <span class="story-stat-value">800k</span>
-                <span class="story-stat-label">Operações</span>
-            </div>
-            <div>
-                <span class="story-stat-value">#3</span>
-                <span class="story-stat-label">Brasília</span>
-            </div>
-            <div>
-                <span class="story-stat-value">2016–22</span>
-                <span class="story-stat-label">Período</span>
-            </div>
+            <div><span class="story-stat-value">800k</span><span class="story-stat-label">Operações SARPAS</span></div>
+            <div><span class="story-stat-value">#3</span><span class="story-stat-label">Brasília</span></div>
+            <div><span class="story-stat-value">2016–22</span><span class="story-stat-label">Período</span></div>
         </div>
         <a href="selecao_cidade.html" class="story-link">Ver Seleção da Cidade →</a>
     </div>
     <div class="story-quad-img-2" data-aos="fade-left" style="overflow:hidden; min-height:400px; background:#fff; display:flex; align-items:center; justify-content:center;">
-        <img src="img/mapa_selecao_cidade.png" alt="Mapa SARPAS — distribuição de operações de drones no Brasil" style="width:100%; height:100%; object-fit:contain; display:block;">
+        <img src="img/mapa_selecao_cidade.png" alt="Mapa SARPAS" style="width:100%; height:100%; object-fit:contain; display:block;">
     </div>
 </div>
 
-<!-- SECTION 4: ONDE FICA O VERTIPORTO? -->
+<!-- ATO 3 — O SITE -->
 <section class="story-fullbg">
-    <div class="story-fullbg-bg" style="background-image: url('img/mapa_01.jpg');"></div>
+    <div class="story-fullbg-bg" style="background-image: url('img/hero_banner.jpg'); background-position: center 40%;"></div>
     <div class="story-fullbg-overlay"></div>
     <div class="story-fullbg-content" data-aos="fade-up">
-        <span class="story-label">Localização</span>
-        <h2 class="story-h2">Esplanada dos Ministérios</h2>
-        <p class="story-p" style="margin: 0 auto;">Após análise multicritério de acessibilidade, espaço aéreo e demanda, a Esplanada dos Ministérios foi selecionada como sítio prioritário para o vertiporto em Brasília.</p>
+        <span class="story-label">Ato III — O Site</span>
+        <h2 class="story-h2">Rodoviária do Plano Piloto</h2>
+        <p class="story-p" style="margin: 0 auto;">Três candidatos foram avaliados pelo método AHP — uma escala de 0 a 1 onde critérios como acessibilidade, área disponível, interferência operacional e renda são ponderados entre si. A Rodoviária do Plano Piloto obteve score 0,844 (em um máximo de 1,000), superando o Complexo 21 (0,802) e o Aeroporto de Brasília (0,607). Sua posição no cruzamento entre metrô, BRT e o corredor de maior renda do DF foi determinante.</p>
         <div class="story-btn-group">
-            <a href="selecao_vertiporto.html" class="story-link">Ver Seleção de Vertiporto →</a>
+            <a href="selecao_vertiporto.html" class="story-link">Ver Análise AHP →</a>
             <a href="mapas_qgis.html" class="story-link">Ver Mapas QGIS →</a>
         </div>
     </div>
 </section>
 
-<!-- SECTIONS 5+6: BLOCO 2x2 invertido -->
+<!-- ATO 4 — O PROJETO -->
+<section class="story-text-section" style="background: #0a0a0a;">
+    <div class="story-inner" data-aos="fade-up">
+        <span class="story-label">Ato IV — O Projeto</span>
+        <h2 class="story-h2">Da demanda ao anteprojeto</h2>
+        <p class="story-p" style="margin: 0 auto;">Com cidade e site definidos, o projeto se aprofundou em três frentes simultâneas: quantificar a demanda real que o vertiporto precisará absorver, validar as condições meteorológicas para operação segura e dimensionar toda a infraestrutura física — do lado ar ao terminal de passageiros.</p>
+    </div>
+</section>
+
+<!-- BLOCO — Memorial + Meteorologia -->
 <div class="story-quad-b">
     <div class="story-quad-b-text-1" data-aos="fade-right">
-        <span class="story-label">Memorial Descritivo</span>
-        <h2 class="story-h2">Pré-dimensionado para a aeronave mais exigente</h2>
-        <p class="story-p">Baseado na BETA ALIA VTOL com D=15,24m, o vertiporto atende normas FAA, EASA, CASA e RBAC 155.</p>
+        <span class="story-label">Memorial Descritivo · Análise de Demanda</span>
+        <h2 class="story-h2">Dimensionado pela aeronave mais exigente</h2>
+        <p class="story-p">Com Brasília e a Rodoviária do PP definidas, duas perguntas precisavam de resposta: qual aeronave dimensiona a infraestrutura e quanta demanda o vertiporto precisará absorver? A análise de 87 meses de operações de helicópteros em SBBR (2019–2026) e o estudo comparativo de seis aeronaves eVTOL convergiram para um mesmo ponto — a BETA ALIA VTOL como aeronave crítica e 6 passageiros/hora como demanda de pico.</p>
         <div class="story-stat-boxes">
-            <div class="story-stat-box">
-                <span class="story-stat-value">15,24m</span>
-                <span class="story-stat-label">TLOF</span>
-            </div>
-            <div class="story-stat-box">
-                <span class="story-stat-value">30,48m</span>
-                <span class="story-stat-label">FATO</span>
-            </div>
-            <div class="story-stat-box">
-                <span class="story-stat-value">38,10m</span>
-                <span class="story-stat-label">Safety</span>
-            </div>
+            <div class="story-stat-box"><span class="story-stat-value">15,24m</span><span class="story-stat-label">TLOF</span></div>
+            <div class="story-stat-box"><span class="story-stat-value">30,48m</span><span class="story-stat-label">FATO</span></div>
+            <div class="story-stat-box"><span class="story-stat-value">6 pax/h</span><span class="story-stat-label">Demanda pico</span></div>
         </div>
-        <a href="memorial_vertiporto.html" class="story-link">Ver Memorial Completo →</a>
+        <div class="story-btn-group" style="margin-top: 32px; justify-content: flex-start;">
+            <a href="memorial_vertiporto.html" class="story-link">Ver Memorial →</a>
+            <a href="demanda_UAM.html" class="story-link">Ver Demanda →</a>
+        </div>
     </div>
     <div class="story-quad-b-img-1" data-aos="fade-left">
         <img src="img/pista3.jpg" alt="Vertiporto">
     </div>
-
     <div class="story-quad-b-img-2" data-aos="fade-right">
         <img src="img/Meteorologia.png" alt="Análise Meteorológica" style="object-fit: contain;">
     </div>
     <div class="story-quad-b-text-2" data-aos="fade-left">
         <span class="story-label">Análise Meteorológica</span>
         <h2 class="story-h2">VMC acima de 99% nos meses secos</h2>
-        <p class="story-p">Brasília apresenta condições excepcionais para operações eVTOL: ventos predominantes de leste, baixa incidência de IMC e cobertura VMC superior a 87% ao longo do ano.</p>
+        <p class="story-p">Antes de dimensionar qualquer infraestrutura, era preciso entender o ambiente operacional. A análise histórica do aeródromo de Brasília (SBBR) revelou um padrão consistente: ventos predominantemente do quadrante leste em todos os meses do ano, baixíssima incidência de IMC no período seco e cobertura VMC excepcional — condições ideais para operações regulares de eVTOL.</p>
         <div class="story-stats">
-            <div>
-                <span class="story-stat-value">VMC &gt;99%</span>
-                <span class="story-stat-label">Jul</span>
-            </div>
-            <div>
-                <span class="story-stat-value">E</span>
-                <span class="story-stat-label">Vento predominante</span>
-            </div>
-            <div>
-                <span class="story-stat-value">IMC &lt;1%</span>
-                <span class="story-stat-label">Jul</span>
-            </div>
+            <div><span class="story-stat-value">VMC &gt;99%</span><span class="story-stat-label">Julho</span></div>
+            <div><span class="story-stat-value">E — 35%</span><span class="story-stat-label">Vento predominante</span></div>
+            <div><span class="story-stat-value">IMC &lt;1%</span><span class="story-stat-label">Meses secos</span></div>
         </div>
         <a href="analise_meteorologica.html" class="story-link">Ver Análise Meteorológica →</a>
+    </div>
+</div>
+
+<!-- TRANSIÇÃO ATO 4 → ATO 5 -->
+<section class="story-text-section" style="background: #0a0a0a;">
+    <div class="story-inner" data-aos="fade-up">
+        <span class="story-label">Ato V — O Resultado</span>
+        <h2 class="story-h2">Com os dados em mãos, o projeto tomou forma</h2>
+        <p class="story-p" style="margin: 0 auto;">A demanda quantificada, os ventos mapeados e a aeronave crítica definida forneceram todas as entradas necessárias para o anteprojeto. O resultado é um vertiporto dimensionado de ponta a ponta — do cone de proteção aérea ao pavimento do TLOF.</p>
+    </div>
+</section>
+
+<!-- ATO 5 — O RESULTADO -->
+<div class="story-quad-b">
+    <div class="story-quad-b-text-1" data-aos="fade-right">
+        <span class="story-label">Anteprojeto · Estudo Preliminar Rev. 0</span>
+        <h2 class="story-h2">O primeiro vertiporto de Brasília</h2>
+        <p class="story-p">O vertiporto da Rodoviária do Plano Piloto foi dimensionado do lado ar ao lado terra — da superfície de proteção OLS ao terminal de passageiros, do hangar ao pavimento do TLOF — tudo calibrado para a aeronave crítica ALIA A250 e alinhado às normas EASA, FAA e ICAO, com roadmap de 4 fases até a operação comercial.</p>
+        <div class="story-stats">
+            <div><span class="story-stat-value">216 m²</span><span class="story-stat-label">Terminal TPS</span></div>
+            <div><span class="story-stat-value">529 m²</span><span class="story-stat-label">Hangar</span></div>
+            <div><span class="story-stat-value">972 m</span><span class="story-stat-label">Extensão OLS</span></div>
+        </div>
+        <a href="implementacao.html" class="story-link">Ver Anteprojeto Completo →</a>
+    </div>
+    <div class="story-quad-b-img-1" data-aos="fade-left">
+        <img src="img/hero_banner.jpg" alt="Brasília — Rodoviária do Plano Piloto" style="object-fit: cover; object-position: center 40%;">
     </div>
 </div>
 
@@ -238,17 +342,37 @@
     <div class="cta-dark-bg" style="background-image: url('img/foto_brasilia_2.jpg');"></div>
     <div class="cta-dark-overlay"></div>
     <div class="cta-dark-content" data-aos="fade-up">
-        <h2>Pronto para explorar o potencial do UAM?</h2>
-        <p>Descubra como dados reais podem orientar decisões estratégicas de mobilidade aérea urbana.</p>
-        <a href="selecao_cidade.html" class="btn-hero-primary">Explorar Análises</a>
+        <h2>Explore o anteprojeto completo</h2>
+        <p>Localização, dimensionamento, terminal, hangar, pavimento e roadmap de implementação — tudo em um único documento técnico.</p>
+        <a href="implementacao.html" class="btn-hero-primary">Ver Anteprojeto</a>
     </div>
 </section>
+
+<!-- AUTORIA -->
+<div class="index-autoria">
+    <div class="index-autoria-inner">
+        <div>
+            <div class="index-autoria-label">Grupo A · IT-214 · ITA</div>
+            <div class="index-autoria-nomes">
+                <span class="index-autoria-nome">Caio Honorato</span>
+                <span class="index-autoria-nome">Antonio Eduardo de Vasconcelos</span>
+                <span class="index-autoria-nome">Giancarlo Furtado</span>
+                <span class="index-autoria-nome">Rafael Almeida</span>
+            </div>
+        </div>
+        <div class="index-autoria-meta">
+            <div class="index-autoria-meta-item"><strong>Orientador</strong> Prof. Dr. Marcelo Xavier Guterres</div>
+            <div class="index-autoria-meta-item"><strong>Disciplina</strong> IT-214 · Mobilidade Aérea Urbana</div>
+            <div class="index-autoria-meta-item"><strong>Entrega</strong> 30/06/2026 · Rev. 0 · Estudo Preliminar</div>
+        </div>
+    </div>
+</div>
 
 <!-- FOOTER -->
 <footer class="footer-dark">
     <div class="footer-dark-inner">
         <span class="footer-logo">UAM Study</span>
-        <span class="footer-copy">© 2026 Urban Air Mobility Project • Todos os direitos reservados</span>
+        <span class="footer-copy">© 2026 · IT-214 · ITA · Estudo Preliminar Rev. 0 · 30/06/2026</span>
     </div>
 </footer>
 
@@ -262,7 +386,6 @@
         }, 2500);
     });
 </script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
@@ -272,6 +395,5 @@
         nav.classList.toggle('scrolled', window.scrollY > 60);
     });
 </script>
-
 </body>
 </html>
