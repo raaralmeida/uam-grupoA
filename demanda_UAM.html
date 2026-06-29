@@ -387,6 +387,109 @@
     </div>
 </section>
 
+<!-- ===================== SEÇÃO DIMENSIONAMENTO TERMINAL ===================== -->
+<section class="d-section d-light">
+    <div class="d-container">
+        <div class="d-section-header" data-aos="fade-up">
+            <span class="d-label">Terminal de Passageiros</span>
+            <h2>Dimensionamento do TPS</h2>
+            <p>Taxa de pico, capacidade operacional e demanda de passageiros</p>
+        </div>
+
+        <!-- Gráfico 1: Taxa pico por hora SBBR -->
+        <div data-aos="fade-up" style="margin-bottom: 48px;">
+            <h3 class="d-table-title">Taxa Pico por Hora de SBBR (movimento total)</h3>
+
+            <!-- Cards de destaque -->
+            <div class="d-stats-grid" style="margin-bottom: 24px;">
+                <div class="d-stat-card" style="background:#3b2f7a;">
+                    <div class="d-stat-number" style="color:#fff;">12</div>
+                    <div class="d-stat-label" style="color:rgba(255,255,255,0.7);">Taxa Pico R15 (95%)</div>
+                </div>
+                <div class="d-stat-card" style="background:#2d5fa3;">
+                    <div class="d-stat-number" style="color:#fff;">41</div>
+                    <div class="d-stat-label" style="color:rgba(255,255,255,0.7);">Taxa Pico R60 (95%)</div>
+                </div>
+                <div class="d-stat-card" style="background:#7a2020;">
+                    <div class="d-stat-number" style="color:#fff;">80</div>
+                    <div class="d-stat-label" style="color:rgba(255,255,255,0.7);">Capacidade R60</div>
+                </div>
+                <div class="d-stat-card" style="background:#6b1c1c;">
+                    <div class="d-stat-number" style="color:#fff;">20</div>
+                    <div class="d-stat-label" style="color:rgba(255,255,255,0.7);">Capacidade R15</div>
+                </div>
+            </div>
+
+            <!-- Gráfico de barras hora a hora -->
+            <div style="overflow-x: auto;">
+                <canvas id="chartPicoHora" style="min-width: 900px; height: 320px;"></canvas>
+            </div>
+        </div>
+
+        <!-- Gráficos 2: Movimento total e HEL por ano -->
+        <div data-aos="fade-up" style="margin-bottom: 48px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+                <div>
+                    <h3 class="d-table-title">Movimento Total por Ano — SBBR</h3>
+                    <canvas id="chartMovTotal" style="height: 220px;"></canvas>
+                </div>
+                <div>
+                    <h3 class="d-table-title">Movimento Total de HEL por Ano — SBBR</h3>
+                    <canvas id="chartMovHel" style="height: 220px;"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabela de dados -->
+        <div data-aos="fade-up">
+            <h3 class="d-table-title">Dados de Capacidade e Demanda</h3>
+            <div class="d-table-wrap">
+                <table class="d-table">
+                    <thead>
+                        <tr><th>Parâmetro</th><th>2024</th><th>2025</th><th>2026*</th><th>Médio</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>MOV TOTAL</td><td>147.957</td><td>157.135</td><td>65.048</td><td>—</td></tr>
+                        <tr><td>MOV HEL</td><td>6.305</td><td>7.049</td><td>2.526</td><td>—</td></tr>
+                        <tr><td>% HEL</td><td>4,26%</td><td>4,49%</td><td>3,88%</td><td><strong>4,21%</strong></td></tr>
+                        <tr><td>Taxa Pico por Hora</td><td colspan="3">—</td><td><strong>50 mov/h</strong></td></tr>
+                        <tr><td>% HEL (médio)</td><td colspan="3">—</td><td><strong>4,21%</strong></td></tr>
+                        <tr><td>Taxa Pico HEL</td><td colspan="3">—</td><td><strong>2,1 mov/h</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-table-wrap" style="margin-top: 24px;">
+                <table class="d-table">
+                    <thead>
+                        <tr><th colspan="2">Capacidade do Vertiporto</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>FATO</td><td><strong>1</strong></td></tr>
+                        <tr><td>STAND</td><td><strong>1</strong></td></tr>
+                        <tr><td>Tempo por ciclo</td><td><strong>15 min</strong></td></tr>
+                        <tr><td>Capacidade vertiporto</td><td><strong>4 mov/h</strong></td></tr>
+                        <tr><td>Capacidade &gt; Demanda pico</td><td><strong style="color:#22c55e;">✅ OK</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-table-wrap" style="margin-top: 24px;">
+                <table class="d-table">
+                    <thead>
+                        <tr><th colspan="2">Demanda Pico de Passageiros</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Taxa pico HEL</td><td><strong>2 mov/h</strong></td></tr>
+                        <tr><td>Passageiro/eVTOL</td><td><strong>4 pax</strong></td></tr>
+                        <tr><td>Fator de ocupação</td><td><strong>0,75</strong></td></tr>
+                        <tr><td>Demanda pico de passageiros</td><td><strong>6 pax/h</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="d-table-note">* 2026: dados parciais até março.</p>
+        </div>
+    </div>
+</section>
+
 <!-- ===================== SEÇÃO DOWNLOAD ===================== -->
 <section class="d-section d-light">
     <div class="d-container">
@@ -395,8 +498,12 @@
             <p>Acesse o dataset e os modelos estatísticos completos</p>
             <div class="d-download-buttons">
                 <a href="Arquivos/Demanda UAM.xlsx" class="d-btn-download" download>
-                    <span>📊 Download Excel</span>
+                    <span>📊 Download Excel — Demanda</span>
                     <span>Dataset + 5 Modelos de Regressão</span>
+                </a>
+                <a href="Arquivos/dimensionamento terminal.xlsx" class="d-btn-download d-btn-secondary" download>
+                    <span>🏢 Download Excel — Terminal</span>
+                    <span>Taxa de Pico, Capacidade e Demanda TPS</span>
                 </a>
                 <a href="Arquivos/Demanda_UAM.pdf" class="d-btn-download d-btn-secondary" download>
                     <span>📄 Relatório Técnico</span>
@@ -417,6 +524,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     const dadosExcel = [
         // 2019 — pré-pandemia
@@ -479,6 +587,75 @@
     const nav = document.getElementById('mainNav');
     window.addEventListener('scroll', () => {
         nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ── Gráfico Taxa Pico por Hora ───────────────────────────
+    const horas = ['00:00','01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00','23:00'];
+    const movMedio = [34,11,9,6,4,3,3,3,9,21,39,26,41,18,17,17,16,19,18,15,15,19,39,20];
+    const taxaPico = [43,16,14,9,8,4,3,3,12,32,47,32,56,32,24,24,26,33,27,24,24,31,51,35];
+    const movMax =   [39,27,null,13,null,null,null,null,null,27,null,null,50,27,null,null,null,27,23,null,null,27,47,28];
+    const capacidade = new Array(24).fill(80);
+
+    new Chart(document.getElementById('chartPicoHora'), {
+        type: 'bar',
+        data: {
+            labels: horas,
+            datasets: [
+                { label: 'Mov. Médio', data: movMedio, backgroundColor: 'rgba(160,160,160,0.5)', order: 2 },
+                { label: 'Taxa Pico', data: taxaPico, type: 'line', borderColor: '#38bdf8', backgroundColor: 'transparent', pointRadius: 3, tension: 0.4, order: 1 },
+                { label: 'Capacidade (80)', data: capacidade, type: 'line', borderColor: '#ef4444', borderDash: [4,4], backgroundColor: 'transparent', pointRadius: 0, order: 0 }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { labels: { color: '#6b7280' } } },
+            scales: {
+                x: { ticks: { color: '#6b7280' }, grid: { color: 'rgba(0,0,0,0.05)' } },
+                y: { ticks: { color: '#6b7280' }, grid: { color: 'rgba(0,0,0,0.05)' }, max: 90 }
+            }
+        }
+    });
+
+    // ── Gráfico Movimento Total por Ano ──────────────────────
+    new Chart(document.getElementById('chartMovTotal'), {
+        type: 'bar',
+        data: {
+            labels: ['2024', '2025', '2026*'],
+            datasets: [{
+                label: 'Mov. Total SBBR',
+                data: [147957, 157135, 65048],
+                backgroundColor: ['#4ade80', '#60a5fa', '#f87171']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { ticks: { color: '#6b7280' }, grid: { display: false } },
+                y: { ticks: { color: '#6b7280', callback: v => (v/1000).toFixed(0) + ' Mil' }, grid: { color: 'rgba(0,0,0,0.05)' } }
+            }
+        }
+    });
+
+    // ── Gráfico Movimento HEL por Ano ────────────────────────
+    new Chart(document.getElementById('chartMovHel'), {
+        type: 'bar',
+        data: {
+            labels: ['2024', '2025', '2026*'],
+            datasets: [{
+                label: 'Mov. HEL SBBR',
+                data: [6305, 7049, 2526],
+                backgroundColor: ['#4ade80', '#60a5fa', '#f87171']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { ticks: { color: '#6b7280' }, grid: { display: false } },
+                y: { ticks: { color: '#6b7280', callback: v => (v/1000).toFixed(0) + ' Mil' }, grid: { color: 'rgba(0,0,0,0.05)' } }
+            }
+        }
     });
 </script>
 
