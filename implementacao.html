@@ -225,9 +225,9 @@
 
       <div class="pv-prancha-wrap" style="margin-top:1.5rem;">
         <div class="pv-prancha-label">IMPLANTAÇÃO — Planta Geral de Implantação</div>
-        <img src="img/IMPLANTACAO.jpg" alt="Planta de Implantação" class="pv-prancha-img"
+        <img src="img/terreno.jpeg" alt="Planta de Implantação" class="pv-prancha-img"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-        <div class="pv-prancha-fallback" style="display:none"><span>📄</span><p>Coloque a imagem em <code>img/IMPLANTACAO.jpg</code></p></div>
+        <div class="pv-prancha-fallback" style="display:none"><span>📄</span><p>Coloque a imagem em <code>img/terreno.jpeg</code></p></div>
       </div>
 
       <a href="selecao_vertiporto.html" class="pv-link-mais">Ver análise AHP completa →</a>
@@ -585,11 +585,11 @@
   </section>
 
   <!-- 06 INFRAESTRUTURA -->
-  <section class="pv-section" id="infraestrutura">
+  <section class="pv-section pv-section-alt" id="infraestrutura">
     <div class="pv-container">
       <span class="pv-sec-eyebrow">Terminal e Hangar</span>
       <div class="pv-sec-header">
-        <span class="pv-sec-num">05</span>
+        <span class="pv-sec-num">06</span>
         <h2 class="pv-sec-title">Infraestrutura de Operação</h2>
       </div>
       <p class="pv-sec-desc">
@@ -598,8 +598,13 @@
         e todos os ambientes de apoio necessários para operação segura e contínua.
       </p>
 
-      <!-- Terminal -->
-      <h3 class="pv-subsec-title">Terminal de Passageiros — TPS · 216 m²</h3>
+      <!-- ═══════════ DIMENSIONAMENTO TÉCNICO DO TERMINAL ═══════════ -->
+      <h3 class="pv-subsec-title">Terminal de Passageiros — Dimensionamento Técnico · TPS 216 m²</h3>
+      <p class="pv-sec-desc" style="margin-bottom:1.5rem;">
+        As áreas a seguir resultam diretamente do cálculo de demanda: <strong>6 passageiros/hora de pico</strong>
+        aplicados aos índices de área por ambiente (m²/pax) recomendados na literatura de dimensionamento
+        de terminais. Este é o programa mínimo necessário para a operação do vertiporto.
+      </p>
       <div class="pv-amb-grid">
         <div class="pv-amb-card">
           <span class="pv-amb-icon">
@@ -667,14 +672,88 @@
         </div>
       </div>
 
-      <div class="pv-prancha-wrap">
-        <div class="pv-prancha-label">TERMINAL — Planta Baixa do Terminal de Passageiros</div>
-        <img src="img/TERMINAL.jpg" alt="Planta Terminal" class="pv-prancha-img"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-        <div class="pv-prancha-fallback" style="display:none"><span>📄</span><p>Coloque a imagem em <code>img/TERMINAL.jpg</code></p></div>
+      <!-- ═══════════ VERSÃO AMPLIADA DO TERMINAL ═══════════ -->
+      <div class="pv-alert" style="margin-top:2.5rem; margin-bottom:1.5rem;">
+        <div class="pv-alert-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        </div>
+        <div class="pv-alert-text">
+          <strong>Versão Ampliada do Terminal:</strong> a partir do programa mínimo acima, foi desenvolvida
+          uma proposta arquitetônica em <strong>dois pavimentos</strong> que mantém todos os ambientes
+          operacionais obrigatórios e adiciona área comercial (lojas, lanchonetes, restaurante) e de
+          convivência (coworking, copa, vestiário), ampliando o potencial de geração de receita do
+          vertiporto sem comprometer o fluxo de embarque e desembarque.
+        </div>
       </div>
 
-      <!-- Hangar -->
+      <h3 class="pv-subsec-title">Térreo — Embarque, Desembarque e Comércio</h3>
+      <div class="pv-prancha-wrap">
+        <div class="pv-prancha-label">TÉRREO — Planta Baixa · Check-in, Raio-X, Embarque/Desembarque e Lojas</div>
+        <img src="img/terreo.jpeg" alt="Planta Térreo Ampliado" class="pv-prancha-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="pv-prancha-fallback" style="display:none"><span>📄</span><p>Coloque a imagem em <code>img/terreo.jpeg</code></p></div>
+      </div>
+      <div class="pv-amb-grid" style="margin-top:1.5rem;">
+        <div class="pv-amb-card">
+          <div class="pv-amb-name">Saguão de Embarque e Desembarque</div>
+          <div class="pv-amb-detail">Check-in · Raio-X · fluxo único de passageiros</div>
+        </div>
+        <div class="pv-amb-card">
+          <div class="pv-amb-name">Lojas (6 unidades)</div>
+          <div class="pv-amb-detail">Loja 1 a Loja 6 — receita comercial ampliada</div>
+        </div>
+        <div class="pv-amb-card">
+          <div class="pv-amb-name">Lanchonetes (2 unidades)</div>
+          <div class="pv-amb-detail">Saguão 1 e Saguão 2</div>
+        </div>
+        <div class="pv-amb-card pv-amb-card--sec">
+          <div class="pv-amb-name">ADM Vertiporto + ADM Empresa</div>
+          <div class="pv-amb-detail">Administração operacional e da empresa</div>
+        </div>
+        <div class="pv-amb-card pv-amb-card--sec">
+          <div class="pv-amb-name">Sanitários + WC PNE</div>
+          <div class="pv-amb-detail">Masc · Fem · PNE (NBR 9050)</div>
+        </div>
+        <div class="pv-amb-card pv-amb-card--sec">
+          <div class="pv-amb-name">Circulação Vertical</div>
+          <div class="pv-amb-detail">2 escadas protegidas · elevador social · elevador de serviço</div>
+        </div>
+      </div>
+
+      <h3 class="pv-subsec-title">Pavimento Superior — Convivência e Restaurante</h3>
+      <div class="pv-prancha-wrap">
+        <div class="pv-prancha-label">PAVIMENTO SUPERIOR — Planta Baixa · Coworking, Restaurante e Apoio</div>
+        <img src="img/supeior.jpeg" alt="Planta Pavimento Superior" class="pv-prancha-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="pv-prancha-fallback" style="display:none"><span>📄</span><p>Coloque a imagem em <code>img/supeior.jpeg</code></p></div>
+      </div>
+      <div class="pv-amb-grid" style="margin-top:1.5rem;">
+        <div class="pv-amb-card pv-amb-card--main">
+          <div class="pv-amb-name">Restaurante</div>
+          <div class="pv-amb-detail">6 mesas · cozinha e dispensa integradas</div>
+        </div>
+        <div class="pv-amb-card">
+          <div class="pv-amb-name">Coworking</div>
+          <div class="pv-amb-detail">Mesa comunitária + estações individuais</div>
+        </div>
+        <div class="pv-amb-card">
+          <div class="pv-amb-name">Quiosque Sorvete/Sobremesa</div>
+          <div class="pv-amb-detail">Apoio gastronômico complementar</div>
+        </div>
+        <div class="pv-amb-card pv-amb-card--sec">
+          <div class="pv-amb-name">Estar Funcionários + Copa</div>
+          <div class="pv-amb-detail">Vestiário · copa · sanitários da equipe</div>
+        </div>
+        <div class="pv-amb-card pv-amb-card--sec">
+          <div class="pv-amb-name">Máquinas de Café / Vending</div>
+          <div class="pv-amb-detail">Autoatendimento na área de coworking</div>
+        </div>
+        <div class="pv-amb-card pv-amb-card--sec">
+          <div class="pv-amb-name">ADM (Pavimento Superior)</div>
+          <div class="pv-amb-detail">Sala administrativa complementar</div>
+        </div>
+      </div>
+
       <h3 class="pv-subsec-title">Hangar e Apoio Operacional · ≈ 662 m²</h3>
       <div class="pv-amb-grid">
         <div class="pv-amb-card pv-amb-card--main">
@@ -733,6 +812,51 @@
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
         <div class="pv-prancha-fallback" style="display:none"><span>📄</span><p>Coloque a imagem em <code>img/HANGAR.jpg</code></p></div>
       </div>
+
+      <!-- Implantação Geral Legendada -->
+      <h3 class="pv-subsec-title">Implantação Geral — Componentes do Vertiporto</h3>
+      <p class="pv-sec-desc" style="margin-bottom:1.5rem;">
+        Vista aérea esquemática do conjunto completo, identificando os sete elementos
+        funcionais do vertiporto: da área de pouso e decolagem (FATO/TLOF) ao estacionamento
+        de superfície, passando pela taxiway, stand de aeronaves, hangar, terminal e a
+        superfície de proteção de obstáculos.
+      </p>
+      <div class="pv-prancha-wrap">
+        <div class="pv-prancha-label">IMPLANTAÇÃO — Vista Aérea Esquemática com Componentes Identificados</div>
+        <img src="img/terreno2.jpeg" alt="Implantação Geral Legendada" class="pv-prancha-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="pv-prancha-fallback" style="display:none"><span>📄</span><p>Coloque a imagem em <code>img/terreno2.jpeg</code></p></div>
+      </div>
+      <div class="pv-info-grid" style="margin-top:1.5rem;">
+        <div class="pv-info-card">
+          <div class="pv-ci-label">1 — FATO / TLOF</div>
+          <div class="pv-ci-val">Área de pouso e decolagem</div>
+        </div>
+        <div class="pv-info-card">
+          <div class="pv-ci-label">2 — Taxiway</div>
+          <div class="pv-ci-val">Faixa de deslocamento da aeronave</div>
+        </div>
+        <div class="pv-info-card">
+          <div class="pv-ci-label">3 — Stand</div>
+          <div class="pv-ci-val">Posição de estacionamento operacional</div>
+        </div>
+        <div class="pv-info-card">
+          <div class="pv-ci-label">4 — Hangar</div>
+          <div class="pv-ci-val">Manutenção e carregamento</div>
+        </div>
+        <div class="pv-info-card">
+          <div class="pv-ci-label">5 — Terminal</div>
+          <div class="pv-ci-val">Terminal de passageiros (TPS)</div>
+        </div>
+        <div class="pv-info-card">
+          <div class="pv-ci-label">6 — Estacionamento</div>
+          <div class="pv-ci-val">Estacionamento de veículos</div>
+        </div>
+        <div class="pv-info-card">
+          <div class="pv-ci-label">7 — Superfície de Proteção</div>
+          <div class="pv-ci-val">OLS — proteção de obstáculos</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -741,7 +865,7 @@
     <div class="pv-container">
       <span class="pv-sec-eyebrow">Roadmap de Implementação</span>
       <div class="pv-sec-header">
-        <span class="pv-sec-num">06</span>
+        <span class="pv-sec-num">07</span>
         <h2 class="pv-sec-title">Próximos passos</h2>
       </div>
       <p class="pv-sec-desc">
@@ -816,7 +940,7 @@
         <span class="pv-dl-btn">Baixar</span>
       </a>
 
-      <a href="Arquivos/IMPLANTACAO.pdf" download="IT214_Implantacao.pdf" class="pv-dl-card">
+      <a href="Arquivos/IMPLANTAÇÃO ATUALIZADO.pdf" download="IT214_Implantacao.pdf" class="pv-dl-card">
         <div class="pv-dl-icon">📄</div>
         <div class="pv-dl-info"><span class="pv-dl-tag">IMPLANTAÇÃO</span><strong>Planta de Implantação</strong><span class="pv-dl-meta">Planta geral · PDF</span></div>
         <span class="pv-dl-btn">Baixar</span>
@@ -836,7 +960,25 @@
 
       <a href="Arquivos/TERMINAL.pdf" download="IT214_Terminal.pdf" class="pv-dl-card">
         <div class="pv-dl-icon">📄</div>
-        <div class="pv-dl-info"><span class="pv-dl-tag">TERMINAL</span><strong>Planta Baixa Terminal</strong><span class="pv-dl-meta">Planta arquitetônica · PDF</span></div>
+        <div class="pv-dl-info"><span class="pv-dl-tag">TERMINAL</span><strong>Planta Baixa Terminal — Dimensionamento Técnico</strong><span class="pv-dl-meta">Planta arquitetônica · PDF</span></div>
+        <span class="pv-dl-btn">Baixar</span>
+      </a>
+
+      <a href="Arquivos/TÉRREO ATUALIZADO.pdf" download="IT214_Terreo_Ampliado.pdf" class="pv-dl-card">
+        <div class="pv-dl-icon">📄</div>
+        <div class="pv-dl-info"><span class="pv-dl-tag">TÉRREO</span><strong>Terminal Ampliado — Térreo</strong><span class="pv-dl-meta">Versão ampliada com comércio · PDF</span></div>
+        <span class="pv-dl-btn">Baixar</span>
+      </a>
+
+      <a href="Arquivos/PAV.SUPERIOR ATUALIZADO.pdf" download="IT214_Pav_Superior_Ampliado.pdf" class="pv-dl-card">
+        <div class="pv-dl-icon">📄</div>
+        <div class="pv-dl-info"><span class="pv-dl-tag">PAV. SUPERIOR</span><strong>Terminal Ampliado — Pavimento Superior</strong><span class="pv-dl-meta">Coworking e restaurante · PDF</span></div>
+        <span class="pv-dl-btn">Baixar</span>
+      </a>
+
+      <a href="Arquivos/IMPLANTAÇÃO ATUALIZADO-1.pdf" download="IT214_Implantacao_Componentes.pdf" class="pv-dl-card">
+        <div class="pv-dl-icon">📄</div>
+        <div class="pv-dl-info"><span class="pv-dl-tag">IMPLANTAÇÃO</span><strong>Implantação Geral — Componentes</strong><span class="pv-dl-meta">Vista aérea com legendas · PDF</span></div>
         <span class="pv-dl-btn">Baixar</span>
       </a>
 
